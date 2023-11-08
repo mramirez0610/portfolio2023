@@ -3,15 +3,21 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `portfolio`,
-    siteUrl: `https://www.yourdomain.tld`
+    title: `Portfolio`,
+    siteUrl: `https://www.yourdomain.tld`,
   },
-  plugins: ["gatsby-plugin-netlify-cms", "gatsby-plugin-sass", "gatsby-plugin-mdx", {
-    resolve: 'gatsby-source-filesystem',
-    options: {
-      "name": "pages",
-      "path": "./src/pages/"
+  plugins: [
+    "gatsby-plugin-netlify-cms",
+    "gatsby-plugin-sass",
+    "gatsby-plugin-mdx",
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: `blog`,
+        path: `${__dirname}/content/projs`,
+      },
     },
-    __key: "pages"
-  }]
+  ],
 };

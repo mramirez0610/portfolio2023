@@ -1,0 +1,55 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  transition: height 500ms ease-in-out;
+  height: 10px;
+
+  .subHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2%;
+    gap: 1%;
+    .subtitle {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .seperator {
+      display: block;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .tech {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 3%;
+    animation: fadeIn 1000ms ease-in-out;
+
+    .techLogo {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .home {
+    .subHeader {
+      flex-direction: column;
+      align-items: flex-start;
+      .seperator {
+        display: none;
+      }
+    }
+  }
+}
