@@ -5,7 +5,7 @@ import Seo from "../../components/seo";
 
 const Project = ({ data, children }) => {
   return (
-    <Layout pageTitle="Super Cool Blog Posts">
+    <Layout pageTitle="Project Description">
       <Link to="/projects">Back to projects</Link>
       <p>{data.mdx.frontmatter.date}</p>
       {children}
