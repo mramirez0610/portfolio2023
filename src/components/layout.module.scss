@@ -57,7 +57,8 @@ p {
   height: 50px;
   max-height: 1000px;
   padding: 4%;
-  background-color: #f9f7e9;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAIElEQVQYV2P88OHDfwYiACNIISf7T4JKRxXiDSKigwcAbpEvcvW4gt4AAAAASUVORK5CYII=),
+    repeat;
   border: 2px solid black;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.7);
 
@@ -71,5 +72,11 @@ p {
 @media (max-width: 750px) {
   .main {
     width: 80vw;
+  }
+}
+
+@media (max-width: 450px) {
+  .main {
+    width: 90vw;
   }
 }

@@ -3,8 +3,6 @@ import { Link, graphql } from "gatsby";
 import Layout from "../../components/layout";
 import Seo from "../../components/seo";
 
-//test
-
 const Project = ({ data, children }) => {
   return (
     <Layout pageTitle="Super Cool Blog Posts">

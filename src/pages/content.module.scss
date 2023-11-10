@@ -1,9 +1,16 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .home {
   display: flex;
   flex-direction: column;
-  transition: height 500ms ease-in-out;
-  height: 10px;
-
+  height: auto;
   .subHeader {
     display: flex;
     align-items: center;
@@ -13,17 +20,13 @@
       font-size: 20px;
       font-weight: bold;
     }
+
+    .linkTo {
+      text-decoration: none;
+      color: #6b9080;
+    }
     .seperator {
       display: block;
-    }
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
     }
   }
 
@@ -39,6 +42,39 @@
     .techLogo {
       width: 50px;
       height: 50px;
+    }
+  }
+
+  p {
+    font-size: 18px;
+    .linkTo {
+      text-decoration: none;
+      color: #9381ff;
+    }
+  }
+}
+
+.contact {
+  p {
+    font-size: 18px;
+  }
+  .contactOptions {
+    margin: 0 auto;
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 3%;
+    animation: fadeIn 1000ms ease-in-out;
+    .cLogo {
+      width: 50px;
+      height: 50px;
+      transition: all 0.2s ease-in-out;
+      fill: #000000 !important;
+    }
+    .cLogo:hover {
+      transform: scale(1.1);
+      fill: #6b9080 !important;
     }
   }
 }

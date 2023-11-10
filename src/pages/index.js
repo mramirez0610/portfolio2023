@@ -7,6 +7,7 @@ import {
   tech,
   techLogo,
   home,
+  linkTo,
 } from "../pages/content.module.scss";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
@@ -19,17 +20,17 @@ import sass from "../assets/logos/sass.svg";
 const IndexPage = ({ data }) => {
   const Greeting = () => {
     let g = [
-      "hello!",
-      "nice to see you!",
-      "welcome!",
-      "good morning!",
-      "good afternoon!",
-      "good evening!",
-      "how's it going?",
-      "how are you?",
-      "how's your day?",
-      "how's your morning?",
-      "how's your evening?",
+      "Hello!",
+      "Nice to see you!",
+      "Welcome!",
+      "Good morning!",
+      "Good afternoon!",
+      "Good evening!",
+      "How's it going?",
+      "How are you?",
+      "How's your day?",
+      "How's your morning?",
+      "How's your evening?",
     ];
 
     let r = Math.floor(Math.random() * g.length);
@@ -45,31 +46,29 @@ const IndexPage = ({ data }) => {
         <div className={subHeader}>
           <span className={subtitle}>i'm marco ramirez</span>
           <span className={seperator}>||</span>
-          <Link className={subtitle} to="/projects">
-            skip to the projects!
-          </Link>
+          <span className={subtitle}>
+            <Link className={linkTo} to="/projects">
+              skip to the projects!
+            </Link>
+          </span>
         </div>
 
         <p>
           Hello! I'm Marco Ramirez, and I am currently a senior attending
-          Indiana University Indianapolis (what used to be IUPUI). I'm majoring
-          in Media Arts and Science, and specializing in Web Design &
-          Development.
+          Indiana University Indianapolis (IUI). I'm majoring in Media Arts and
+          Science, and specializing in Web Design & Development.
         </p>
-        <p>
-          My first experience with web development was back in high school, when
-          I started to mess around with the source code of websites that I
-          frequented. I remember viewing a javascript file using the sources
-          tab, and then I remember being the most confused I had ever been. From
-          that point on, I was enamored with the concept of web design.
-        </p>
+
         <p>
           I'm comfortable with a variety of technologies, the most notable being
           Javascript (along with frameworks), Firebase, and NoSQL. I'm also
           familiar with the basics of Node.js, GraphQL, and MySQL. I'm always
           looking to learn more, and I'm always looking for new opportunities to
-          grow as a developer. Feel free to <Link to="/contact">reach out</Link>{" "}
-          if you have any questions or if you'd like to work together!
+          grow as a developer. Feel free to{" "}
+          <Link className={linkTo} to="/contact">
+            reach out
+          </Link>{" "}
+          if you have any questions or if you'd like to work together.
         </p>
         <div className={tech}>
           <img className={techLogo} src={fb} alt="Firebase" />
@@ -78,7 +77,6 @@ const IndexPage = ({ data }) => {
           <img className={techLogo} src={r} alt="React" />
           <img className={techLogo} src={sass} alt="Sass" />
         </div>
-        <p></p>
       </div>
     </Layout>
   );
