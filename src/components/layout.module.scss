@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700;&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -57,7 +57,7 @@ p {
   max-height: 1000px;
   padding: 4%;
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAIElEQVQYV2P88OHDfwYiACNIISf7T4JKRxXiDSKigwcAbpEvcvW4gt4AAAAASUVORK5CYII=),
-    no-repeat;
+    repeat;
   border: 2px solid black;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.7);
   transition: height 500ms ease-in-out;
