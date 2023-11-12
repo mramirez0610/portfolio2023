@@ -86,3 +86,14 @@
     }
   }
 }
+
+@media (max-width: 450px) {
+  .home {
+    .greeting {
+      margin-bottom: 6%;
+    }
+    .subHeader {
+      margin-bottom: 6%;
+    }
+  }
+}

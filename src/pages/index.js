@@ -2,6 +2,7 @@ import * as React from "react";
 import { graphql, Link } from "gatsby";
 import {
   subtitle,
+  greeting,
   subHeader,
   seperator,
   tech,
@@ -36,7 +37,7 @@ const IndexPage = ({ data }) => {
     let r = Math.floor(Math.random() * g.length);
     let randomGreeting = g[r];
 
-    return <h2>{randomGreeting}</h2>;
+    return <h2 className={greeting}>{randomGreeting}</h2>;
   };
 
   return (
