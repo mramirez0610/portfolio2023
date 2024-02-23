@@ -1,14 +1,22 @@
 import * as React from "react";
 import { Link, graphql } from "gatsby";
+import { MDXProvider } from "@mdx-js/react";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Layout from "../../components/layout";
 import Seo from "../../components/seo";
 
+const MDXStyling = (props) => <li style={{ marginLeft: "5%" }} {...props} />;
+
 const Project = ({ data, children }) => {
+  const image = getImage(data.mdx.frontmatter.image);
+  const { frontmatter, body } = data.mdx;
+
   return (
     <Layout pageTitle="Project Description">
-      <Link to="/projects">Back to projects</Link>
+      <Link to="/">Back to projects</Link>
       <p>{data.mdx.frontmatter.date}</p>
-      {children}
+      <GatsbyImage image={image} alt="Keurig Recreation" />
+      <MDXProvider components={{ li: MDXStyling }}>{children}</MDXProvider>
     </Layout>
   );
 };
@@ -18,7 +26,12 @@ export const query = graphql`
     mdx(id: { eq: $id }) {
       frontmatter {
         title
-        date(formatString: "MMMM D, YYYY")
+        date(formatString: "MMMM DD, YYYY")
+        image {
+          childImageSharp {
+            gatsbyImageData(layout: FIXED, width: 300)
+          }
+        }
       }
     }
   }

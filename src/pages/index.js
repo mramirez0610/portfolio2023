@@ -1,22 +1,19 @@
 import * as React from "react";
 import { graphql, Link } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import {
   subtitle,
   greeting,
   subHeader,
   seperator,
-  tech,
-  techLogo,
   home,
   linkTo,
+  project,
+  info,
+  flair,
 } from "../pages/content.module.scss";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
-import fb from "../assets/logos/firebase.svg";
-import gql from "../assets/logos/graphql.svg";
-import js from "../assets/logos/js.svg";
-import r from "../assets/logos/react.svg";
-import sass from "../assets/logos/sass.svg";
 
 const IndexPage = ({ data }) => {
   const Greeting = () => {
@@ -48,36 +45,29 @@ const IndexPage = ({ data }) => {
           <span className={subtitle}>i'm marco ramirez</span>
           <span className={seperator}>||</span>
           <span className={subtitle}>
-            <Link className={linkTo} to="/projects">
-              skip to the projects!
-            </Link>
+            an avid <span className={flair}>web developer</span>,{" "}
+            <span className={flair}>rock climber</span>, and{" "}
+            <span className={flair}>student</span>.
           </span>
         </div>
 
-        <p>
-          Hello! I'm Marco Ramirez, and I am currently a senior attending
-          Indiana University Indianapolis (IUI). I'm majoring in Media Arts and
-          Science, and specializing in Web Design & Development.
-        </p>
-
-        <p>
-          I'm comfortable with a variety of technologies, the most notable being
-          Javascript (along with frameworks), Firebase, and NoSQL. I'm also
-          familiar with the basics of Node.js, GraphQL, and MySQL. I'm always
-          looking to learn more, and I'm always looking for new opportunities to
-          grow as a developer. Feel free to{" "}
-          <Link className={linkTo} to="/contact">
-            reach out
-          </Link>{" "}
-          if you have any questions or if you'd like to work together.
-        </p>
-        <div className={tech}>
-          <img className={techLogo} src={fb} alt="Firebase" />
-          <img className={techLogo} src={gql} alt="GraphQL" />
-          <img className={techLogo} src={js} alt="JS" />
-          <img className={techLogo} src={r} alt="React" />
-          <img className={techLogo} src={sass} alt="Sass" />
-        </div>
+        {data.allMdx.nodes.map((node) => (
+          <article className={project} key={node.id}>
+            <GatsbyImage image={getImage(node.frontmatter.image)}></GatsbyImage>
+            <div className={info}>
+              <h3>
+                <Link
+                  to={`/projects/${node.frontmatter.slug}`}
+                  className={linkTo}
+                >
+                  {node.frontmatter.title}
+                </Link>
+              </h3>
+              <p>{node.excerpt}</p>
+              <p>Posted: {node.frontmatter.date}</p>
+            </div>
+          </article>
+        ))}
       </div>
     </Layout>
   );
@@ -88,8 +78,14 @@ export const query = graphql`
     allMdx(sort: { frontmatter: { date: DESC } }) {
       nodes {
         frontmatter {
-          date(formatString: "YYYY MMMM Do")
+          date(formatString: "MMMM D, YYYY")
           title
+          slug
+          image {
+            childImageSharp {
+              gatsbyImageData(layout: FIXED, width: 400)
+            }
+          }
         }
         id
         excerpt

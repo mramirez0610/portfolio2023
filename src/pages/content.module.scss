@@ -11,13 +11,24 @@
   display: flex;
   flex-direction: column;
   height: auto;
+
+  .greeting {
+    font-size: 2em;
+  }
   .subHeader {
     display: flex;
     align-items: center;
     margin-bottom: 2%;
     gap: 1%;
+    font-size: 2em;
+
+    .flair {
+      background: linear-gradient(90deg, #3339f4 0%, rgb(51, 119, 244) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
     .subtitle {
-      font-size: 20px;
       font-weight: bold;
     }
     .linkTo {
@@ -43,16 +54,39 @@
   }
   p {
     font-size: 18px;
-    .linkTo {
-      text-decoration: none;
-      color: #9381ff;
+  }
+  .project {
+    margin: 2% 0;
+    display: flex;
+    gap: 5%;
+    align-items: flex-start;
+
+    padding: 2%;
+    border-radius: 10px;
+    transition: transform 200ms ease-in-out, box-shadow 200ms ease-in-out,
+      background 200ms ease-in-out;
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      background: rgba(255, 255, 255, 0.4);
+    }
+    .info {
+      width: 75%;
+      .linkTo {
+        font-weight: bold;
+        text-decoration: none;
+
+        background: linear-gradient(90deg, #3339f4 0%, #3360f4 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
     }
   }
 }
 
 .contact {
   p {
-    font-size: 18px;
+    font-size: 1.2em;
   }
   .contactOptions {
     margin: 0 auto;
@@ -70,7 +104,6 @@
     }
     .cLogo:hover {
       transform: scale(1.1);
-      fill: #6b9080 !important;
     }
   }
 }
