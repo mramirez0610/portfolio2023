@@ -64,7 +64,6 @@ const IndexPage = ({ data }) => {
                 </Link>
               </h3>
               <p>{node.excerpt}</p>
-              <p>Posted: {node.frontmatter.date}</p>
             </div>
           </article>
         ))}
@@ -88,7 +87,7 @@ export const query = graphql`
           }
         }
         id
-        excerpt
+        excerpt(pruneLength: 250)
       }
     }
   }

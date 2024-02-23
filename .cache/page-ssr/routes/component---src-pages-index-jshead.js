@@ -176,6 +176,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   info: () => (/* binding */ info),
 /* harmony export */   linkTo: () => (/* binding */ linkTo),
 /* harmony export */   project: () => (/* binding */ project),
+/* harmony export */   projectDetails: () => (/* binding */ projectDetails),
 /* harmony export */   seperator: () => (/* binding */ seperator),
 /* harmony export */   subHeader: () => (/* binding */ subHeader),
 /* harmony export */   subtitle: () => (/* binding */ subtitle),
@@ -198,6 +199,7 @@ var info = "content-module--info--bf89f";
 var contact = "content-module--contact--312eb";
 var contactOptions = "content-module--contactOptions--f5367";
 var cLogo = "content-module--cLogo--f8b6b";
+var projectDetails = "content-module--projectDetails--56a5e";
 
 
 /***/ }),
@@ -2889,7 +2891,7 @@ const Layout = ({
       };
       svg.addEventListener("mousemove", handleMouseMove);
 
-      // Cleanup function to remove the event listener when the component unmounts
+      // cleanup function to remove the event listener when the component unmounts
       return () => {
         svg.removeEventListener("mousemove", handleMouseMove);
       };

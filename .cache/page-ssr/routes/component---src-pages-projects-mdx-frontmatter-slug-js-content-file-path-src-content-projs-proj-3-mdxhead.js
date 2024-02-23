@@ -157,6 +157,53 @@ var light = "layout-module--light--bccac";
 
 /***/ }),
 
+/***/ "./src/pages/content.module.scss":
+/*!***************************************!*\
+  !*** ./src/pages/content.module.scss ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   cLogo: () => (/* binding */ cLogo),
+/* harmony export */   contact: () => (/* binding */ contact),
+/* harmony export */   contactOptions: () => (/* binding */ contactOptions),
+/* harmony export */   fadeIn: () => (/* binding */ fadeIn),
+/* harmony export */   flair: () => (/* binding */ flair),
+/* harmony export */   greeting: () => (/* binding */ greeting),
+/* harmony export */   home: () => (/* binding */ home),
+/* harmony export */   info: () => (/* binding */ info),
+/* harmony export */   linkTo: () => (/* binding */ linkTo),
+/* harmony export */   project: () => (/* binding */ project),
+/* harmony export */   projectDetails: () => (/* binding */ projectDetails),
+/* harmony export */   seperator: () => (/* binding */ seperator),
+/* harmony export */   subHeader: () => (/* binding */ subHeader),
+/* harmony export */   subtitle: () => (/* binding */ subtitle),
+/* harmony export */   tech: () => (/* binding */ tech),
+/* harmony export */   techLogo: () => (/* binding */ techLogo)
+/* harmony export */ });
+// Exports
+var home = "content-module--home--03ad9";
+var greeting = "content-module--greeting--f7eda";
+var subHeader = "content-module--subHeader--6c408";
+var flair = "content-module--flair--14713";
+var subtitle = "content-module--subtitle--48a2e";
+var linkTo = "content-module--linkTo--288cb";
+var seperator = "content-module--seperator--71ce9";
+var tech = "content-module--tech--8083f";
+var fadeIn = "content-module--fadeIn--9e290";
+var techLogo = "content-module--techLogo--9e3db";
+var project = "content-module--project--9f684";
+var info = "content-module--info--bf89f";
+var contact = "content-module--contact--312eb";
+var contactOptions = "content-module--contactOptions--f5367";
+var cLogo = "content-module--cLogo--f8b6b";
+var projectDetails = "content-module--projectDetails--56a5e";
+
+
+/***/ }),
+
 /***/ "./node_modules/gatsby-page-utils/dist/apply-trailing-slash-option.js":
 /*!****************************************************************************!*\
   !*** ./node_modules/gatsby-page-utils/dist/apply-trailing-slash-option.js ***!
@@ -2825,13 +2872,15 @@ __webpack_require__.r(__webpack_exports__);
 function _createMdxContent(props) {
   const _components = Object.assign({
     h1: "h1",
+    a: "a",
     p: "p",
-    strong: "strong",
     h2: "h2",
     ul: "ul",
     li: "li"
   }, (0,_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.useMDXComponents)(), props.components);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.h1, null, "test project"), "\n", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.p, null, "this is a markdown file that would ideally contain information about a ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.strong, null, "project"), "."), "\n", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.h2, null, "this is a heading"), "\n", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.p, null, "and i am marco"), "\n", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.ul, null, "\n", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.li, null, "this"), "\n", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.li, null, "is"), "\n", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.li, null, "a"), "\n", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.li, null, "list"), "\n"));
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.h1, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.a, {
+    href: "https://in-info-web4.informatics.iupui.edu/~ramimarc/n315/jungleCook/dist/#home"
+  }, "Jungle Cook")), "\n", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.p, null, "Project consisted of recreating a prototype and keeping design as accurate and consistent as possible. The prototype was provided by the client and the project was developed using JQuery and Sass. Firebase was used for user authentication, and Firestore for data storage."), "\n", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.h2, null, "Technology Used"), "\n", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.ul, null, "\n", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.li, null, "JQuery"), "\n", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.li, null, "Firebase Authentication"), "\n", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.li, null, "LocalStorage"), "\n"));
 }
 function MDXContent(props = {}) {
   const {
@@ -2859,10 +2908,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var gatsby__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gatsby */ "./.cache/gatsby-browser-entry.js");
-/* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mdx-js/react */ "./node_modules/@mdx-js/react/lib/index.js");
-/* harmony import */ var gatsby_plugin_image__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! gatsby-plugin-image */ "./node_modules/gatsby-plugin-image/dist/gatsby-image.module.js");
-/* harmony import */ var _components_layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/layout */ "./src/components/layout.js");
-/* harmony import */ var _components_seo__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/seo */ "./src/components/seo.js");
+/* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mdx-js/react */ "./node_modules/@mdx-js/react/lib/index.js");
+/* harmony import */ var gatsby_plugin_image__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! gatsby-plugin-image */ "./node_modules/gatsby-plugin-image/dist/gatsby-image.module.js");
+/* harmony import */ var _content_module_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../content.module.scss */ "./src/pages/content.module.scss");
+/* harmony import */ var _components_layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/layout */ "./src/components/layout.js");
+/* harmony import */ var _components_seo__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/seo */ "./src/components/seo.js");
+
 
 
 
@@ -2872,35 +2923,50 @@ __webpack_require__.r(__webpack_exports__);
 
 const MDXStyling = props => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("li", Object.assign({
   style: {
-    marginLeft: "5%"
+    marginLeft: "3%"
   }
 }, props));
 const Project = ({
   data,
   children
 }) => {
-  const image = (0,gatsby_plugin_image__WEBPACK_IMPORTED_MODULE_5__.getImage)(data.mdx.frontmatter.image);
+  const image = (0,gatsby_plugin_image__WEBPACK_IMPORTED_MODULE_6__.getImage)(data.mdx.frontmatter.image);
   const {
     frontmatter,
     body
   } = data.mdx;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_components_layout__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_components_layout__WEBPACK_IMPORTED_MODULE_4__["default"], {
     pageTitle: "Project Description"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
+    className: _content_module_scss__WEBPACK_IMPORTED_MODULE_3__.projectDetails
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(gatsby__WEBPACK_IMPORTED_MODULE_2__.Link, {
+    className: _content_module_scss__WEBPACK_IMPORTED_MODULE_3__.flair,
     to: "/"
-  }, "Back to projects"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("p", null, data.mdx.frontmatter.date), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(gatsby_plugin_image__WEBPACK_IMPORTED_MODULE_5__.GatsbyImage, {
+  }, "Back to projects"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "flex-start",
+      justifyContent: "space-between",
+      gap: "2rem",
+      marginTop: "2rem"
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(gatsby_plugin_image__WEBPACK_IMPORTED_MODULE_6__.GatsbyImage, {
     image: image,
-    alt: "Keurig Recreation"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_mdx_js_react__WEBPACK_IMPORTED_MODULE_6__.MDXProvider, {
+    alt: "Project Photo"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
+    style: {
+      width: "75%"
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_mdx_js_react__WEBPACK_IMPORTED_MODULE_7__.MDXProvider, {
     components: {
       li: MDXStyling
     }
-  }, children));
+  }, children)))));
 };
-const query = "1301565596";
+const query = "2403945979";
 const Head = ({
   data
-}) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_components_seo__WEBPACK_IMPORTED_MODULE_4__["default"], {
+}) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_components_seo__WEBPACK_IMPORTED_MODULE_5__["default"], {
   title: data.mdx.frontmatter.title
 });
 Project;
@@ -2949,7 +3015,7 @@ const Layout = ({
       };
       svg.addEventListener("mousemove", handleMouseMove);
 
-      // Cleanup function to remove the event listener when the component unmounts
+      // cleanup function to remove the event listener when the component unmounts
       return () => {
         svg.removeEventListener("mousemove", handleMouseMove);
       };

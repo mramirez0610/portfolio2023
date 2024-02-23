@@ -31,7 +31,7 @@ const Layout = ({ pageTitle, children }) => {
 
       svg.addEventListener("mousemove", handleMouseMove);
 
-      // Cleanup function to remove the event listener when the component unmounts
+      // cleanup function to remove the event listener when the component unmounts
       return () => {
         svg.removeEventListener("mousemove", handleMouseMove);
       };

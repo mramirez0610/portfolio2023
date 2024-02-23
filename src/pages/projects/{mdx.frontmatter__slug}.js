@@ -2,10 +2,11 @@ import * as React from "react";
 import { Link, graphql } from "gatsby";
 import { MDXProvider } from "@mdx-js/react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { projectDetails, flair } from "../content.module.scss";
 import Layout from "../../components/layout";
 import Seo from "../../components/seo";
 
-const MDXStyling = (props) => <li style={{ marginLeft: "5%" }} {...props} />;
+const MDXStyling = (props) => <li style={{ marginLeft: "3%" }} {...props} />;
 
 const Project = ({ data, children }) => {
   const image = getImage(data.mdx.frontmatter.image);
@@ -13,10 +14,29 @@ const Project = ({ data, children }) => {
 
   return (
     <Layout pageTitle="Project Description">
-      <Link to="/">Back to projects</Link>
-      <p>{data.mdx.frontmatter.date}</p>
-      <GatsbyImage image={image} alt="Keurig Recreation" />
-      <MDXProvider components={{ li: MDXStyling }}>{children}</MDXProvider>
+      <div className={projectDetails}>
+        <Link className={flair} to="/">
+          Back to projects
+        </Link>
+
+        <div
+          style={{
+            display: "flex",
+            alignItems: "flex-start",
+            justifyContent: "space-between",
+            gap: "2rem",
+            marginTop: "2rem",
+          }}
+        >
+          <GatsbyImage image={image} alt="Project Photo" />
+
+          <div style={{ width: "75%" }}>
+            <MDXProvider components={{ li: MDXStyling }}>
+              {children}
+            </MDXProvider>
+          </div>
+        </div>
+      </div>
     </Layout>
   );
 };
@@ -29,7 +49,7 @@ export const query = graphql`
         date(formatString: "MMMM DD, YYYY")
         image {
           childImageSharp {
-            gatsbyImageData(layout: FIXED, width: 300)
+            gatsbyImageData(layout: FIXED, width: 600)
           }
         }
       }

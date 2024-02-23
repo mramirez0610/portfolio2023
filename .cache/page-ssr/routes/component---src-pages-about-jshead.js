@@ -52,6 +52,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   info: () => (/* binding */ info),
 /* harmony export */   linkTo: () => (/* binding */ linkTo),
 /* harmony export */   project: () => (/* binding */ project),
+/* harmony export */   projectDetails: () => (/* binding */ projectDetails),
 /* harmony export */   seperator: () => (/* binding */ seperator),
 /* harmony export */   subHeader: () => (/* binding */ subHeader),
 /* harmony export */   subtitle: () => (/* binding */ subtitle),
@@ -74,6 +75,7 @@ var info = "content-module--info--bf89f";
 var contact = "content-module--contact--312eb";
 var contactOptions = "content-module--contactOptions--f5367";
 var cLogo = "content-module--cLogo--f8b6b";
+var projectDetails = "content-module--projectDetails--56a5e";
 
 
 /***/ }),
@@ -2070,7 +2072,7 @@ const Layout = ({
       };
       svg.addEventListener("mousemove", handleMouseMove);
 
-      // Cleanup function to remove the event listener when the component unmounts
+      // cleanup function to remove the event listener when the component unmounts
       return () => {
         svg.removeEventListener("mousemove", handleMouseMove);
       };
@@ -2173,12 +2175,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const AboutPage = () => {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_layout__WEBPACK_IMPORTED_MODULE_3__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "About Me!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Hello! I'm Marco Ramirez, and I am currently a senior attending Indiana University Indianapolis (IUI). I'm majoring in Media Arts and Science, and specializing in Web Design & Development."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "I'm comfortable with a variety of technologies, the most notable being Javascript (along with frameworks), Firebase, and NoSQL. I'm also familiar with the basics of Node.js, GraphQL, and MySQL. I'm always looking to learn more, and I'm always looking for new opportunities to grow as a developer. Feel free to", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_layout__WEBPACK_IMPORTED_MODULE_3__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.contact
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "About Me!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Hello! I'm Marco Ramirez, and I am currently a senior attending Indiana University Indianapolis (IUI). I'm majoring in Media Arts and Science, and specializing in Web Design & Development."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "I'm comfortable with a variety of technologies, the most notable being Javascript (along with frameworks), Firebase, and NoSQL. I'm also familiar with the basics of Node.js, GraphQL, and MySQL. I'm always looking to learn more, and I'm always looking for new opportunities to grow as a developer. Feel free to", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.linkTo,
     to: "https://linkedin.com/in/marcoramirez001"
   }, "reach out"), " ", "if you have any questions or if you'd like to work together."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.contact
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.subHeader
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", {
     style: {
