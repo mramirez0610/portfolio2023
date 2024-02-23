@@ -3,7 +3,7 @@
     "develop": {
       "plugins": [
         {
-          "name": "babel-plugin-lodash",
+          "name": "@sigmacomputing/babel-plugin-lodash",
           "options": {}
         },
         {
@@ -44,7 +44,7 @@
     "develop-html": {
       "plugins": [
         {
-          "name": "babel-plugin-lodash",
+          "name": "@sigmacomputing/babel-plugin-lodash",
           "options": {}
         },
         {
@@ -85,7 +85,7 @@
     "build-html": {
       "plugins": [
         {
-          "name": "babel-plugin-lodash",
+          "name": "@sigmacomputing/babel-plugin-lodash",
           "options": {}
         },
         {
@@ -126,7 +126,7 @@
     "build-javascript": {
       "plugins": [
         {
-          "name": "babel-plugin-lodash",
+          "name": "@sigmacomputing/babel-plugin-lodash",
           "options": {}
         },
         {
