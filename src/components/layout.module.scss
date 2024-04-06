@@ -29,12 +29,14 @@ body {
   justify-content: space-between;
   align-items: center;
 
-  background: rgba(255, 255, 255, 0.7);
+  // background: rgba(255, 255, 255, 0.7);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(11.5px);
   -webkit-backdrop-filter: blur(11.5px);
-  border-radius: 0px 0px 10px 10px;
+
   border: 1px solid rgba(255, 255, 255, 0.18);
+
+  color: #fff;
 
   padding: 0 5%;
   position: fixed;
@@ -43,10 +45,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10%;
+    gap: 20%;
 
     .link {
-      color: #000;
+      color: #fff;
       font-weight: bold;
       text-decoration: none;
     }
@@ -79,12 +81,14 @@ body {
 
   //glassmorphism
 
-  background: rgba(255, 255, 255, 0.75);
+  // background: rgba(255, 255, 255, 0.75);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(11.5px);
   -webkit-backdrop-filter: blur(11.5px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
+
+  color: #fff;
 
   p {
     font-size: 1.2rem;
@@ -95,7 +99,7 @@ body {
 .svg {
   position: absolute;
   z-index: 1;
-  background: url(../assets/imgs/grid.svg) repeat;
+  // background: url(../assets/imgs/grid.svg) repeat;
   min-height: 90vh;
   width: 100vw;
   margin: 0;
@@ -113,8 +117,13 @@ body {
   transform: translate(-50%, -50%);
   width: 15em;
   height: 15em;
-  filter: blur(15px);
-  background: linear-gradient(90deg, #335bf4 0%, #2ae9c9 100%);
+  filter: blur(35px);
+
+  // background: linear-gradient(90deg, #335bf4 0%, #2ae9c9 100%);
+  // background: linear-gradient(90deg, #3339f4 0%, #3373f4 100%);
+
+  //spotlight
+  background: linear-gradient(90deg, #6e6e7b 0%, #8696b3 100%);
   z-index: 0;
   border-radius: 40%;
   transition: top 60ms, left 60ms;

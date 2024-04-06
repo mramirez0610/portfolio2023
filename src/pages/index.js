@@ -8,6 +8,7 @@ import {
   seperator,
   home,
   linkTo,
+  projects,
   project,
   info,
   flair,
@@ -42,7 +43,7 @@ const IndexPage = ({ data }) => {
       <div className={home}>
         <Greeting />
         <div className={subHeader}>
-          <span className={subtitle}>i'm marco ramirez</span>
+          <span className={subtitle}>I'm marco ramirez</span>
           <span className={seperator}>||</span>
           <span className={subtitle}>
             an avid <span className={flair}>web developer</span>,{" "}
@@ -51,22 +52,29 @@ const IndexPage = ({ data }) => {
           </span>
         </div>
 
-        {data.allMdx.nodes.map((node) => (
-          <article className={project} key={node.id}>
-            <GatsbyImage image={getImage(node.frontmatter.image)}></GatsbyImage>
-            <div className={info}>
-              <h3>
-                <Link
-                  to={`/projects/${node.frontmatter.slug}`}
-                  className={linkTo}
-                >
-                  {node.frontmatter.title}
-                </Link>
-              </h3>
-              <p>{node.excerpt}</p>
-            </div>
-          </article>
-        ))}
+        <div className={projects}>
+          {data.allMdx.nodes.map((node) => (
+            <Link
+              className={project}
+              key={node.id}
+              to={`/projects/${node.frontmatter.slug}`}
+            >
+              <GatsbyImage
+                image={getImage(node.frontmatter.image)}
+              ></GatsbyImage>
+              <div className={info}>
+                <h3>
+                  <Link
+                    to={`/projects/${node.frontmatter.slug}`}
+                    className={linkTo}
+                  >
+                    {node.frontmatter.title}
+                  </Link>
+                </h3>
+              </div>
+            </Link>
+          ))}
+        </div>
       </div>
     </Layout>
   );
@@ -82,7 +90,7 @@ export const query = graphql`
           slug
           image {
             childImageSharp {
-              gatsbyImageData(layout: FIXED, width: 400)
+              gatsbyImageData(layout: FIXED, width: 300)
             }
           }
         }

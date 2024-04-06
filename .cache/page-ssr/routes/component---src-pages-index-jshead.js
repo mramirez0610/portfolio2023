@@ -3006,7 +3006,7 @@ const IndexPage = ({
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.subHeader
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.subtitle
-  }, "i'm marco ramirez"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+  }, "I'm marco ramirez"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.seperator
   }, "||"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.subtitle
@@ -3016,7 +3016,7 @@ const IndexPage = ({
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.flair
   }, "rock climber"), ", and", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.flair
-  }, "student"), ".")), data.allMdx.nodes.map(node => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("article", {
+  }, "student"), ".")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, data.allMdx.nodes.map(node => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("article", {
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.project,
     key: node.id
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(gatsby_plugin_image__WEBPACK_IMPORTED_MODULE_5__.GatsbyImage, {
@@ -3026,9 +3026,9 @@ const IndexPage = ({
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
     to: `/projects/${node.frontmatter.slug}`,
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.linkTo
-  }, node.frontmatter.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, node.excerpt), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Posted: ", node.frontmatter.date))))));
+  }, node.frontmatter.title))))))));
 };
-const query = "513337856";
+const query = "3178277145";
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (IndexPage);
 const Head = () => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_seo__WEBPACK_IMPORTED_MODULE_4__["default"], {
   title: "Home"
