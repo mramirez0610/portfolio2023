@@ -30,7 +30,11 @@ const AboutPage = () => {
           familiar with the basics of Node.js, GraphQL, and MySQL. I'm always
           looking to learn more, and I'm always looking for new opportunities to
           grow as a developer. Feel free to{" "}
-          <Link className={linkTo} to="https://linkedin.com/in/marcoramirez001">
+          <Link
+            className={linkTo}
+            target="_blank"
+            to="https://linkedin.com/in/marcoramirez001"
+          >
             reach out
           </Link>{" "}
           if you have any questions or if you'd like to work together.
@@ -51,13 +55,13 @@ const AboutPage = () => {
         </p>
 
         <div className={contactOptions}>
-          <a href="https://linkedin.com/in/marcoramirez001">
+          <a target="_blank" href="https://linkedin.com/in/marcoramirez001">
             <img className={cLogo} src={li} alt="LinkedIn" />
           </a>
           <a href="mailto:marcoramirezmail@gmail.com">
             <img className={cLogo} src={ma} alt="mail" />
           </a>
-          <a href="https://github.com/mramirez0610">
+          <a target="_blank" href="https://github.com/mramirez0610">
             <img className={cLogo} src={gh} alt="Github" />
           </a>
         </div>

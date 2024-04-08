@@ -145,6 +145,13 @@
       text-decoration-color: #337af4;
     }
   }
+  .details {
+    display: "flex";
+    align-items: "flex-start";
+    justify-content: "space-between";
+    gap: "2rem";
+    margin-top: "2rem";
+  }
 }
 
 @media (max-width: 640px) {

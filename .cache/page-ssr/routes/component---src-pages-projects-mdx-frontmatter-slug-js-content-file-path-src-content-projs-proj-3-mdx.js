@@ -169,6 +169,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   cLogo: () => (/* binding */ cLogo),
 /* harmony export */   contact: () => (/* binding */ contact),
 /* harmony export */   contactOptions: () => (/* binding */ contactOptions),
+/* harmony export */   details: () => (/* binding */ details),
 /* harmony export */   fadeIn: () => (/* binding */ fadeIn),
 /* harmony export */   flair: () => (/* binding */ flair),
 /* harmony export */   greeting: () => (/* binding */ greeting),
@@ -177,6 +178,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   linkTo: () => (/* binding */ linkTo),
 /* harmony export */   project: () => (/* binding */ project),
 /* harmony export */   projectDetails: () => (/* binding */ projectDetails),
+/* harmony export */   projects: () => (/* binding */ projects),
 /* harmony export */   seperator: () => (/* binding */ seperator),
 /* harmony export */   subHeader: () => (/* binding */ subHeader),
 /* harmony export */   subtitle: () => (/* binding */ subtitle),
@@ -194,12 +196,14 @@ var seperator = "content-module--seperator--71ce9";
 var tech = "content-module--tech--8083f";
 var fadeIn = "content-module--fadeIn--9e290";
 var techLogo = "content-module--techLogo--9e3db";
+var projects = "content-module--projects--f8f0e";
 var project = "content-module--project--9f684";
 var info = "content-module--info--bf89f";
 var contact = "content-module--contact--312eb";
 var contactOptions = "content-module--contactOptions--f5367";
 var cLogo = "content-module--cLogo--f8b6b";
 var projectDetails = "content-module--projectDetails--56a5e";
+var details = "content-module--details--c857c";
 
 
 /***/ }),
@@ -2943,13 +2947,7 @@ const Project = ({
     className: _content_module_scss__WEBPACK_IMPORTED_MODULE_3__.flair,
     to: "/"
   }, "Back to projects"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
-    style: {
-      display: "flex",
-      alignItems: "flex-start",
-      justifyContent: "space-between",
-      gap: "2rem",
-      marginTop: "2rem"
-    }
+    className: _content_module_scss__WEBPACK_IMPORTED_MODULE_3__.details
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(gatsby_plugin_image__WEBPACK_IMPORTED_MODULE_6__.GatsbyImage, {
     image: image,
     alt: "Project Photo"

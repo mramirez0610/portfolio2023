@@ -169,6 +169,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   cLogo: () => (/* binding */ cLogo),
 /* harmony export */   contact: () => (/* binding */ contact),
 /* harmony export */   contactOptions: () => (/* binding */ contactOptions),
+/* harmony export */   details: () => (/* binding */ details),
 /* harmony export */   fadeIn: () => (/* binding */ fadeIn),
 /* harmony export */   flair: () => (/* binding */ flair),
 /* harmony export */   greeting: () => (/* binding */ greeting),
@@ -177,6 +178,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   linkTo: () => (/* binding */ linkTo),
 /* harmony export */   project: () => (/* binding */ project),
 /* harmony export */   projectDetails: () => (/* binding */ projectDetails),
+/* harmony export */   projects: () => (/* binding */ projects),
 /* harmony export */   seperator: () => (/* binding */ seperator),
 /* harmony export */   subHeader: () => (/* binding */ subHeader),
 /* harmony export */   subtitle: () => (/* binding */ subtitle),
@@ -194,12 +196,14 @@ var seperator = "content-module--seperator--71ce9";
 var tech = "content-module--tech--8083f";
 var fadeIn = "content-module--fadeIn--9e290";
 var techLogo = "content-module--techLogo--9e3db";
+var projects = "content-module--projects--f8f0e";
 var project = "content-module--project--9f684";
 var info = "content-module--info--bf89f";
 var contact = "content-module--contact--312eb";
 var contactOptions = "content-module--contactOptions--f5367";
 var cLogo = "content-module--cLogo--f8b6b";
 var projectDetails = "content-module--projectDetails--56a5e";
+var details = "content-module--details--c857c";
 
 
 /***/ }),
@@ -3006,19 +3010,22 @@ const IndexPage = ({
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.subHeader
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.subtitle
-  }, "I'm marco ramirez"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-    className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.seperator
-  }, "||"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+  }, "I'm Marco Ramirez.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.subHeader
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.subtitle
-  }, "an avid ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+  }, "Avid ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.flair
-  }, "web developer"), ",", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+  }, "Web Developer"), ",", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.flair
-  }, "rock climber"), ", and", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+  }, "Rock Climber"), ", and", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.flair
-  }, "student"), ".")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, data.allMdx.nodes.map(node => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("article", {
+  }, "Student"), ".")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.projects
+  }, data.allMdx.nodes.map(node => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.project,
-    key: node.id
+    key: node.id,
+    to: `/projects/${node.frontmatter.slug}`
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(gatsby_plugin_image__WEBPACK_IMPORTED_MODULE_5__.GatsbyImage, {
     image: (0,gatsby_plugin_image__WEBPACK_IMPORTED_MODULE_5__.getImage)(node.frontmatter.image)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -3028,7 +3035,7 @@ const IndexPage = ({
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.linkTo
   }, node.frontmatter.title))))))));
 };
-const query = "3178277145";
+const query = "2426993109";
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (IndexPage);
 const Head = () => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_seo__WEBPACK_IMPORTED_MODULE_4__["default"], {
   title: "Home"

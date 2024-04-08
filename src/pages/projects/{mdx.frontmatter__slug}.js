@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link, graphql } from "gatsby";
 import { MDXProvider } from "@mdx-js/react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { projectDetails, flair } from "../content.module.scss";
+import { projectDetails, flair, details } from "../content.module.scss";
 import Layout from "../../components/layout";
 import Seo from "../../components/seo";
 
@@ -19,15 +19,7 @@ const Project = ({ data, children }) => {
           Back to projects
         </Link>
 
-        <div
-          style={{
-            display: "flex",
-            alignItems: "flex-start",
-            justifyContent: "space-between",
-            gap: "2rem",
-            marginTop: "2rem",
-          }}
-        >
+        <div className={details}>
           <GatsbyImage image={image} alt="Project Photo" />
 
           <div style={{ width: "75%" }}>

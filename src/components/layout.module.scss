@@ -29,7 +29,6 @@ body {
   justify-content: space-between;
   align-items: center;
 
-  // background: rgba(255, 255, 255, 0.7);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(11.5px);
   -webkit-backdrop-filter: blur(11.5px);
@@ -71,7 +70,6 @@ body {
   height: 50px;
   max-height: 3000px;
   padding: 4%;
-
   border: 2px solid black;
   transition: height 500ms ease-in-out;
 
@@ -79,15 +77,12 @@ body {
     animation: fadeIn 800ms ease-in-out;
   }
 
-  //glassmorphism
-
   // background: rgba(255, 255, 255, 0.75);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(11.5px);
   -webkit-backdrop-filter: blur(11.5px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-
   color: #fff;
 
   p {

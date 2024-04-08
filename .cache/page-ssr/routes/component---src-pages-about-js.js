@@ -45,6 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   cLogo: () => (/* binding */ cLogo),
 /* harmony export */   contact: () => (/* binding */ contact),
 /* harmony export */   contactOptions: () => (/* binding */ contactOptions),
+/* harmony export */   details: () => (/* binding */ details),
 /* harmony export */   fadeIn: () => (/* binding */ fadeIn),
 /* harmony export */   flair: () => (/* binding */ flair),
 /* harmony export */   greeting: () => (/* binding */ greeting),
@@ -53,6 +54,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   linkTo: () => (/* binding */ linkTo),
 /* harmony export */   project: () => (/* binding */ project),
 /* harmony export */   projectDetails: () => (/* binding */ projectDetails),
+/* harmony export */   projects: () => (/* binding */ projects),
 /* harmony export */   seperator: () => (/* binding */ seperator),
 /* harmony export */   subHeader: () => (/* binding */ subHeader),
 /* harmony export */   subtitle: () => (/* binding */ subtitle),
@@ -70,12 +72,14 @@ var seperator = "content-module--seperator--71ce9";
 var tech = "content-module--tech--8083f";
 var fadeIn = "content-module--fadeIn--9e290";
 var techLogo = "content-module--techLogo--9e3db";
+var projects = "content-module--projects--f8f0e";
 var project = "content-module--project--9f684";
 var info = "content-module--info--bf89f";
 var contact = "content-module--contact--312eb";
 var contactOptions = "content-module--contactOptions--f5367";
 var cLogo = "content-module--cLogo--f8b6b";
 var projectDetails = "content-module--projectDetails--56a5e";
+var details = "content-module--details--c857c";
 
 
 /***/ }),
@@ -2179,6 +2183,7 @@ const AboutPage = () => {
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.contact
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "About Me!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Hello! I'm Marco Ramirez, and I am currently a senior attending Indiana University Indianapolis (IUI). I'm majoring in Media Arts and Science, and specializing in Web Design & Development."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "I'm comfortable with a variety of technologies, the most notable being Javascript (along with frameworks), Firebase, and NoSQL. I'm also familiar with the basics of Node.js, GraphQL, and MySQL. I'm always looking to learn more, and I'm always looking for new opportunities to grow as a developer. Feel free to", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.linkTo,
+    target: "_blank",
     to: "https://linkedin.com/in/marcoramirez001"
   }, "reach out"), " ", "if you have any questions or if you'd like to work together."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.subHeader
@@ -2189,6 +2194,7 @@ const AboutPage = () => {
   }, "Shoot me a message!")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "I'm currently looking for a full-time position as a front-end developer. I'm also open to freelance work, so if you have a project you'd like to work on, feel free to reach out!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "If you have any questions or inquiries, feel free to contact me via LinkedIn or email. I've also included my Github below, if you'd like to see other projects I'm working on. Feel free to get in touch!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.contactOptions
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+    target: "_blank",
     href: "https://linkedin.com/in/marcoramirez001"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.cLogo,
@@ -2201,6 +2207,7 @@ const AboutPage = () => {
     src: _assets_logos_mail_svg__WEBPACK_IMPORTED_MODULE_6__["default"],
     alt: "mail"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+    target: "_blank",
     href: "https://github.com/mramirez0610"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.cLogo,

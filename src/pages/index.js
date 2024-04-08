@@ -5,7 +5,6 @@ import {
   subtitle,
   greeting,
   subHeader,
-  seperator,
   home,
   linkTo,
   projects,
@@ -43,12 +42,13 @@ const IndexPage = ({ data }) => {
       <div className={home}>
         <Greeting />
         <div className={subHeader}>
-          <span className={subtitle}>I'm marco ramirez</span>
-          <span className={seperator}>||</span>
+          <span className={subtitle}>I'm Marco Ramirez.</span>
+        </div>
+        <div className={subHeader}>
           <span className={subtitle}>
-            an avid <span className={flair}>web developer</span>,{" "}
-            <span className={flair}>rock climber</span>, and{" "}
-            <span className={flair}>student</span>.
+            Avid <span className={flair}>Web Developer</span>,{" "}
+            <span className={flair}>Rock Climber</span>, and{" "}
+            <span className={flair}>Student</span>.
           </span>
         </div>
 
