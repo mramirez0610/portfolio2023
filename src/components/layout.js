@@ -10,6 +10,7 @@ import {
   light,
   svg,
   before_main,
+  logo,
 } from "../components/layout.module.scss";
 
 const Layout = ({ pageTitle, children }) => {
@@ -54,7 +55,7 @@ const Layout = ({ pageTitle, children }) => {
   return (
     <div>
       <header className={header}>
-        <div className="logo">Logo</div>
+        <div className={logo}></div>
         <nav className={nav}>
           <Link className={link} to="/">
             Home

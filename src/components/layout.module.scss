@@ -37,9 +37,17 @@ body {
 
   color: #fff;
 
-  padding: 0 5%;
+  padding: 0 10%;
   position: fixed;
   z-index: 2;
+
+  .logo {
+    background-image: url(../assets/logos/logo.svg);
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    shape-rendering: crispEdges;
+  }
   .nav {
     display: flex;
     justify-content: center;
