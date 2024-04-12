@@ -25,16 +25,17 @@ const IndexPage = ({ data }) => {
       "Good afternoon!",
       "Good evening!",
       "How's it going?",
-      "How are you?",
       "How's your day?",
       "How's your morning?",
       "How's your evening?",
+      "How's your afternoon?",
+      "Hey there!",
     ];
 
     let r = Math.floor(Math.random() * g.length);
     let randomGreeting = g[r];
 
-    return <h2 className={greeting}>{randomGreeting}</h2>;
+    return <h2 className={subHeader}>{randomGreeting}</h2>;
   };
 
   return (
@@ -46,9 +47,9 @@ const IndexPage = ({ data }) => {
         </div>
         <div className={subHeader}>
           <span className={subtitle}>
-            Avid <span className={flair}>Web Developer</span>,{" "}
-            <span className={flair}>Rock Climber</span>, and{" "}
-            <span className={flair}>Student</span>.
+            Avid <span className={flair}>Web Developer</span>
+            {" and "}
+            <span className={flair}>Rock Climber</span>.
           </span>
         </div>
 

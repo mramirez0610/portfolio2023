@@ -19,9 +19,11 @@ const AboutPage = () => {
       <div className={contact}>
         <h1>About Me!</h1>
         <p>
-          Hello! I'm Marco Ramirez, and I am currently a senior attending
-          Indiana University Indianapolis (IUI). I'm majoring in Media Arts and
-          Science, and specializing in Web Design & Development.
+          Hello! I'm Marco Ramirez, a web developer based in Indianapolis. I
+          have a passion for creating funcitonal and visually appealing web
+          apps. I'm a passionate rock climber, and I love to travel and explore
+          all around the country, and I'm always looking for new places to
+          climb.
         </p>
 
         <p>
