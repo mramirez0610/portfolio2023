@@ -47,7 +47,7 @@ const IndexPage = ({ data }) => {
         </div>
         <div className={subHeader}>
           <span className={subtitle}>
-            Avid <span className={flair}>Web Developer</span>
+            <span className={flair}>Web Developer</span>
             {" and "}
             <span className={flair}>Rock Climber</span>.
           </span>

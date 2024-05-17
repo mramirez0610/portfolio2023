@@ -6,6 +6,7 @@ import {
   cLogo,
   subHeader,
   linkTo,
+  flair,
 } from "../pages/content.module.scss";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
@@ -17,13 +18,12 @@ const AboutPage = () => {
   return (
     <Layout>
       <div className={contact}>
-        <h1>About Me!</h1>
+        <h1 className={flair}>About Me!</h1>
         <p>
           Hello! I'm Marco Ramirez, a web developer based in Indianapolis. I
           have a passion for creating funcitonal and visually appealing web
           apps. I'm a passionate rock climber, and I love to travel and explore
-          all around the country, and I'm always looking for new places to
-          climb.
+          all around the country, I'm always looking for new places to climb.
         </p>
 
         <p>
@@ -35,6 +35,7 @@ const AboutPage = () => {
           <Link
             className={linkTo}
             target="_blank"
+            rel="noreferrer"
             to="https://linkedin.com/in/marcoramirez001"
           >
             reach out
@@ -43,7 +44,9 @@ const AboutPage = () => {
         </p>
 
         <div className={subHeader}>
-          <h3 style={{ fontSize: "1.4em" }}>Shoot me a message!</h3>
+          <h3 className={flair} style={{ fontSize: "1.4em" }}>
+            Shoot me a message!
+          </h3>
         </div>
         <p>
           I'm currently looking for a full-time position as a front-end
@@ -57,13 +60,21 @@ const AboutPage = () => {
         </p>
 
         <div className={contactOptions}>
-          <a target="_blank" href="https://linkedin.com/in/marcoramirez001">
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://linkedin.com/in/marcoramirez001"
+          >
             <img className={cLogo} src={li} alt="LinkedIn" />
           </a>
           <a href="mailto:marcoramirezmail@gmail.com">
             <img className={cLogo} src={ma} alt="mail" />
           </a>
-          <a target="_blank" href="https://github.com/mramirez0610">
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://github.com/mramirez0610"
+          >
             <img className={cLogo} src={gh} alt="Github" />
           </a>
         </div>

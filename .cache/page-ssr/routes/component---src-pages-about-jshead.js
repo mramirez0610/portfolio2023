@@ -2183,13 +2183,17 @@ __webpack_require__.r(__webpack_exports__);
 const AboutPage = () => {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_layout__WEBPACK_IMPORTED_MODULE_3__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.contact
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "About Me!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Hello! I'm Marco Ramirez, and I am currently a senior attending Indiana University Indianapolis (IUI). I'm majoring in Media Arts and Science, and specializing in Web Design & Development."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "I'm comfortable with a variety of technologies, the most notable being Javascript (along with frameworks), Firebase, and NoSQL. I'm also familiar with the basics of Node.js, GraphQL, and MySQL. I'm always looking to learn more, and I'm always looking for new opportunities to grow as a developer. Feel free to", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
+    className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.flair
+  }, "About Me!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Hello! I'm Marco Ramirez, a web developer based in Indianapolis. I have a passion for creating funcitonal and visually appealing web apps. I'm a passionate rock climber, and I love to travel and explore all around the country, I'm always looking for new places to climb."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "I'm comfortable with a variety of technologies, the most notable being Javascript (along with frameworks), Firebase, and NoSQL. I'm also familiar with the basics of Node.js, GraphQL, and MySQL. I'm always looking to learn more, and I'm always looking for new opportunities to grow as a developer. Feel free to", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.linkTo,
     target: "_blank",
+    rel: "noreferrer",
     to: "https://linkedin.com/in/marcoramirez001"
   }, "reach out"), " ", "if you have any questions or if you'd like to work together."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.subHeader
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", {
+    className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.flair,
     style: {
       fontSize: "1.4em"
     }
@@ -2197,6 +2201,7 @@ const AboutPage = () => {
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.contactOptions
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     target: "_blank",
+    rel: "norefferer",
     href: "https://linkedin.com/in/marcoramirez001"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.cLogo,
@@ -2210,6 +2215,7 @@ const AboutPage = () => {
     alt: "mail"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     target: "_blank",
+    rel: "noreferrer",
     href: "https://github.com/mramirez0610"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.cLogo,

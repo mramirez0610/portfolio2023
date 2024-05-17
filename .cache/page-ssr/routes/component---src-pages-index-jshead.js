@@ -2999,11 +2999,11 @@ const IndexPage = ({
   data
 }) => {
   const Greeting = () => {
-    let g = ["Hello!", "Nice to see you!", "Welcome!", "Good morning!", "Good afternoon!", "Good evening!", "How's it going?", "How are you?", "How's your day?", "How's your morning?", "How's your evening?"];
+    let g = ["Hello!", "Nice to see you!", "Welcome!", "Good morning!", "Good afternoon!", "Good evening!", "How's it going?", "How's your day?", "How's your morning?", "How's your evening?", "How's your afternoon?", "Hey there!"];
     let r = Math.floor(Math.random() * g.length);
     let randomGreeting = g[r];
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
-      className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.greeting
+      className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.subHeader
     }, randomGreeting);
   };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_layout__WEBPACK_IMPORTED_MODULE_3__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -3016,13 +3016,11 @@ const IndexPage = ({
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.subHeader
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.subtitle
-  }, "Avid ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.flair
-  }, "Web Developer"), ",", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+  }, "Web Developer"), " and ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.flair
-  }, "Rock Climber"), ", and", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-    className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.flair
-  }, "Student"), ".")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, "Rock Climber"), ".")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.projects
   }, data.allMdx.nodes.map(node => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.project,

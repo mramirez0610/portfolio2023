@@ -23,7 +23,11 @@
     font-size: 2em;
 
     .flair {
-      background: linear-gradient(90deg, #3339f4 0%, rgb(51, 119, 244) 100%);
+      background: linear-gradient(
+        170deg,
+        rgb(225, 198, 153),
+        rgb(235, 211, 196)
+      );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -84,8 +88,11 @@
         .linkTo {
           font-weight: bold;
           text-decoration: none;
-
-          background: linear-gradient(90deg, #3339f4 0%, #3360f4 100%);
+          background: linear-gradient(
+            170deg,
+            rgb(225, 198, 153),
+            rgb(235, 211, 196)
+          );
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
@@ -98,8 +105,13 @@
   p {
     font-size: 1.2em;
   }
+  .flair {
+    background: linear-gradient(170deg, rgb(225, 198, 153), rgb(235, 211, 196));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
   .linkTo {
-    background: linear-gradient(90deg, #3339f4 0%, #3373f4 100%);
+    background: linear-gradient(170deg, rgb(225, 198, 153), rgb(235, 211, 196));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-decoration: none;
@@ -128,22 +140,22 @@
 .projectDetails {
   .flair {
     font-size: 1.8em;
-    background: linear-gradient(90deg, #3339f4 0%, #3373f4 100%);
+    background: linear-gradient(170deg, rgb(225, 198, 153), rgb(235, 211, 196));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-decoration: underline;
-    text-decoration-color: #337af4;
+    text-decoration-color: rgb(235, 211, 196);
     font-weight: bold;
   }
   h1 {
     font-size: 1.8em;
-    background: linear-gradient(90deg, #3339f4 0%, #3373f4 100%);
+    background: linear-gradient(170deg, rgb(225, 198, 153), rgb(235, 211, 196));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: bold;
     a {
       text-decoration: underline;
-      text-decoration-color: #337af4;
+      text-decoration-color: rgb(235, 211, 196);
     }
   }
   .details {
