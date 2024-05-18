@@ -124,6 +124,13 @@ body {
     width: 80vw;
   }
 }
+@media (max-width: 905px) {
+  .light {
+    width: 0;
+    height: 0;
+    background: none;
+  }
+}
 @media (max-width: 450px) {
   .before_main {
     margin: 30% 0;
