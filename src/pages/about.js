@@ -11,7 +11,7 @@ import {
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 import li from "../assets/logos/linked.svg";
-import ma from "../assets/logos/mail.svg";
+import re from "../assets/logos/resume.svg";
 import gh from "../assets/logos/github.svg";
 
 const AboutPage = () => {
@@ -67,8 +67,12 @@ const AboutPage = () => {
           >
             <img className={cLogo} src={li} alt="LinkedIn" />
           </a>
-          <a href="mailto:marcoramirezmail@gmail.com">
-            <img className={cLogo} src={ma} alt="mail" />
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://drive.google.com/file/d/1Y-JSXySkv6h4fxEzfzRYDLSKMMXPSom4/view?usp=sharing"
+          >
+            <img className={cLogo} src={re} alt="resume" />
           </a>
           <a
             target="_blank"

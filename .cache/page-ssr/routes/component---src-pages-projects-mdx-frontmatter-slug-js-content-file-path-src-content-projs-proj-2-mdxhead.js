@@ -175,6 +175,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   fadeIn: () => (/* binding */ fadeIn),
 /* harmony export */   flair: () => (/* binding */ flair),
 /* harmony export */   greeting: () => (/* binding */ greeting),
+/* harmony export */   header: () => (/* binding */ header),
 /* harmony export */   home: () => (/* binding */ home),
 /* harmony export */   info: () => (/* binding */ info),
 /* harmony export */   linkTo: () => (/* binding */ linkTo),
@@ -183,27 +184,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   projects: () => (/* binding */ projects),
 /* harmony export */   seperator: () => (/* binding */ seperator),
 /* harmony export */   subHeader: () => (/* binding */ subHeader),
-/* harmony export */   subtitle: () => (/* binding */ subtitle),
-/* harmony export */   tech: () => (/* binding */ tech),
-/* harmony export */   techLogo: () => (/* binding */ techLogo)
+/* harmony export */   subtitle: () => (/* binding */ subtitle)
 /* harmony export */ });
 // Exports
 var home = "content-module--home--03ad9";
+var header = "content-module--header--52a34";
 var greeting = "content-module--greeting--f7eda";
 var subHeader = "content-module--subHeader--6c408";
 var flair = "content-module--flair--14713";
 var subtitle = "content-module--subtitle--48a2e";
 var linkTo = "content-module--linkTo--288cb";
 var seperator = "content-module--seperator--71ce9";
-var tech = "content-module--tech--8083f";
+var contactOptions = "content-module--contactOptions--f5367";
 var fadeIn = "content-module--fadeIn--9e290";
-var techLogo = "content-module--techLogo--9e3db";
+var cLogo = "content-module--cLogo--f8b6b";
 var projects = "content-module--projects--f8f0e";
 var project = "content-module--project--9f684";
 var info = "content-module--info--bf89f";
 var contact = "content-module--contact--312eb";
-var contactOptions = "content-module--contactOptions--f5367";
-var cLogo = "content-module--cLogo--f8b6b";
 var projectDetails = "content-module--projectDetails--56a5e";
 var details = "content-module--details--c857c";
 
@@ -2949,27 +2947,19 @@ const Project = ({
     className: _content_module_scss__WEBPACK_IMPORTED_MODULE_3__.flair,
     to: "/"
   }, "Back to projects"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
-    style: {
-      display: "flex",
-      alignItems: "flex-start",
-      justifyContent: "space-between",
-      gap: "2rem",
-      marginTop: "2rem"
-    }
+    className: _content_module_scss__WEBPACK_IMPORTED_MODULE_3__.details
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(gatsby_plugin_image__WEBPACK_IMPORTED_MODULE_6__.GatsbyImage, {
     image: image,
     alt: "Project Photo"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
-    style: {
-      width: "75%"
-    }
+    className: _content_module_scss__WEBPACK_IMPORTED_MODULE_3__.info
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_mdx_js_react__WEBPACK_IMPORTED_MODULE_7__.MDXProvider, {
     components: {
       li: MDXStyling
     }
   }, children)))));
 };
-const query = "2403945979";
+const query = "4080065478";
 const Head = ({
   data
 }) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_components_seo__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -3007,7 +2997,6 @@ const Layout = ({
   pageTitle,
   children
 }) => {
-  const location = (0,_reach_router__WEBPACK_IMPORTED_MODULE_1__.useLocation)();
   const mainRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
   const svgRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
   const lightRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
@@ -3027,18 +3016,6 @@ const Layout = ({
       };
     }
   }, []);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    //natural height of the content
-    const contentHeight = mainRef.current.scrollHeight;
-    //computed style of the .main element
-    const computedStyle = window.getComputedStyle(mainRef.current);
-    //bottom padding from the computed style
-    const paddingBottom = parseFloat(computedStyle.paddingBottom);
-    //add the bottom padding to the content height
-    const totalHeight = contentHeight + paddingBottom;
-    //set the height of the .main element to the total height
-    mainRef.current.style.height = `${totalHeight}px`;
-  }, [location]);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("header", {
     className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_3__.header
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -3054,12 +3031,10 @@ const Layout = ({
   }, "About"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     ref: svgRef,
     className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_3__.svg
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_3__.before_main
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("main", {
     className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_3__.main,
     ref: mainRef
-  }, children))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, children)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     ref: lightRef,
     className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_3__.light
   }));
