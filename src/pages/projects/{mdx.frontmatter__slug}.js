@@ -41,7 +41,7 @@ export const query = graphql`
         date(formatString: "MMMM DD, YYYY")
         image {
           childImageSharp {
-            gatsbyImageData(layout: FIXED, width: 600)
+            gatsbyImageData(layout: CONSTRAINED, width: 600)
           }
         }
       }
