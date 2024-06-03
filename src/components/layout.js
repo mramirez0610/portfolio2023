@@ -14,9 +14,7 @@ import {
 } from "../components/layout.module.scss";
 
 const Layout = ({ pageTitle, children }) => {
-  const location = useLocation();
   const mainRef = useRef();
-
   const svgRef = useRef();
   const lightRef = useRef();
 
@@ -39,19 +37,6 @@ const Layout = ({ pageTitle, children }) => {
     }
   }, []);
 
-  useEffect(() => {
-    //natural height of the content
-    const contentHeight = mainRef.current.scrollHeight;
-    //computed style of the .main element
-    const computedStyle = window.getComputedStyle(mainRef.current);
-    //bottom padding from the computed style
-    const paddingBottom = parseFloat(computedStyle.paddingBottom);
-    //add the bottom padding to the content height
-    const totalHeight = contentHeight + paddingBottom;
-    //set the height of the .main element to the total height
-    mainRef.current.style.height = `${totalHeight}px`;
-  }, [location]);
-
   return (
     <div>
       <header className={header}>
@@ -67,11 +52,9 @@ const Layout = ({ pageTitle, children }) => {
         </nav>
       </header>
       <div ref={svgRef} className={svg}>
-        <div className={before_main}>
-          <main className={main} ref={mainRef}>
-            {children}
-          </main>
-        </div>
+        <main className={main} ref={mainRef}>
+          {children}
+        </main>
       </div>
       <div ref={lightRef} className={light}></div>
     </div>

@@ -20,10 +20,10 @@ const AboutPage = () => {
       <div className={contact}>
         <h1 className={flair}>About Me!</h1>
         <p>
-          Hello! I'm Marco Ramirez, a web developer based in Indianapolis. I
-          have a passion for creating funcitonal and visually appealing web
-          apps. I'm a passionate rock climber, and I love to travel and explore
-          all around the country, I'm always looking for new places to climb.
+          I'm Marco Ramirez, a dedicated web developer with a passion for
+          creating intuitive and dynamic web experiences. Rock climbing and web
+          development are my two biggest passions, and I'm looking for a life
+          where I can happily do both.
         </p>
 
         <p>

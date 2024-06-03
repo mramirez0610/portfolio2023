@@ -2201,7 +2201,7 @@ const AboutPage = () => {
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.contactOptions
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     target: "_blank",
-    rel: "norefferer",
+    rel: "noreferrer",
     href: "https://linkedin.com/in/marcoramirez001"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.cLogo,

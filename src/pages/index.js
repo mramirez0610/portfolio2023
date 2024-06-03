@@ -4,6 +4,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import {
   subtitle,
   greeting,
+  header,
   subHeader,
   home,
   linkTo,
@@ -11,7 +12,13 @@ import {
   project,
   info,
   flair,
+  contactOptions,
+  cLogo,
 } from "../pages/content.module.scss";
+import li from "../assets/logos/linked.svg";
+import ma from "../assets/logos/mail.svg";
+import gh from "../assets/logos/github.svg";
+
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 
@@ -35,22 +42,47 @@ const IndexPage = ({ data }) => {
     let r = Math.floor(Math.random() * g.length);
     let randomGreeting = g[r];
 
-    return <h2 className={subHeader}>{randomGreeting}</h2>;
+    return (
+      <h2 className={subHeader}>
+        <span className={flair}>{randomGreeting}</span>
+      </h2>
+    );
   };
 
   return (
     <Layout>
       <div className={home}>
-        <Greeting />
-        <div className={subHeader}>
-          <span className={subtitle}>I'm Marco Ramirez.</span>
-        </div>
-        <div className={subHeader}>
-          <span className={subtitle}>
-            <span className={flair}>Web Developer</span>
-            {" and "}
-            <span className={flair}>Rock Climber</span>.
-          </span>
+        <div className={header}>
+          <Greeting />
+          <div className={subHeader}>
+            <span className={subtitle}>I'm Marco Ramirez.</span>
+          </div>
+          <div className={subHeader}>
+            <span className={subtitle}>
+              <span className={flair}>Web Developer</span>
+              {" and "}
+              <span className={flair}>Rock Climber</span>.
+            </span>
+          </div>
+          <div className={contactOptions}>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://linkedin.com/in/marcoramirez001"
+            >
+              <img className={cLogo} src={li} alt="LinkedIn" />
+            </a>
+            <a href="mailto:marcoramirezmail@gmail.com">
+              <img className={cLogo} src={ma} alt="mail" />
+            </a>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://github.com/mramirez0610"
+            >
+              <img className={cLogo} src={gh} alt="Github" />
+            </a>
+          </div>
         </div>
 
         <div className={projects}>
