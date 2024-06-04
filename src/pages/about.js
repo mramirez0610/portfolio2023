@@ -63,16 +63,16 @@ const AboutPage = () => {
           <a
             target="_blank"
             rel="noreferrer"
-            href="https://linkedin.com/in/marcoramirez001"
+            href="https://drive.google.com/file/d/1Y-JSXySkv6h4fxEzfzRYDLSKMMXPSom4/view?usp=sharing"
           >
-            <img className={cLogo} src={li} alt="LinkedIn" />
+            <img className={cLogo} src={re} alt="resume" />
           </a>
           <a
             target="_blank"
             rel="noreferrer"
-            href="https://drive.google.com/file/d/1Y-JSXySkv6h4fxEzfzRYDLSKMMXPSom4/view?usp=sharing"
+            href="https://linkedin.com/in/marcoramirez001"
           >
-            <img className={cLogo} src={re} alt="resume" />
+            <img className={cLogo} src={li} alt="LinkedIn" />
           </a>
           <a
             target="_blank"
