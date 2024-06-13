@@ -1,6 +1,5 @@
 import * as React from "react";
 import { useEffect, useRef } from "react";
-import { useLocation } from "@reach/router";
 import { Link } from "gatsby";
 import {
   header,
@@ -9,7 +8,6 @@ import {
   main,
   light,
   svg,
-  before_main,
   logo,
 } from "../components/layout.module.scss";
 

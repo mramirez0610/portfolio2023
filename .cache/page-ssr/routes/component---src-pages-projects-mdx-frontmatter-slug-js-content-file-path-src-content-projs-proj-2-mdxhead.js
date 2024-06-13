@@ -2876,15 +2876,12 @@ __webpack_require__.r(__webpack_exports__);
 function _createMdxContent(props) {
   const _components = Object.assign({
     h1: "h1",
-    a: "a",
     p: "p",
     h2: "h2",
     ul: "ul",
     li: "li"
   }, (0,_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.useMDXComponents)(), props.components);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.h1, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.a, {
-    href: "https://in-info-web4.informatics.iupui.edu/~ramimarc/n315/jungleCook/dist/#home"
-  }, "Jungle Cook")), "\n", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.p, null, "This project was an exciting endeavor that involved reconstructing a prototype with a focus on maintaining design fidelity and consistency throughout the development process. The technology stack chosen for this project was a combination of JQuery and Sass."), "\n", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.p, null, "On the other hand, Sass, a mature, stable, and powerful professional-grade CSS extension language, was employed to make the styling of the project more efficient and maintainable."), "\n", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.p, null, "For the task of user authentication, Firebase Authentication was utilized. In addition to user authentication, data storage was another crucial aspect of this project. For this purpose, Firestore was employed. Firestore is a flexible, scalable NoSQL cloud database that can store and sync data for client- and server-side development. It was instrumental in efficiently managing the data storage needs of the project."), "\n", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.p, null, "In summary, this project was a comprehensive exercise in recreating a complex prototype, providing valuable experience in using JQuery, Sass, Firebase Authentication, and Firestore. It was a testament to the power of these technologies in creating a secure, efficient, and user-friendly web application."), "\n", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.h2, null, "Technology Used"), "\n", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.ul, null, "\n", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.li, null, "JQuery"), "\n", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.li, null, "Firebase Authentication"), "\n", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.li, null, "LocalStorage"), "\n"));
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.h1, null, "Headless CMS"), "\n", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.p, null, "This project was an exciting endeavor that involved reconstructing a prototype with a focus on maintaining design fidelity and consistency throughout the development process. The technology stack chosen for this project was a combination of JQuery and Sass."), "\n", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.p, null, "On the other hand, Sass, a mature, stable, and powerful professional-grade CSS extension language, was employed to make the styling of the project more efficient and maintainable."), "\n", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.p, null, "For the task of user authentication, Firebase Authentication was utilized. In addition to user authentication, data storage was another crucial aspect of this project. For this purpose, Firestore was employed. Firestore is a flexible, scalable NoSQL cloud database that can store and sync data for client- and server-side development. It was instrumental in efficiently managing the data storage needs of the project."), "\n", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.p, null, "In summary, this project was a comprehensive exercise in recreating a complex prototype, providing valuable experience in using JQuery, Sass, Firebase Authentication, and Firestore. It was a testament to the power of these technologies in creating a secure, efficient, and user-friendly web application."), "\n", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.h2, null, "Technology Used"), "\n", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.ul, null, "\n", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.li, null, "Next.JS"), "\n", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.li, null, "Decap CMS"), "\n", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components.li, null, "Sass"), "\n"));
 }
 function MDXContent(props = {}) {
   const {
@@ -2912,11 +2909,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var gatsby__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gatsby */ "./.cache/gatsby-browser-entry.js");
-/* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mdx-js/react */ "./node_modules/@mdx-js/react/lib/index.js");
-/* harmony import */ var gatsby_plugin_image__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! gatsby-plugin-image */ "./node_modules/gatsby-plugin-image/dist/gatsby-image.module.js");
+/* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mdx-js/react */ "./node_modules/@mdx-js/react/lib/index.js");
+/* harmony import */ var gatsby_plugin_image__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! gatsby-plugin-image */ "./node_modules/gatsby-plugin-image/dist/gatsby-image.module.js");
 /* harmony import */ var _content_module_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../content.module.scss */ "./src/pages/content.module.scss");
-/* harmony import */ var _components_layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/layout */ "./src/components/layout.js");
-/* harmony import */ var _components_seo__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/seo */ "./src/components/seo.js");
+/* harmony import */ var _assets_logos_github_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../assets/logos/github.svg */ "./src/assets/logos/github.svg");
+/* harmony import */ var _assets_logos_internet_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../assets/logos/internet.svg */ "./src/assets/logos/internet.svg");
+/* harmony import */ var _components_layout__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/layout */ "./src/components/layout.js");
+/* harmony import */ var _components_seo__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/seo */ "./src/components/seo.js");
+
+
 
 
 
@@ -2934,12 +2935,12 @@ const Project = ({
   data,
   children
 }) => {
-  const image = (0,gatsby_plugin_image__WEBPACK_IMPORTED_MODULE_6__.getImage)(data.mdx.frontmatter.image);
+  const image = (0,gatsby_plugin_image__WEBPACK_IMPORTED_MODULE_8__.getImage)(data.mdx.frontmatter.image);
   const {
-    frontmatter,
-    body
+    frontmatter
   } = data.mdx;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_components_layout__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  console.log(frontmatter);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_components_layout__WEBPACK_IMPORTED_MODULE_6__["default"], {
     pageTitle: "Project Description"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
     className: _content_module_scss__WEBPACK_IMPORTED_MODULE_3__.projectDetails
@@ -2948,21 +2949,39 @@ const Project = ({
     to: "/"
   }, "Back to projects"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
     className: _content_module_scss__WEBPACK_IMPORTED_MODULE_3__.details
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(gatsby_plugin_image__WEBPACK_IMPORTED_MODULE_6__.GatsbyImage, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(gatsby_plugin_image__WEBPACK_IMPORTED_MODULE_8__.GatsbyImage, {
     image: image,
     alt: "Project Photo"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
+    className: _content_module_scss__WEBPACK_IMPORTED_MODULE_3__.contactOptions
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("a", {
+    target: "_blank",
+    rel: "noreferrer",
+    href: frontmatter.url
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("img", {
+    className: _content_module_scss__WEBPACK_IMPORTED_MODULE_3__.cLogo,
+    src: _assets_logos_internet_svg__WEBPACK_IMPORTED_MODULE_5__["default"],
+    alt: "live server"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("a", {
+    target: "_blank",
+    rel: "noreferrer",
+    href: frontmatter.github
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("img", {
+    className: _content_module_scss__WEBPACK_IMPORTED_MODULE_3__.cLogo,
+    src: _assets_logos_github_svg__WEBPACK_IMPORTED_MODULE_4__["default"],
+    alt: "Github"
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
     className: _content_module_scss__WEBPACK_IMPORTED_MODULE_3__.info
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_mdx_js_react__WEBPACK_IMPORTED_MODULE_7__.MDXProvider, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_mdx_js_react__WEBPACK_IMPORTED_MODULE_9__.MDXProvider, {
     components: {
       li: MDXStyling
     }
   }, children)))));
 };
-const query = "4080065478";
+const query = "3748910434";
 const Head = ({
   data
-}) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_components_seo__WEBPACK_IMPORTED_MODULE_5__["default"], {
+}) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_components_seo__WEBPACK_IMPORTED_MODULE_7__["default"], {
   title: data.mdx.frontmatter.title
 });
 Project;
@@ -2985,10 +3004,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _reach_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @reach/router */ "./node_modules/@gatsbyjs/reach-router/dist/index.modern.mjs");
-/* harmony import */ var gatsby__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gatsby */ "./.cache/gatsby-browser-entry.js");
-/* harmony import */ var _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/layout.module.scss */ "./src/components/layout.module.scss");
-
+/* harmony import */ var gatsby__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gatsby */ "./.cache/gatsby-browser-entry.js");
+/* harmony import */ var _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/layout.module.scss */ "./src/components/layout.module.scss");
 
 
 
@@ -3017,26 +3034,26 @@ const Layout = ({
     }
   }, []);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("header", {
-    className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_3__.header
+    className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_2__.header
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_3__.logo
+    className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_2__.logo
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("nav", {
-    className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_3__.nav
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(gatsby__WEBPACK_IMPORTED_MODULE_2__.Link, {
-    className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_3__.link,
+    className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_2__.nav
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_2__.link,
     to: "/"
-  }, "Home"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(gatsby__WEBPACK_IMPORTED_MODULE_2__.Link, {
-    className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_3__.link,
+  }, "Home"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_2__.link,
     to: "/about"
   }, "About"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     ref: svgRef,
-    className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_3__.svg
+    className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_2__.svg
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("main", {
-    className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_3__.main,
+    className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_2__.main,
     ref: mainRef
   }, children)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     ref: lightRef,
-    className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_3__.light
+    className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_2__.light
   }));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Layout);
@@ -4553,6 +4570,36 @@ if (false) {} else {
   module.exports = __webpack_require__(/*! ./cjs/react-server-dom-webpack.development.js */ "./node_modules/react-server-dom-webpack/cjs/react-server-dom-webpack.development.js");
 }
 
+
+/***/ }),
+
+/***/ "./src/assets/logos/github.svg":
+/*!*************************************!*\
+  !*** ./src/assets/logos/github.svg ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IS0tIFVwbG9hZGVkIHRvOiBTVkcgUmVwbywgd3d3LnN2Z3JlcG8uY29tLCBHZW5lcmF0b3I6IFNWRyBSZXBvIE1peGVyIFRvb2xzIC0tPgo8c3ZnIHdpZHRoPSI4MDBweCIgaGVpZ2h0PSI4MDBweCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTEyIDBDNS4zNyAwIDAgNS4zNyAwIDEyQzAgMTcuMzEgMy40MzUgMjEuNzk1IDguMjA1IDIzLjM4NUM4LjgwNSAyMy40OSA5LjAzIDIzLjEzIDkuMDMgMjIuODE1QzkuMDMgMjIuNTMgOS4wMTUgMjEuNTg1IDkuMDE1IDIwLjU4QzYgMjEuMTM1IDUuMjIgMTkuODQ1IDQuOTggMTkuMTdDNC44NDUgMTguODI1IDQuMjYgMTcuNzYgMy43NSAxNy40NzVDMy4zMyAxNy4yNSAyLjczIDE2LjY5NSAzLjczNSAxNi42OEM0LjY4IDE2LjY2NSA1LjM1NSAxNy41NSA1LjU4IDE3LjkxQzYuNjYgMTkuNzI1IDguMzg1IDE5LjIxNSA5LjA3NSAxOC45QzkuMTggMTguMTIgOS40OTUgMTcuNTk1IDkuODQgMTcuMjk1QzcuMTcgMTYuOTk1IDQuMzggMTUuOTYgNC4zOCAxMS4zN0M0LjM4IDEwLjA2NSA0Ljg0NSA4Ljk4NSA1LjYxIDguMTQ1QzUuNDkgNy44NDUgNS4wNyA2LjYxNSA1LjczIDQuOTY1QzUuNzMgNC45NjUgNi43MzUgNC42NSA5LjAzIDYuMTk1QzkuOTkgNS45MjUgMTEuMDEgNS43OSAxMi4wMyA1Ljc5QzEzLjA1IDUuNzkgMTQuMDcgNS45MjUgMTUuMDMgNi4xOTVDMTcuMzI1IDQuNjM1IDE4LjMzIDQuOTY1IDE4LjMzIDQuOTY1QzE4Ljk5IDYuNjE1IDE4LjU3IDcuODQ1IDE4LjQ1IDguMTQ1QzE5LjIxNSA4Ljk4NSAxOS42OCAxMC4wNSAxOS42OCAxMS4zN0MxOS42OCAxNS45NzUgMTYuODc1IDE2Ljk5NSAxNC4yMDUgMTcuMjk1QzE0LjY0IDE3LjY3IDE1LjAxNSAxOC4zOSAxNS4wMTUgMTkuNTE1QzE1LjAxNSAyMS4xMiAxNSAyMi40MSAxNSAyMi44MTVDMTUgMjMuMTMgMTUuMjI1IDIzLjUwNSAxNS44MjUgMjMuMzg1QzE4LjIwNzIgMjIuNTgwOCAyMC4yNzczIDIxLjA0OTggMjEuNzQzOCAxOS4wMDc0QzIzLjIxMDMgMTYuOTY1MSAyMy45OTk0IDE0LjUxNDMgMjQgMTJDMjQgNS4zNyAxOC42MyAwIDEyIDBaIiBmaWxsPSIjZjJmNWVhIi8+Cjwvc3ZnPg==");
+
+/***/ }),
+
+/***/ "./src/assets/logos/internet.svg":
+/*!***************************************!*\
+  !*** ./src/assets/logos/internet.svg ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCg0KPCEtLSBVcGxvYWRlZCB0bzogU1ZHIFJlcG8sIHd3dy5zdmdyZXBvLmNvbSwgR2VuZXJhdG9yOiBTVkcgUmVwbyBNaXhlciBUb29scyAtLT4NCjxzdmcgZmlsbD0iI2YyZjVlYSIgd2lkdGg9IjgwMHB4IiBoZWlnaHQ9IjgwMHB4IiB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgaWQ9IkxheWVyXzEiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDUxMiA1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQoNCjxnPg0KDQo8cGF0aCBkPSJtNDM3LjAyIDc0Ljk4Yy00OC4zNTMtNDguMzUyLTExMi42NC03NC45OC0xODEuMDItNzQuOThzLTEzMi42NjcgMjYuNjI4LTE4MS4wMiA3NC45OC03NC45OCAxMTIuNjQtNzQuOTggMTgxLjAyIDI2LjYyOCAxMzIuNjY3IDc0Ljk4IDE4MS4wMiAxMTIuNjQgNzQuOTggMTgxLjAyIDc0Ljk4IDEzMi42NjctMjYuNjI4IDE4MS4wMi03NC45OCA3NC45OC0xMTIuNjQgNzQuOTgtMTgxLjAyLTI2LjYyOC0xMzIuNjY3LTc0Ljk4LTE4MS4wMnptLTIuMTMyIDMxNS42NzljLTE1LjMxLTEwLjM2MS0zMS4zMzYtMTkuMzE0LTQ3Ljk1Mi0yNi43ODkgNy4zMzktMjguNjE3IDExLjY5Ny01OS42ODggMTIuNzg0LTkxLjg3aDc5LjcwMmMtMy4xNDQgNDQuMzM2LTE5LjI0NCA4NS4xNDctNDQuNTM0IDExOC42NTl6bS00MDIuMzEtMTE4LjY1OWg3OS43MDJjMS4wODggMzIuMTgzIDUuNDQ2IDYzLjI1NCAxMi43ODQgOTEuODctMTYuNjE2IDcuNDc1LTMyLjY0MiAxNi40MjctNDcuOTUyIDI2Ljc4OS0yNS4yOS0zMy41MTItNDEuMzktNzQuMzIzLTQ0LjUzNC0xMTguNjU5em00NC41My0xNTAuNjU0YzE1LjMxIDEwLjM2MiAzMS4zMzYgMTkuMzE1IDQ3Ljk1NCAyNi43OS03LjMzOCAyOC42MTUtMTEuNjk1IDU5LjY4My0xMi43ODMgOTEuODY0aC03OS43MDFjMy4xNDQtNDQuMzM0IDE5LjI0My04NS4xNDIgNDQuNTMtMTE4LjY1NHptMjgzLjUxOS00Mi41ODFjLTUuODYzLTEwLjk5Mi0xMi4xOTgtMjAuOTExLTE4LjkzNS0yOS43MTMgMjcuMDY5IDExLjI1IDUxLjQ3MyAyNy42NTggNzEuOTc3IDQ3Ljk5Ny0xMS42MjUgNy42MzgtMjMuNzAyIDE0LjM2OS0zNi4xNTUgMjAuMTg1LTQuODg2LTEzLjY2NC0xMC41MjgtMjYuNTQ3LTE2Ljg4Ny0zOC40Njl6bS0xMi45NjUgNTAuNDA0Yy0yOS4yMTEgOS43OTItNjAuMDM5IDE0LjgzMS05MS42NjIgMTQuODMxcy02Mi40NTEtNS4wMzktOTEuNjYyLTE0LjgzMWMyMC40NjMtNTguMjUzIDU0LjI3My05Ny4xNjkgOTEuNjYyLTk3LjE2OXM3MS4xOTkgMzguOTE2IDkxLjY2MiA5Ny4xNjl6bS0yMDMuMzU5IDExMC44MzFjMS4wNTYtMjguMzQyIDQuODg1LTU1LjQyMSAxMC45MzctODAuMTE2IDMyLjEzNiAxMC42NDQgNjYuMDE4IDE2LjExNiAxMDAuNzYgMTYuMTE2czY4LjYyNC01LjQ3MiAxMDAuNzYtMTYuMTE2YzYuMDUzIDI0LjY5NSA5Ljg4MSA1MS43NzMgMTAuOTM3IDgwLjExNnptMjIzLjM5NCAzMmMtMS4wNTcgMjguMzQ0LTQuODg1IDU1LjQyNC0xMC45MzggODAuMTItMzIuMTM5LTEwLjY0Ni02Ni4wMi0xNi4xMi0xMDAuNzU5LTE2LjEycy02OC42MiA1LjQ3NC0xMDAuNzU5IDE2LjEyYy02LjA1My0yNC42OTYtOS44ODItNTEuNzc2LTEwLjkzOC04MC4xMnptLTIxNi4zMjQtMTkzLjIzNWMtNi4zNTggMTEuOTIyLTEyIDI0LjgwNS0xNi44ODcgMzguNDY4LTEyLjQ1Mi01LjgxNS0yNC41My0xMi41NDctMzYuMTU1LTIwLjE4NSAyMC41MDMtMjAuMzQgNDQuOTA3LTM2Ljc0NyA3MS45NzctNDcuOTk3LTYuNzM3IDguODAzLTEzLjA3MyAxOC43MjItMTguOTM1IDI5LjcxNHptLTE2Ljg4NiAzMTYuMDA4YzQuODg2IDEzLjY2MSAxMC41MjggMjYuNTQyIDE2Ljg4NSAzOC40NjIgNS44NjMgMTAuOTkyIDEyLjE5OCAyMC45MTEgMTguOTM1IDI5LjcxMy0yNy4wNjctMTEuMjUtNTEuNDY5LTI3LjY1NS03MS45NzEtNDcuOTkyIDExLjYyNS03LjYzNyAyMy43MDEtMTQuMzY4IDM2LjE1MS0yMC4xODN6bTI5Ljg1My0xMS45MzhjMjkuMjEzLTkuNzk0IDYwLjA0LTE0LjgzNSA5MS42Ni0xNC44MzVzNjIuNDQ3IDUuMDQxIDkxLjY2IDE0LjgzNWMtMjAuNDYzIDU4LjI1MS01NC4yNzIgOTcuMTY1LTkxLjY2IDk3LjE2NXMtNzEuMTk3LTM4LjkxNC05MS42Ni05Ny4xNjV6bTE5Ni4yODcgNTAuNGM2LjM1Ny0xMS45MiAxMS45OTktMjQuODAxIDE2Ljg4NS0zOC40NjIgMTIuNDUxIDUuODE1IDI0LjUyNyAxMi41NDcgMzYuMTUxIDIwLjE4My0yMC41MDIgMjAuMzM3LTQ0LjkwNCAzNi43NDMtNzEuOTcxIDQ3Ljk5MiA2LjczNy04LjgwMiAxMy4wNzMtMTguNzIxIDE4LjkzNS0yOS43MTN6bTM5LjA5My0xOTMuMjM1Yy0xLjA4OC0zMi4xOC01LjQ0NS02My4yNDktMTIuNzgzLTkxLjg2NCAxNi42MTgtNy40NzUgMzIuNjQ1LTE2LjQyOCA0Ny45NTQtMjYuNzkgMjUuMjg3IDMzLjUxMSA0MS4zODYgNzQuMzE5IDQ0LjUzIDExOC42NTR6Ii8+DQoNCjwvZz4NCg0KPC9zdmc+");
 
 /***/ }),
 

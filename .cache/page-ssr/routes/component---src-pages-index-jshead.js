@@ -2869,10 +2869,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _reach_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @reach/router */ "./node_modules/@gatsbyjs/reach-router/dist/index.modern.mjs");
-/* harmony import */ var gatsby__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gatsby */ "./.cache/gatsby-browser-entry.js");
-/* harmony import */ var _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/layout.module.scss */ "./src/components/layout.module.scss");
-
+/* harmony import */ var gatsby__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gatsby */ "./.cache/gatsby-browser-entry.js");
+/* harmony import */ var _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/layout.module.scss */ "./src/components/layout.module.scss");
 
 
 
@@ -2901,26 +2899,26 @@ const Layout = ({
     }
   }, []);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("header", {
-    className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_3__.header
+    className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_2__.header
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_3__.logo
+    className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_2__.logo
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("nav", {
-    className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_3__.nav
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(gatsby__WEBPACK_IMPORTED_MODULE_2__.Link, {
-    className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_3__.link,
+    className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_2__.nav
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_2__.link,
     to: "/"
-  }, "Home"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(gatsby__WEBPACK_IMPORTED_MODULE_2__.Link, {
-    className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_3__.link,
+  }, "Home"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_2__.link,
     to: "/about"
   }, "About"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     ref: svgRef,
-    className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_3__.svg
+    className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_2__.svg
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("main", {
-    className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_3__.main,
+    className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_2__.main,
     ref: mainRef
   }, children)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     ref: lightRef,
-    className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_3__.light
+    className: _components_layout_module_scss__WEBPACK_IMPORTED_MODULE_2__.light
   }));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Layout);
@@ -2988,7 +2986,7 @@ const IndexPage = ({
   data
 }) => {
   const Greeting = () => {
-    let g = ["Hello!", "Nice to see you!", "Welcome!", "Good morning!", "Good afternoon!", "Good evening!", "How's it going?", "How's your day?", "How's your morning?", "How's your evening?", "How's your afternoon?", "Hey there!"];
+    let g = ["Hello!", "Nice to see you!", "Welcome!", "Good morning!", "Good afternoon!", "Good evening!", "How's it going?", "How's your day?", "How's your morning?", "How's your evening?", "Hey there!"];
     let r = Math.floor(Math.random() * g.length);
     let randomGreeting = g[r];
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
@@ -3009,13 +3007,19 @@ const IndexPage = ({
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.subHeader
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.subtitle
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+  }, "Web Developer", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.flair
-  }, "Web Developer"), " and ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-    className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.flair
-  }, "Rock Climber"), ".")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, " and "), "Rock Climber.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.contactOptions
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+    target: "_blank",
+    rel: "noreferrer",
+    href: "https://drive.google.com/file/d/1Y-JSXySkv6h4fxEzfzRYDLSKMMXPSom4/view?usp=sharing"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.cLogo,
+    src: _assets_logos_resume_svg__WEBPACK_IMPORTED_MODULE_4__["default"],
+    alt: "resume"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     target: "_blank",
     rel: "noreferrer",
     href: "https://linkedin.com/in/marcoramirez001"
@@ -3023,12 +3027,6 @@ const IndexPage = ({
     className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.cLogo,
     src: _assets_logos_linked_svg__WEBPACK_IMPORTED_MODULE_3__["default"],
     alt: "LinkedIn"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "mailto:marcoramirezmail@gmail.com"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    className: _pages_content_module_scss__WEBPACK_IMPORTED_MODULE_2__.cLogo,
-    src: _assets_logos_resume_svg__WEBPACK_IMPORTED_MODULE_4__["default"],
-    alt: "resume"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     target: "_blank",
     rel: "noreferrer",

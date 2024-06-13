@@ -34,7 +34,6 @@ const IndexPage = ({ data }) => {
       "How's your day?",
       "How's your morning?",
       "How's your evening?",
-      "How's your afternoon?",
       "Hey there!",
     ];
 
@@ -58,9 +57,9 @@ const IndexPage = ({ data }) => {
           </div>
           <div className={subHeader}>
             <span className={subtitle}>
-              <span className={flair}>Web Developer</span>
-              {" and "}
-              <span className={flair}>Rock Climber</span>.
+              Web Developer
+              <span className={flair}> and </span>
+              Rock Climber.
             </span>
           </div>
           <div className={contactOptions}>
