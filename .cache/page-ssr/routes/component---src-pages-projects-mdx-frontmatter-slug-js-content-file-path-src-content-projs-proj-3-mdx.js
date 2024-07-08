@@ -178,6 +178,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   header: () => (/* binding */ header),
 /* harmony export */   home: () => (/* binding */ home),
 /* harmony export */   info: () => (/* binding */ info),
+/* harmony export */   left: () => (/* binding */ left),
 /* harmony export */   linkTo: () => (/* binding */ linkTo),
 /* harmony export */   project: () => (/* binding */ project),
 /* harmony export */   projectDetails: () => (/* binding */ projectDetails),
@@ -204,6 +205,7 @@ var info = "content-module--info--bf89f";
 var contact = "content-module--contact--312eb";
 var projectDetails = "content-module--projectDetails--56a5e";
 var details = "content-module--details--c857c";
+var left = "content-module--left--87cfd";
 
 
 /***/ }),
@@ -2939,7 +2941,6 @@ const Project = ({
   const {
     frontmatter
   } = data.mdx;
-  console.log(frontmatter);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_components_layout__WEBPACK_IMPORTED_MODULE_6__["default"], {
     pageTitle: "Project Description"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
@@ -2949,6 +2950,8 @@ const Project = ({
     to: "/"
   }, "Back to projects"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
     className: _content_module_scss__WEBPACK_IMPORTED_MODULE_3__.details
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
+    className: _content_module_scss__WEBPACK_IMPORTED_MODULE_3__.left
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(gatsby_plugin_image__WEBPACK_IMPORTED_MODULE_8__.GatsbyImage, {
     image: image,
     alt: "Project Photo"
@@ -2969,8 +2972,8 @@ const Project = ({
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("img", {
     className: _content_module_scss__WEBPACK_IMPORTED_MODULE_3__.cLogo,
     src: _assets_logos_github_svg__WEBPACK_IMPORTED_MODULE_4__["default"],
-    alt: "Github"
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
+    alt: "github"
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
     className: _content_module_scss__WEBPACK_IMPORTED_MODULE_3__.info
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_mdx_js_react__WEBPACK_IMPORTED_MODULE_9__.MDXProvider, {
     components: {

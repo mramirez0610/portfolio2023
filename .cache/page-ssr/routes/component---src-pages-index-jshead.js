@@ -178,6 +178,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   header: () => (/* binding */ header),
 /* harmony export */   home: () => (/* binding */ home),
 /* harmony export */   info: () => (/* binding */ info),
+/* harmony export */   left: () => (/* binding */ left),
 /* harmony export */   linkTo: () => (/* binding */ linkTo),
 /* harmony export */   project: () => (/* binding */ project),
 /* harmony export */   projectDetails: () => (/* binding */ projectDetails),
@@ -204,6 +205,7 @@ var info = "content-module--info--bf89f";
 var contact = "content-module--contact--312eb";
 var projectDetails = "content-module--projectDetails--56a5e";
 var details = "content-module--details--c857c";
+var left = "content-module--left--87cfd";
 
 
 /***/ }),

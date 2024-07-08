@@ -192,9 +192,6 @@
         gap: 15%;
         animation: fadeIn 1000ms ease-in-out;
         padding: 4%;
-        border-radius: 20px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        background: rgba(255, 255, 255, 0.2);
         .cLogo {
           width: 40px;
           height: 40px;
@@ -217,13 +214,32 @@
       flex-direction: column;
       gap: 2rem;
       align-items: center;
+      .info {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 904px) {
+  .header {
+    .contactOptions {
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      background: rgba(255, 255, 255, 0.2);
+      justify-content: center !important;
+      padding: 4%;
+    }
+  }
+  .projectDetails {
+    .details {
       .left {
         .contactOptions {
           width: 100%;
+          border-radius: 20px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+          background: rgba(255, 255, 255, 0.2);
         }
-      }
-      .info {
-        width: 100%;
       }
     }
   }
