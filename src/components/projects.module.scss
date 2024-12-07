@@ -1,0 +1,66 @@
+.projects {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 2%;
+
+  .project {
+    margin: 2% 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+    width: 100%;
+    max-width: 300px;
+    align-items: center;
+    text-decoration: none;
+
+    padding: 2%;
+    border-radius: 10px;
+    transition: transform 200ms ease-in-out, box-shadow 200ms ease-in-out,
+      background 200ms ease-in-out;
+
+    position: relative;
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .imageStyle {
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      height: auto;
+
+      position: relative;
+      z-index: 1;
+      transition: transform 300ms ease-in-out, box-shadow 300ms ease-in-out;
+      perspective: 800px;
+
+      &:hover {
+        transform: scale(1.06);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+    }
+
+    .info {
+      margin-top: 8%;
+      .linkTo {
+        font-weight: bold;
+        text-decoration: none;
+        background: linear-gradient(
+          170deg,
+          rgb(225, 198, 153),
+          rgb(235, 211, 196)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+  }
+}
+
+.transition {
+  transition: transform 0.3s ease-in-out;
+}

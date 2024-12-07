@@ -180,9 +180,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   info: () => (/* binding */ info),
 /* harmony export */   left: () => (/* binding */ left),
 /* harmony export */   linkTo: () => (/* binding */ linkTo),
-/* harmony export */   project: () => (/* binding */ project),
 /* harmony export */   projectDetails: () => (/* binding */ projectDetails),
-/* harmony export */   projects: () => (/* binding */ projects),
 /* harmony export */   seperator: () => (/* binding */ seperator),
 /* harmony export */   subHeader: () => (/* binding */ subHeader),
 /* harmony export */   subtitle: () => (/* binding */ subtitle)
@@ -199,12 +197,10 @@ var seperator = "content-module--seperator--71ce9";
 var contactOptions = "content-module--contactOptions--f5367";
 var fadeIn = "content-module--fadeIn--9e290";
 var cLogo = "content-module--cLogo--f8b6b";
-var projects = "content-module--projects--f8f0e";
-var project = "content-module--project--9f684";
-var info = "content-module--info--bf89f";
 var contact = "content-module--contact--312eb";
 var projectDetails = "content-module--projectDetails--56a5e";
 var details = "content-module--details--c857c";
+var info = "content-module--info--bf89f";
 var left = "content-module--left--87cfd";
 
 

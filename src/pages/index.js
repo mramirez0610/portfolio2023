@@ -1,15 +1,10 @@
 import * as React from "react";
-import { graphql, Link } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { graphql } from "gatsby";
 import {
   subtitle,
   header,
   subHeader,
   home,
-  linkTo,
-  projects,
-  project,
-  info,
   flair,
   contactOptions,
   cLogo,
@@ -17,6 +12,7 @@ import {
 import li from "../assets/logos/linked.svg";
 import re from "../assets/logos/resume.svg";
 import gh from "../assets/logos/github.svg";
+import Projects from "../components/projects";
 
 import Layout from "../components/layout";
 import Seo from "../components/seo";
@@ -86,31 +82,9 @@ const IndexPage = ({ data }) => {
             </a>
           </div>
         </div>
-
-        <div className={projects}>
-          {data.allMdx.nodes.map((node) => (
-            <Link
-              className={project}
-              key={node.id}
-              to={`/projects/${node.frontmatter.slug}`}
-            >
-              <GatsbyImage
-                image={getImage(node.frontmatter.image)}
-              ></GatsbyImage>
-              <div className={info}>
-                <h3>
-                  <Link
-                    to={`/projects/${node.frontmatter.slug}`}
-                    className={linkTo}
-                  >
-                    {node.frontmatter.title}
-                  </Link>
-                </h3>
-              </div>
-            </Link>
-          ))}
-        </div>
       </div>
+
+      <Projects data={data} />
     </Layout>
   );
 };
@@ -125,7 +99,7 @@ export const query = graphql`
           slug
           image {
             childImageSharp {
-              gatsbyImageData(layout: FIXED, width: 300)
+              gatsbyImageData(layout: FIXED, width: 250)
             }
           }
         }
