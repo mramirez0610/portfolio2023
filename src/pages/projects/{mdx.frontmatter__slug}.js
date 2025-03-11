@@ -31,7 +31,7 @@ const Project = ({ data, children }) => {
 
         <div className={details}>
           <div className={left}>
-            <GatsbyImage image={image} alt="Project Photo" />
+            <GatsbyImage image={image} className={image} alt="Project Photo" />
             <div className={contactOptions}>
               <a target="_blank" rel="noreferrer" href={frontmatter.url}>
                 <img className={cLogo} src={ls} alt="live server" />

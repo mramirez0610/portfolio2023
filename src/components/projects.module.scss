@@ -64,3 +64,11 @@
 .transition {
   transition: transform 0.3s ease-in-out;
 }
+
+@media (max-width: 850px) {
+  .projects {
+    .project {
+      padding: 4% 0;
+    }
+  }
+}

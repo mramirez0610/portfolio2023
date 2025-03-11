@@ -143,6 +143,9 @@
     }
 
     .left {
+      img {
+        border-radius: 10px;
+      }
       .contactOptions {
         margin: 0 auto;
         margin-top: 10%;
@@ -167,7 +170,7 @@
 
 @media (max-width: 1024px) {
   .header {
-    margin-bottom: 10%;
+    margin-bottom: 5%;
   }
   .projectDetails {
     .details {
@@ -184,21 +187,18 @@
 @media (max-width: 904px) {
   .header {
     .contactOptions {
-      border-radius: 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-      background: rgba(255, 255, 255, 0.2);
       justify-content: center !important;
-      padding: 4%;
+      padding: 2%;
     }
   }
   .projectDetails {
     .details {
       .left {
         .contactOptions {
-          width: 100%;
-          border-radius: 20px;
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-          background: rgba(255, 255, 255, 0.2);
+          // width: 100%;
+          // border-radius: 20px;
+          // box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+          // background: rgba(255, 255, 255, 0.2);
         }
       }
     }
