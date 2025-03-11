@@ -3,8 +3,8 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Portfolio`,
-    siteUrl: `https://www.yourdomain.tld`,
+    title: `Marco Ramirez Portfolio`,
+    siteUrl: `https://marcoramirez.dev`,
   },
   plugins: [
     "gatsby-plugin-netlify-cms",
@@ -26,6 +26,14 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/assets/imgs`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        icon: `${__dirname}/src/assets/logos/logo.svg`,
+        start_url: `/`,
+        display: `standalone`,
       },
     },
   ],

@@ -3,6 +3,10 @@ var plugins = [{
       plugin: require('/Users/marco/Documents/personalProjs/portfolio/node_modules/gatsby-plugin-image/gatsby-ssr.js'),
       options: {"plugins":[]},
     },{
+      name: 'gatsby-plugin-manifest',
+      plugin: require('/Users/marco/Documents/personalProjs/portfolio/node_modules/gatsby-plugin-manifest/gatsby-ssr.js'),
+      options: {"plugins":[],"icon":"/Users/marco/Documents/personalProjs/portfolio/src/assets/logos/logo.svg","start_url":"/","display":"standalone","legacy":true,"theme_color_in_head":true,"cache_busting_mode":"query","crossOrigin":"anonymous","include_favicon":true,"cacheDigest":"5718ece8b5b1d84c2b133f4b6046d762"},
+    },{
       name: 'partytown',
       plugin: require('/Users/marco/Documents/personalProjs/portfolio/node_modules/gatsby/dist/internal-plugins/partytown/gatsby-ssr.js'),
       options: {"plugins":[]},
