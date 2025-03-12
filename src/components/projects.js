@@ -41,6 +41,34 @@ export default function Projects({ data }) {
     e.currentTarget.classList.add(transition);
   };
 
+  const handleTouchStart = (e) => {
+    boundingRef.current = e.currentTarget.getBoundingClientRect();
+    e.currentTarget.style.transform = `rotateX(0deg) rotateY(0deg)`;
+    e.currentTarget.classList.remove(transition);
+  };
+
+  const handleTouchMove = (e) => {
+    if (!boundingRef.current) return;
+
+    const touch = e.touches[0];
+    const x = touch.clientX - boundingRef.current.left;
+    const y = touch.clientY - boundingRef.current.top;
+
+    const xPercent = x / boundingRef.current.width;
+    const yPercent = y / boundingRef.current.height;
+
+    const xRotation = (0.5 - xPercent) * 10;
+    const yRotation = (0.5 - yPercent) * 10;
+
+    e.currentTarget.style.transform = `perspective(800px) rotateX(${-yRotation}deg) rotateY(${xRotation}deg)`;
+  };
+
+  const handleTouchEnd = (e) => {
+    boundingRef.current = null;
+    e.currentTarget.style.transform = `rotateX(0deg) rotateY(0deg)`;
+    e.currentTarget.classList.add(transition);
+  };
+
   return (
     <div>
       <div className={projects}>
@@ -54,6 +82,9 @@ export default function Projects({ data }) {
               onMouseEnter={handleMouseEnter}
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
             >
               <GatsbyImage
                 image={getImage(node.frontmatter.image)}
