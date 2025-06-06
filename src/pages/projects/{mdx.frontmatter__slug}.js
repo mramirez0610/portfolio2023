@@ -10,6 +10,8 @@ import {
   contactOptions,
   cLogo,
   left,
+  techContainer,
+  tech,
 } from "../content.module.scss";
 import gh from "../../assets/logos/github.svg";
 import ls from "../../assets/logos/internet.svg";
@@ -32,6 +34,14 @@ const Project = ({ data, children }) => {
         <div className={details}>
           <div className={left}>
             <GatsbyImage image={image} className={image} alt="Project Photo" />
+            <div className={techContainer}>
+              {frontmatter.tech.map((t) => (
+                <div className={tech}>
+                  <span>{t}</span>
+                </div>
+              ))}
+            </div>
+
             <div className={contactOptions}>
               <a target="_blank" rel="noreferrer" href={frontmatter.url}>
                 <img className={cLogo} src={ls} alt="live server" />
@@ -66,6 +76,7 @@ export const query = graphql`
         }
         url
         github
+        tech
       }
     }
   }
