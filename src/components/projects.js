@@ -1,14 +1,7 @@
 import * as React from "react";
 import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import {
-  projects,
-  project,
-  info,
-  linkTo,
-  imageStyle,
-  transition,
-} from "../styles/components/projects.module.scss";
+import * as styles from "@styles/components/projects.module.scss";
 import { useRef } from "react";
 
 export default function Projects({ data }) {
@@ -17,7 +10,7 @@ export default function Projects({ data }) {
   const handleMouseEnter = (e) => {
     boundingRef.current = e.currentTarget.getBoundingClientRect();
     e.currentTarget.style.transform = `rotateX(0deg) rotateY(0deg)`;
-    e.currentTarget.classList.remove(transition);
+    e.currentTarget.classList.remove(styles.transition);
   };
 
   const handleMouseMove = (e) => {
@@ -38,13 +31,13 @@ export default function Projects({ data }) {
   const handleMouseLeave = (e) => {
     boundingRef.current = null;
     e.currentTarget.style.transform = `rotateX(0deg) rotateY(0deg)`;
-    e.currentTarget.classList.add(transition);
+    e.currentTarget.classList.add(styles.transition);
   };
 
   const handleTouchStart = (e) => {
     boundingRef.current = e.currentTarget.getBoundingClientRect();
     e.currentTarget.style.transform = `rotateX(0deg) rotateY(0deg)`;
-    e.currentTarget.classList.remove(transition);
+    e.currentTarget.classList.remove(styles.transition);
   };
 
   const handleTouchMove = (e) => {
@@ -66,15 +59,15 @@ export default function Projects({ data }) {
   const handleTouchEnd = (e) => {
     boundingRef.current = null;
     e.currentTarget.style.transform = `rotateX(0deg) rotateY(0deg)`;
-    e.currentTarget.classList.add(transition);
+    e.currentTarget.classList.add(styles.transition);
   };
 
   return (
     <div>
-      <div className={projects}>
+      <div className={styles.projects}>
         {data.allMdx.nodes.map((node) => (
           <Link
-            className={project}
+            className={styles.project}
             key={node.id}
             to={`/projects/${node.frontmatter.slug}`}
           >
@@ -89,14 +82,14 @@ export default function Projects({ data }) {
               <GatsbyImage
                 image={getImage(node.frontmatter.image)}
                 alt={node.frontmatter.title}
-                className={imageStyle}
+                className={styles.imageStyle}
               />
             </div>
-            <div className={info}>
+            <div className={styles.info}>
               <h3>
                 <Link
                   to={`/projects/${node.frontmatter.slug}`}
-                  className={linkTo}
+                  className={styles.linkTo}
                 >
                   {node.frontmatter.title}
                 </Link>

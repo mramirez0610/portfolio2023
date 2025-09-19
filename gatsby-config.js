@@ -7,7 +7,6 @@ module.exports = {
     siteUrl: `https://marcoramirez.dev`,
   },
   plugins: [
-    "gatsby-plugin-netlify-cms",
     "gatsby-plugin-sass",
     "gatsby-plugin-mdx",
     "gatsby-plugin-image",
@@ -34,6 +33,18 @@ module.exports = {
         icon: `${__dirname}/src/assets/logos/logo.svg`,
         start_url: `/`,
         display: `standalone`,
+      },
+    },
+    {
+      resolve: `gatsby-alias-imports`,
+      options: {
+        aliases: {
+          "@": "src/",
+          "@styles": "src/styles",
+          "@components": "src/components",
+          "@pages": "src/pages",
+          "@assets": "src/assets",
+        },
       },
     },
   ],

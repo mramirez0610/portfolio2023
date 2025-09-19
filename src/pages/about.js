@@ -1,24 +1,17 @@
 import * as React from "react";
 import { Link } from "gatsby";
-import {
-  contact,
-  contactOptions,
-  cLogo,
-  subHeader,
-  linkTo,
-  flair,
-} from "../styles/pages/content.module.scss";
-import Layout from "../components/layout";
-import Seo from "../components/seo";
-import li from "../assets/logos/linked.svg";
-import re from "../assets/logos/resume.svg";
-import gh from "../assets/logos/github.svg";
+import * as styles from "@styles/pages/content.module.scss";
+import Layout from "@components/layout";
+import Seo from "@components/seo";
+import li from "@assets/logos/linked.svg";
+import re from "@assets/logos/resume.svg";
+import gh from "@assets/logos/github.svg";
 
 const AboutPage = () => {
   return (
     <Layout>
-      <div className={contact}>
-        <h1 className={flair}>About Me!</h1>
+      <div className={styles.contact}>
+        <h1 className={styles.flair}>About Me!</h1>
         <p>
           I'm Marco Ramirez, a dedicated web developer with a passion for
           creating intuitive and dynamic web experiences. Rock climbing and web
@@ -33,7 +26,7 @@ const AboutPage = () => {
           looking to learn more, and I'm always looking for new opportunities to
           grow as a developer. Feel free to{" "}
           <Link
-            className={linkTo}
+            className={styles.linkTo}
             target="_blank"
             rel="noreferrer"
             to="https://linkedin.com/in/marcoramirez001"
@@ -43,8 +36,8 @@ const AboutPage = () => {
           if you have any questions or if you'd like to work together.
         </p>
 
-        <div className={subHeader}>
-          <h3 className={flair} style={{ fontSize: "1.4em" }}>
+        <div className={styles.subHeader}>
+          <h3 className={styles.flair} style={{ fontSize: "1.4em" }}>
             Shoot me a message!
           </h3>
         </div>
@@ -59,27 +52,27 @@ const AboutPage = () => {
           to see other projects I'm working on. Feel free to get in touch!
         </p>
 
-        <div className={contactOptions}>
+        <div className={styles.contactOptions}>
           <a
             target="_blank"
             rel="noreferrer"
             href="https://drive.google.com/file/d/1Y-JSXySkv6h4fxEzfzRYDLSKMMXPSom4/view?usp=sharing"
           >
-            <img className={cLogo} src={re} alt="resume" />
+            <img className={styles.cLogo} src={re} alt="resume" />
           </a>
           <a
             target="_blank"
             rel="noreferrer"
             href="https://linkedin.com/in/marcoramirez001"
           >
-            <img className={cLogo} src={li} alt="LinkedIn" />
+            <img className={styles.cLogo} src={li} alt="LinkedIn" />
           </a>
           <a
             target="_blank"
             rel="noreferrer"
             href="https://github.com/mramirez0610"
           >
-            <img className={cLogo} src={gh} alt="Github" />
+            <img className={styles.cLogo} src={gh} alt="Github" />
           </a>
         </div>
       </div>
@@ -89,4 +82,4 @@ const AboutPage = () => {
 
 export default AboutPage;
 
-export const Head = () => <Seo title="About" />;
+export const Head = () => <Seo title="About Me" />;

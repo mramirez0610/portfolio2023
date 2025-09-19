@@ -1,28 +1,27 @@
 import * as React from "react";
 import { useEffect, useRef } from "react";
 import { Link } from "gatsby";
-import * as styles from "../styles/components/layout.module.scss";
+import * as styles from "@styles/components/layout.module.scss";
 
 const Layout = ({ pageTitle, children }) => {
   const mainRef = useRef();
-  const svgRef = useRef();
   const lightRef = useRef();
 
   useEffect(() => {
-    const svg = svgRef.current;
+    const main = mainRef.current;
     const light = lightRef.current;
 
-    if (svg && light) {
+    if (main && light) {
       const handleMouseMove = (e) => {
         light.style.top = e.pageY + "px";
         light.style.left = e.pageX + "px";
       };
 
-      svg.addEventListener("mousemove", handleMouseMove);
+      main.addEventListener("mousemove", handleMouseMove);
 
       // cleanup function to remove the event listener when the component unmounts
       return () => {
-        svg.removeEventListener("mousemove", handleMouseMove);
+        main.removeEventListener("mousemove", handleMouseMove);
       };
     }
   }, []);
@@ -41,11 +40,9 @@ const Layout = ({ pageTitle, children }) => {
           </Link>
         </nav>
       </header>
-      <div ref={svgRef} className={styles.svg}>
-        <main className={styles.main} ref={mainRef}>
-          {children}
-        </main>
-      </div>
+      <main ref={mainRef} className={styles.svg}>
+        <section className={styles.main}>{children}</section>
+      </main>
       <div ref={lightRef} className={styles.light}></div>
     </div>
   );

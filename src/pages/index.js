@@ -1,21 +1,12 @@
 import * as React from "react";
 import { graphql } from "gatsby";
-import {
-  subtitle,
-  header,
-  subHeader,
-  home,
-  flair,
-  contactOptions,
-  cLogo,
-} from "../styles/pages/content.module.scss";
-import li from "../assets/logos/linked.svg";
-import re from "../assets/logos/resume.svg";
-import gh from "../assets/logos/github.svg";
-import Projects from "../components/projects";
-
-import Layout from "../components/layout";
-import Seo from "../components/seo";
+import * as styles from "@styles/pages/content.module.scss";
+import li from "@assets/logos/linked.svg";
+import re from "@assets/logos/resume.svg";
+import gh from "@assets/logos/github.svg";
+import Projects from "@components/projects";
+import Layout from "@components/layout";
+import Seo from "@components/seo";
 
 const IndexPage = ({ data }) => {
   const Greeting = () => {
@@ -37,48 +28,48 @@ const IndexPage = ({ data }) => {
     let randomGreeting = g[r];
 
     return (
-      <h2 className={subHeader}>
-        <span className={flair}>{randomGreeting}</span>
+      <h2 className={styles.subHeader}>
+        <span className={styles.flair}>{randomGreeting}</span>
       </h2>
     );
   };
 
   return (
     <Layout>
-      <div className={home}>
-        <div className={header}>
+      <div className={styles.home}>
+        <div className={styles.header}>
           <Greeting />
-          <div className={subHeader}>
-            <span className={subtitle}>I'm Marco Ramirez.</span>
+          <div className={styles.subHeader}>
+            <span className={styles.subtitle}>I'm Marco Ramirez.</span>
           </div>
-          <div className={subHeader}>
-            <span className={subtitle}>
+          <div className={styles.subHeader}>
+            <span className={styles.subtitle}>
               Web Developer
-              <span className={flair}> and </span>
+              <span className={styles.flair}> and </span>
               Rock Climber.
             </span>
           </div>
-          <div className={contactOptions}>
+          <div className={styles.contactOptions}>
             <a
               target="_blank"
               rel="noreferrer"
               href="https://drive.google.com/file/d/1Y-JSXySkv6h4fxEzfzRYDLSKMMXPSom4/view?usp=sharing"
             >
-              <img className={cLogo} src={re} alt="resume" />
+              <img className={styles.cLogo} src={re} alt="resume" />
             </a>
             <a
               target="_blank"
               rel="noreferrer"
               href="https://linkedin.com/in/marcoramirez001"
             >
-              <img className={cLogo} src={li} alt="LinkedIn" />
+              <img className={styles.cLogo} src={li} alt="LinkedIn" />
             </a>
             <a
               target="_blank"
               rel="noreferrer"
               href="https://github.com/mramirez0610"
             >
-              <img className={cLogo} src={gh} alt="Github" />
+              <img className={styles.cLogo} src={gh} alt="Github" />
             </a>
           </div>
         </div>

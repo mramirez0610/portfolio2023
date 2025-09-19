@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link, graphql } from "gatsby";
 import { MDXProvider } from "@mdx-js/react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import * as styles from "../../styles/pages/content.module.scss";
+import * as styles from "@styles/pages/content.module.scss";
 import gh from "../../assets/logos/github.svg";
 import ls from "../../assets/logos/internet.svg";
 import Layout from "../../components/layout";
