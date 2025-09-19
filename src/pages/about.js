@@ -7,7 +7,7 @@ import {
   subHeader,
   linkTo,
   flair,
-} from "../pages/content.module.scss";
+} from "../styles/pages/content.module.scss";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 import li from "../assets/logos/linked.svg";

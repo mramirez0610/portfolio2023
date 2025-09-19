@@ -8,7 +8,7 @@ import {
   flair,
   contactOptions,
   cLogo,
-} from "../pages/content.module.scss";
+} from "../styles/pages/content.module.scss";
 import li from "../assets/logos/linked.svg";
 import re from "../assets/logos/resume.svg";
 import gh from "../assets/logos/github.svg";

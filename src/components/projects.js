@@ -8,7 +8,7 @@ import {
   linkTo,
   imageStyle,
   transition,
-} from "./projects.module.scss";
+} from "../styles/components/projects.module.scss";
 import { useRef } from "react";
 
 export default function Projects({ data }) {

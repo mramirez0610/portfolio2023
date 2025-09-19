@@ -13,8 +13,18 @@ const Seo = ({ title }) => {
   `);
 
   return (
-    <title>{title} | {data.site.siteMetadata.title}</title>
-  )
+    <>
+      <title>
+        {title} | {data.site.siteMetadata.title}
+      </title>
+      <link
+        rel="preconnect"
+        href="https://api.fontshare.com"
+        crossOrigin="anonymous"
+      />
+      <link rel="preconnect" href="https://r.jina.ai" crossOrigin="anonymous" />
+    </>
+  );
 };
 
 export default Seo;

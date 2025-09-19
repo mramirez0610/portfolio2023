@@ -1,15 +1,7 @@
 import * as React from "react";
 import { useEffect, useRef } from "react";
 import { Link } from "gatsby";
-import {
-  header,
-  nav,
-  link,
-  main,
-  light,
-  svg,
-  logo,
-} from "../components/layout.module.scss";
+import * as styles from "../styles/components/layout.module.scss";
 
 const Layout = ({ pageTitle, children }) => {
   const mainRef = useRef();
@@ -37,24 +29,24 @@ const Layout = ({ pageTitle, children }) => {
 
   return (
     <div>
-      <header className={header}>
-        <div className={logo}></div>
-        <nav className={nav}>
-          <Link className={link} to="/">
+      <header className={styles.header}>
+        <div className={styles.logo}></div>
+        <nav className={styles.nav}>
+          <Link className={styles.link} to="/">
             Home
           </Link>
 
-          <Link className={link} to="/about">
+          <Link className={styles.link} to="/about">
             About
           </Link>
         </nav>
       </header>
-      <div ref={svgRef} className={svg}>
-        <main className={main} ref={mainRef}>
+      <div ref={svgRef} className={styles.svg}>
+        <main className={styles.main} ref={mainRef}>
           {children}
         </main>
       </div>
-      <div ref={lightRef} className={light}></div>
+      <div ref={lightRef} className={styles.light}></div>
     </div>
   );
 };

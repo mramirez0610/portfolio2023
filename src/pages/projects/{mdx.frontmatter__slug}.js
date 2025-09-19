@@ -2,17 +2,7 @@ import * as React from "react";
 import { Link, graphql } from "gatsby";
 import { MDXProvider } from "@mdx-js/react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import {
-  projectDetails,
-  flair,
-  details,
-  info,
-  contactOptions,
-  cLogo,
-  left,
-  techContainer,
-  tech,
-} from "../content.module.scss";
+import * as styles from "../../styles/pages/content.module.scss";
 import gh from "../../assets/logos/github.svg";
 import ls from "../../assets/logos/internet.svg";
 import Layout from "../../components/layout";
@@ -26,33 +16,37 @@ const Project = ({ data, children }) => {
 
   return (
     <Layout pageTitle="Project Description">
-      <div className={projectDetails}>
-        <Link className={flair} to="/">
+      <div className={styles.projectDetails}>
+        <Link className={styles.flair} to="/">
           Back to projects
         </Link>
 
-        <div className={details}>
-          <div className={left}>
-            <GatsbyImage image={image} className={image} alt="Project Photo" />
-            <div className={techContainer}>
+        <div className={styles.details}>
+          <div className={styles.left}>
+            <GatsbyImage
+              image={image}
+              className={styles.image}
+              alt="Project Photo"
+            />
+            <div className={styles.techContainer}>
               {frontmatter.tech.map((t) => (
-                <div className={tech}>
+                <div className={styles.tech}>
                   <span>{t}</span>
                 </div>
               ))}
             </div>
 
-            <div className={contactOptions}>
+            <div className={styles.contactOptions}>
               <a target="_blank" rel="noreferrer" href={frontmatter.url}>
-                <img className={cLogo} src={ls} alt="live server" />
+                <img className={styles.cLogo} src={ls} alt="live server" />
               </a>
               <a target="_blank" rel="noreferrer" href={frontmatter.github}>
-                <img className={cLogo} src={gh} alt="github" />
+                <img className={styles.cLogo} src={gh} alt="github" />
               </a>
             </div>
           </div>
 
-          <div className={info}>
+          <div className={styles.info}>
             <MDXProvider components={{ li: MDXStyling }}>
               {children}
             </MDXProvider>
