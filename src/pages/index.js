@@ -67,7 +67,10 @@ const IndexPage = ({ data }) => {
     <Layout>
       <div className={styles.home}>
         <div className={styles.header}>
-          <Greeting />
+          {/* <Greeting /> */}
+          <h2 className={styles.subHeader}>
+            <span className={styles.flair}>Hey There!</span>
+          </h2>
           <div className={styles.subHeader}>
             <span className={styles.subtitle}>I'm Marco Ramirez.</span>
           </div>
