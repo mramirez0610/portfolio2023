@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { Link } from "gatsby";
 import * as styles from "@styles/components/layout.module.scss";
 
@@ -7,7 +7,7 @@ const Layout = ({ pageTitle, children }) => {
   const mainRef = useRef();
   const lightRef = useRef();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const main = mainRef.current;
     const light = lightRef.current;
 
