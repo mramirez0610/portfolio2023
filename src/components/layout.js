@@ -1,11 +1,18 @@
 import * as React from "react";
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useState, useEffect } from "react";
 import { Link } from "gatsby";
 import * as styles from "@styles/components/layout.module.scss";
 
 const Layout = ({ pageTitle, children }) => {
   const mainRef = useRef();
   const lightRef = useRef();
+
+  const [isClient, setIsClient] = useState(false);
+
+  //testing to see if light is causing hydration mismatch
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   useLayoutEffect(() => {
     const main = mainRef.current;
@@ -43,7 +50,7 @@ const Layout = ({ pageTitle, children }) => {
       <main ref={mainRef} className={styles.svg}>
         <section className={styles.main}>{children}</section>
       </main>
-      <div ref={lightRef} className={styles.light}></div>
+      {isClient && <div ref={lightRef} className={styles.light}></div>}
     </div>
   );
 };
