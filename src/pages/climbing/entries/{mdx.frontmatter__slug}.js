@@ -23,7 +23,10 @@ export default function Entry({ data, children }) {
 
 export const query = graphql`
   query ($id: String) {
-    mdx(id: { eq: $id }) {
+    mdx(
+      id: { eq: $id }
+      internal: { contentFilePath: { regex: "/src/content/climbing/" } }
+    ) {
       frontmatter {
         title
         date(formatString: "MM-DD-YYYY")
