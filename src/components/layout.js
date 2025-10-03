@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useLayoutEffect, useRef } from "react";
 import { Link } from "gatsby";
-import * as styles from "@styles/components/layout.module.scss";
+import * as styles from "@styles/components/portfolio/layout.module.scss";
 
 const Layout = ({ pageTitle, children }) => {
   const mainRef = useRef();
@@ -40,8 +40,8 @@ const Layout = ({ pageTitle, children }) => {
           </Link>
         </nav>
       </header>
-      <main ref={mainRef} className={styles.svg}>
-        <section className={styles.main}>{children}</section>
+      <main ref={mainRef} className={styles.main}>
+        <section className={styles.content}>{children}</section>
       </main>
       <div ref={lightRef} className={styles.light}></div>
     </div>

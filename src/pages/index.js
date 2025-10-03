@@ -1,7 +1,6 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
 import { graphql } from "gatsby";
-import * as styles from "@styles/pages/content.module.scss";
+import * as styles from "@styles/pages/home/home.module.scss";
 import li from "@assets/logos/linked.svg";
 import re from "@assets/logos/resume.svg";
 import gh from "@assets/logos/github.svg";
@@ -10,7 +9,11 @@ import Layout from "@components/layout";
 import Seo from "@components/seo";
 
 const IndexPage = ({ data }) => {
-  /*   const Greeting = () => {
+  /*   
+  i'd like to change the greeting to something a bit more cool.
+  time dependent? that'd be neat
+  
+  const Greeting = () => {
     let g = [
       "Hello!",
       "Nice to see you!",
@@ -34,34 +37,6 @@ const IndexPage = ({ data }) => {
       </h2>
     );
   }; */
-  const Greeting = () => {
-    const [randomGreeting, setRandomGreeting] = useState("");
-
-    useEffect(() => {
-      const greetings = [
-        "Hello!",
-        "Nice to see you!",
-        "Welcome!",
-        "Good morning!",
-        "Good afternoon!",
-        "Good evening!",
-        "How's it going?",
-        "How's your day?",
-        "How's your morning?",
-        "How's your evening?",
-        "Hey there!",
-      ];
-
-      const randomIndex = Math.floor(Math.random() * greetings.length);
-      setRandomGreeting(greetings[randomIndex]);
-    }, []);
-
-    return (
-      <h2 className={styles.subHeader}>
-        <span className={styles.flair}>{randomGreeting}</span>
-      </h2>
-    );
-  };
 
   return (
     <Layout>
@@ -114,7 +89,12 @@ const IndexPage = ({ data }) => {
 
 export const query = graphql`
   query {
-    allMdx(sort: { frontmatter: { date: DESC } }) {
+    allMdx(
+      filter: {
+        internal: { contentFilePath: { regex: "/src/content/projs/" } }
+      }
+      sort: { frontmatter: { date: DESC } }
+    ) {
       nodes {
         frontmatter {
           date(formatString: "MMMM D, YYYY")

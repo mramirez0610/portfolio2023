@@ -1,0 +1,35 @@
+.contact {
+  p {
+    font-size: 1.2em;
+  }
+  .flair {
+    background: linear-gradient(170deg, rgb(225, 198, 153), rgb(235, 211, 196));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .linkTo {
+    background: linear-gradient(170deg, rgb(225, 198, 153), rgb(235, 211, 196));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .contactOptions {
+    margin: 0 auto;
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 3%;
+    animation: fadeIn 1000ms ease-in-out;
+    fill: #f2f5ea;
+    .cLogo {
+      width: 50px;
+      height: 50px;
+      transition: all 0.2s ease-in-out;
+    }
+    .cLogo:hover {
+      transform: scale(1.15);
+    }
+  }
+}

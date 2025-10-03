@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Link } from "gatsby";
-import * as styles from "@styles/pages/content.module.scss";
+import * as styles from "@styles/pages/about/about.module.scss";
 import Layout from "@components/layout";
 import Seo from "@components/seo";
 import li from "@assets/logos/linked.svg";

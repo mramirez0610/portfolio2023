@@ -1,0 +1,126 @@
+@use "../../all" as *;
+@import url("https://api.fontshare.com/v2/css?f[]=satoshi@700,500,300,400&display=optional");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  font-family: "Satoshi", sans-serif;
+  color: #f2f5ea;
+  background-color: $black;
+  overflow-x: hidden;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-bottom: 16px;
+}
+body {
+  height: 100vh;
+}
+.header {
+  height: 10%;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(170deg, rgb(225, 198, 153), rgb(235, 211, 196));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 0 5%;
+  position: fixed;
+  z-index: 2;
+
+  .logo {
+    background-image: url(../../../assets/logos/logo.svg);
+    width: 25px;
+    height: 25px;
+    background-repeat: no-repeat;
+    shape-rendering: crispEdges;
+  }
+  .nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20%;
+
+    .link {
+      color: #f2f5ea;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.content {
+  box-sizing: border-box;
+  width: 80vw;
+  margin: 8% auto;
+  padding: 4%;
+  transition: height 700ms ease-in-out;
+  & > * {
+    animation: fadeIn 800ms ease-in-out;
+  }
+  p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+}
+
+.main {
+  position: absolute;
+  z-index: 1;
+  min-height: 90vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+.light {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 15em;
+  height: 15em;
+  filter: blur(45px);
+  opacity: 0.4;
+  background: linear-gradient(170deg, rgb(225, 198, 153), rgb(235, 211, 196));
+  z-index: 0;
+  border-radius: 40%;
+  transition: top 60ms, left 60ms;
+}
+
+@media (max-width: 1040px) {
+  .content {
+    width: 80vw;
+  }
+}
+@media (max-width: 905px) {
+  .light {
+    width: 0;
+    height: 0;
+    background: none;
+  }
+}
+@media (max-width: 450px) {
+  .content {
+    margin: 22% auto;
+    width: 93vw;
+  }
+}

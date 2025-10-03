@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import * as styles from "@styles/components/projects.module.scss";
+import * as styles from "@styles/components/portfolio/projects.module.scss";
 import { useRef } from "react";
 
 export default function Projects({ data }) {
