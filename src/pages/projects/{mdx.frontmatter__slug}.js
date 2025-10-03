@@ -29,7 +29,7 @@ const Project = ({ data, children }) => {
               alt="Project Photo"
             />
             <div className={styles.techContainer}>
-              {frontmatter.tech.map((t) => (
+              {frontmatter.tech?.map((t) => (
                 <div className={styles.tech}>
                   <span>{t}</span>
                 </div>
@@ -59,7 +59,10 @@ const Project = ({ data, children }) => {
 
 export const query = graphql`
   query ($id: String) {
-    mdx(id: { eq: $id }) {
+    mdx(
+      id: { eq: $id }
+      internal: { contentFilePath: { regex: "/src/content/projs/" } }
+    ) {
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
