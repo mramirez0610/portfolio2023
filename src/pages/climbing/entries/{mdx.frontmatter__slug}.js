@@ -1,7 +1,7 @@
 import * as React from "react";
 import { graphql } from "gatsby";
 import * as styles from "@styles/pages/climbing/cEntry.module.scss";
-import ClimbingLayout from "@components/climbing/ClimbingLayout";
+import ClimbingLayout from "@components/climbing/climbingLayout";
 
 export default function Entry({ data, children }) {
   const { frontmatter } = data.mdx;
