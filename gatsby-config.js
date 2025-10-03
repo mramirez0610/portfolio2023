@@ -8,15 +8,20 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-sass",
-    "gatsby-plugin-mdx",
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-plugin-purgecss",
     `gatsby-transformer-sharp`,
     {
+      resolve: "gatsby-plugin-mdx",
+      options: {
+        extensions: [".mdx", ".md"],
+      },
+    },
+    {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: `blog`,
+        name: `projects`,
         path: `${__dirname}/src/content/projs`,
       },
     },

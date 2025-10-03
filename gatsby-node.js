@@ -3,7 +3,6 @@ const path = require("path");
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  // Query for projects
   const projectResult = await graphql(`
     {
       allMdx(
@@ -13,8 +12,19 @@ exports.createPages = async ({ graphql, actions }) => {
       ) {
         nodes {
           id
+          body
           frontmatter {
             slug
+            title
+            date(formatString: "MMMM DD, YYYY")
+            image {
+              childImageSharp {
+                gatsbyImageData(layout: CONSTRAINED, width: 600)
+              }
+            }
+            url
+            github
+            tech
           }
         }
       }
@@ -24,14 +34,15 @@ exports.createPages = async ({ graphql, actions }) => {
   projectResult.data.allMdx.nodes.forEach((node) => {
     createPage({
       path: `/projects/${node.frontmatter.slug}`,
-      component: path.resolve(
-        "./src/pages/projects/{mdx.frontmatter__slug}.js"
-      ),
-      context: { id: node.id },
+      component: path.resolve("./src/templates/project-template.js"),
+      context: {
+        id: node.id,
+        frontmatter: node.frontmatter,
+        body: node.body,
+      },
     });
   });
 
-  // Query for climbing entries
   const climbingResult = await graphql(`
     {
       allMdx(
@@ -41,8 +52,18 @@ exports.createPages = async ({ graphql, actions }) => {
       ) {
         nodes {
           id
+          body
           frontmatter {
             slug
+            title
+            date(formatString: "MM-DD-YYYY")
+            image {
+              childImageSharp {
+                gatsbyImageData(layout: CONSTRAINED, width: 600)
+              }
+            }
+            category
+            keywords
           }
         }
       }
@@ -51,11 +72,9 @@ exports.createPages = async ({ graphql, actions }) => {
 
   climbingResult.data.allMdx.nodes.forEach((node) => {
     createPage({
-      path: `/climbing/${node.frontmatter.slug}`,
-      component: path.resolve(
-        "./src/pages/climbing/entries/{mdx.frontmatter__slug}.js"
-      ),
-      context: { id: node.id },
+      path: `/climbing/entries/${node.frontmatter.slug}`,
+      component: path.resolve("./src/templates/climbing-entry-template.js"),
+      context: { id: node.id, frontmatter: node.frontmatter, body: node.body },
     });
   });
 };
