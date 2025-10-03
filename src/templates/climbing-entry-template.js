@@ -6,8 +6,6 @@ import Markdown from "react-markdown";
 
 export default function Entry({ pageContext }) {
   const { frontmatter, body } = pageContext;
-  console.log(frontmatter.image);
-  console.log(pageContext);
 
   return (
     <>
