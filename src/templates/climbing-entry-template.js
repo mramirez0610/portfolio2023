@@ -6,17 +6,34 @@ import Markdown from "react-markdown";
 
 export default function Entry({ pageContext }) {
   const { frontmatter, body } = pageContext;
+  console.log(frontmatter.images);
 
   return (
     <>
       <ClimbingLayout>
         <div className={styles.entry}>
-          <div className={styles.frontmatter}></div>
-          <h5>{frontmatter.date}</h5>
           <GatsbyImage
             image={getImage(frontmatter.image)}
             alt={frontmatter.title}
           />
+          <section className={styles.frontmatter}>
+            <h5 className={styles.date}>{frontmatter.date}</h5>
+            <div className={styles.keywords}>
+              {frontmatter.keywords.map((keyword, index) => (
+                <div className={styles.keyword} key={index}>
+                  {keyword}
+                </div>
+              ))}
+            </div>
+          </section>
+          {/* {frontmatter.images.map((image, index) => (
+            <GatsbyImage
+              key={index}
+              image={getImage(image)}
+              alt={`${frontmatter.title} - ${index + 1}`}
+            />
+          ))} */}
+
           <Markdown>{body}</Markdown>
         </div>
       </ClimbingLayout>

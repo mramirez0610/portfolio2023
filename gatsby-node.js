@@ -1,6 +1,6 @@
 const path = require("path");
 
-exports.createPages = async ({ graphql, actions }) => {
+exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
 
   const projectResult = await graphql(`
@@ -64,6 +64,11 @@ exports.createPages = async ({ graphql, actions }) => {
             }
             category
             keywords
+            images {
+              childImageSharp {
+                gatsbyImageData(layout: CONSTRAINED, width: 600)
+              }
+            }
           }
         }
       }
@@ -74,7 +79,11 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `/climbing/entries/${node.frontmatter.slug}`,
       component: path.resolve("./src/templates/climbing-entry-template.js"),
-      context: { id: node.id, frontmatter: node.frontmatter, body: node.body },
+      context: {
+        id: node.id,
+        frontmatter: node.frontmatter,
+        body: node.body,
+      },
     });
   });
 };

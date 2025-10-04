@@ -40,6 +40,13 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: `climbing-images`,
+        path: `${__dirname}/src/content/climbing`,
+      },
+    },
+    {
       resolve: "gatsby-plugin-manifest",
       options: {
         icon: `${__dirname}/src/assets/logos/logo.svg`,
