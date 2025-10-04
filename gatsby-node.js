@@ -66,7 +66,7 @@ exports.createPages = async ({ actions, graphql }) => {
             keywords
             images {
               childImageSharp {
-                gatsbyImageData(layout: CONSTRAINED, width: 600)
+                gatsbyImageData(layout: CONSTRAINED)
               }
             }
           }
