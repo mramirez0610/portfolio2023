@@ -64,11 +64,11 @@
 
 @media (max-width: 1040px) {
   .cLayout {
-    max-height: 100dvh;
+    max-height: 100vh;
     display: flex;
     flex-direction: column;
 
-    overflow-y: hidden;
+    overflow: hidden;
 
     .content {
       width: 100vw;
