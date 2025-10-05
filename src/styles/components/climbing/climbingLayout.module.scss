@@ -1,12 +1,6 @@
 @use "../../all" as *;
 
 .cLayout {
-  // min-height: 100vh;
-
-  // padding-top: -10vh;
-  padding: env(safe-area-inset-top) env(safe-area-inset-right)
-    env(safe-area-inset-bottom) env(safe-area-inset-left);
-
   filter: contrast(100%) brightness(100%);
   background: radial-gradient(
       circle at 60% 50%,
@@ -71,9 +65,7 @@
     max-height: 100vh;
     display: flex;
     flex-direction: column;
-
     position: fixed;
-
     overflow: hidden;
 
     .content {
