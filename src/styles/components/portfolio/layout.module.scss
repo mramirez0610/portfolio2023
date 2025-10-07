@@ -23,11 +23,14 @@ p {
   margin-bottom: 16px;
 }
 
-:global(body.homePage) {
-  background-color: get-background("homePage");
-}
-:global(body.climbingPage) {
-  background: get-background("climbingPage");
+:global {
+  body.homePage {
+    background-color: get-background("homePage");
+  }
+
+  body.climbingPage {
+    background: get-background("climbingPage");
+  }
 }
 
 .header {
