@@ -29,15 +29,8 @@ export default function Entry({ pageContext }) {
     <>
       <ClimbingLayout>
         <div className={styles.entry}>
-          {/*           
-          <GatsbyImage
-            image={getImage(frontmatter.image)}
-            alt={frontmatter.title}
-          /> 
-          */}
-
           <section className={styles.images}>
-            <Fade
+            {/* <Fade
               arrows={true}
               autoplay={true}
               duration={5000}
@@ -54,11 +47,17 @@ export default function Entry({ pageContext }) {
                   />
                 </div>
               ))}
-            </Fade>
+            </Fade> */}
+
+            <GatsbyImage
+              image={getImage(frontmatter.image)}
+              className={styles.image}
+              alt={frontmatter.title}
+            />
           </section>
 
           <section className={styles.frontmatter}>
-            <h5 className={styles.date}>{frontmatter.date}</h5>
+            <h4 className={styles.date}>{frontmatter.date}</h4>
             <div className={styles.keywords}>
               {frontmatter.keywords.map((keyword, index) => (
                 <div className={styles.keyword} key={index}>

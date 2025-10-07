@@ -1,4 +1,5 @@
 @use "../../all" as *;
+
 @import url("https://api.fontshare.com/v2/css?f[]=satoshi@700,500,300,400&display=optional");
 * {
   margin: 0;
@@ -9,8 +10,8 @@ html,
 body {
   font-family: "Satoshi", sans-serif;
   color: #f2f5ea;
-  background-color: $black;
   overflow-x: hidden;
+  height: 100vh;
 }
 h1,
 h2,
@@ -21,9 +22,14 @@ h6,
 p {
   margin-bottom: 16px;
 }
-body {
-  height: 100vh;
+
+:global(body.homePage) {
+  background-color: get-background("homePage");
 }
+:global(body.climbingPage) {
+  background: get-background("climbingPage");
+}
+
 .header {
   height: 10%;
   width: 100vw;

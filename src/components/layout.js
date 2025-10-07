@@ -8,6 +8,7 @@ const Layout = ({ pageTitle, children }) => {
   const lightRef = useRef();
 
   useLayoutEffect(() => {
+    document.body.className = "homePage";
     const main = mainRef.current;
     const light = lightRef.current;
 
