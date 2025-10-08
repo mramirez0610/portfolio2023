@@ -11,7 +11,7 @@ $page-backgrounds: (
   "homePage": $black,
   "climbingPage": $climbingGradient,
   //   "homePage": red,
-  //   "climbingPage": green,
+  //   "climbingPage": green,,
 );
 
 @function get-background($page-class) {

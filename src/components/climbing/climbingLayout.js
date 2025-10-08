@@ -5,9 +5,9 @@ import { Link } from "gatsby";
 import { useLayoutEffect } from "react";
 
 export default function ClimbingLayout({ children }) {
-  useLayoutEffect(() => {
-    document.body.className = "climbingPage";
-  }, []);
+  // useLayoutEffect(() => {
+  //   document.body.className = "climbingPage";
+  // }, []);
   return (
     <main className={styles.cLayout}>
       <header className={styles.header}>
