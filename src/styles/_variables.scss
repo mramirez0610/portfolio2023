@@ -10,8 +10,6 @@ $climbingGradient: radial-gradient(
 $page-backgrounds: (
   "homePage": $black,
   "climbingPage": $climbingGradient,
-  //   "homePage": red,
-  //   "climbingPage": green,,
 );
 
 @function get-background($page-class) {

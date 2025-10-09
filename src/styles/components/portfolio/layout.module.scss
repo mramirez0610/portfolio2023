@@ -9,7 +9,6 @@
 html,
 body {
   font-family: "Satoshi", sans-serif;
-  // background-color: $black;
   color: #f2f5ea;
   overflow-x: hidden;
   height: 100vh;
@@ -116,7 +115,7 @@ p {
   transition: top 60ms, left 60ms;
 }
 
-@media (max-width: 1040px) {
+@media (max-width: 1050px) {
   .content {
     width: 80vw;
   }

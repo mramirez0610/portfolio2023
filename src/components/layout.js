@@ -8,7 +8,7 @@ const Layout = ({ pageTitle, children }) => {
   const lightRef = useRef();
 
   useLayoutEffect(() => {
-    // document.body.className = "homePage";
+    document.body.className = "homePage";
     const main = mainRef.current;
     const light = lightRef.current;
 
@@ -17,9 +17,7 @@ const Layout = ({ pageTitle, children }) => {
         light.style.top = e.pageY + "px";
         light.style.left = e.pageX + "px";
       };
-
       main.addEventListener("mousemove", handleMouseMove);
-
       // cleanup function to remove the event listener when the component unmounts
       return () => {
         main.removeEventListener("mousemove", handleMouseMove);

@@ -5,9 +5,23 @@ import { Link } from "gatsby";
 import { useLayoutEffect } from "react";
 
 export default function ClimbingLayout({ children }) {
-  // useLayoutEffect(() => {
-  //   document.body.className = "climbingPage";
-  // }, []);
+  useLayoutEffect(() => {
+    const updateBodyClass = () => {
+      const path = window.location.pathname;
+      const bodyClass =
+        path === "/"
+          ? "homePage"
+          : path.includes("climbing")
+          ? "climbingPage"
+          : "";
+      document.body.className = bodyClass;
+    };
+    updateBodyClass();
+    window.addEventListener("popstate", updateBodyClass);
+    return () => {
+      window.removeEventListener("popstate", updateBodyClass);
+    };
+  }, []);
   return (
     <main className={styles.cLayout}>
       <header className={styles.header}>
