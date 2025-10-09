@@ -1,6 +1,8 @@
 # General
 .DS_Store
 .Trashes
+.env
+.env.development
 
 # node_modules
 /node_modules
@@ -16,3 +18,5 @@
 /help
 .cache
 /src/content/climbing/.obsidian
+# Local Netlify folder
+.netlify
