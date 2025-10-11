@@ -1,11 +1,13 @@
 import * as React from "react";
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { Link } from "gatsby";
+import { Barbell, BarbellIcon } from "@phosphor-icons/react";
 import * as styles from "@styles/components/portfolio/layout.module.scss";
 
 const Layout = ({ pageTitle, children }) => {
   const mainRef = useRef();
   const lightRef = useRef();
+  const [dropdown, setDropdown] = useState(false);
 
   useLayoutEffect(() => {
     document.body.className = "homePage";
@@ -25,10 +27,25 @@ const Layout = ({ pageTitle, children }) => {
     }
   }, []);
 
+  const ExtraNav = () => {
+    return (
+      <div className={`${styles.extraNav} ${dropdown ? styles.active : ""}`}>
+        <Link to="/climbing">
+          <BarbellIcon className={styles.icon} size={26} />
+        </Link>
+      </div>
+    );
+  };
+
   return (
     <div>
       <header className={styles.header}>
-        <div className={styles.logo}></div>
+        <div
+          className={styles.logo}
+          onClick={() => setDropdown(!dropdown)}
+        ></div>
+        <ExtraNav />
+
         <nav className={styles.nav}>
           <Link className={styles.link} to="/">
             Home

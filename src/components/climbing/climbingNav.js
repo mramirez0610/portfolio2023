@@ -9,6 +9,9 @@ export default function ClimbingNav() {
       <section>
         <h2>marcos climbing journal</h2>
         <nav className={styles.nav}>
+          <Link className={styles.link} to="/">
+            portfolio
+          </Link>
           <Link className={styles.link} to="/climbing">
             entries
           </Link>

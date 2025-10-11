@@ -53,6 +53,57 @@ p {
     height: 25px;
     background-repeat: no-repeat;
     shape-rendering: crispEdges;
+    cursor: pointer;
+    transition: all 200ms ease;
+    // animation: teeter 400ms 8 alternate ease-in-out;
+    animation: teeter 1000ms ease-in-out infinite alternate;
+    animation-delay: 8s;
+    position: relative;
+
+    &:hover {
+      scale: 1.1;
+
+      animation: teeter 800ms ease-in-out;
+    }
+
+    @keyframes teeter {
+      0% {
+        transform: rotate(0deg);
+      }
+      10% {
+        transform: rotate(-10deg);
+      }
+      25% {
+        transform: rotate(10deg);
+      }
+      50% {
+        transform: rotate(-10deg);
+      }
+      100% {
+        transform: rotate(10deg);
+      }
+    }
+  }
+
+  .extraNav {
+    position: absolute;
+    height: 10vh;
+
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+
+    &.active {
+      opacity: 1;
+    }
+
+    a {
+      text-decoration: none;
+      color: $white;
+      .icon {
+        position: absolute;
+        bottom: 0;
+      }
+    }
   }
   .nav {
     display: flex;

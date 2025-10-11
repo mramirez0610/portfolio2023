@@ -3,6 +3,7 @@ import * as styles from "@styles/pages/climbing/cEntry.module.scss";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import ClimbingLayout from "@components/climbing/climbingLayout";
 import Markdown from "react-markdown";
+import Seo from "@components/seo";
 
 import "react-slideshow-image/dist/styles.css";
 // import { Fade } from "react-slideshow-image";
@@ -73,3 +74,10 @@ export default function Entry({ pageContext }) {
     </>
   );
 }
+
+export const Head = ({ pageContext }) => (
+  <Seo
+    title={pageContext.frontmatter.slug}
+    meta={[{ name: "robots", content: "noindex" }]}
+  />
+);
