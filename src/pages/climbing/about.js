@@ -12,7 +12,7 @@ export default function ClimbingAbout() {
         <div className={styles.content}>
           <p>
             what ever happened to blogs?? yea yea maybe they're a bit silly in
-            the 2020's since social media is Aywhere And Everywhere, but cmon
+            the 2020's since social media is Anywhere And Everywhere, but cmon
             dude. if everyone had a blog i think people would be a lot happier.
           </p>
           <p>
