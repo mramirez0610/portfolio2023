@@ -72,11 +72,13 @@ const AboutPage = ({ data }) => {
           </p>
 
           <p>
-            I'm comfortable with a variety of technologies, the most notable
-            being Javascript (along with frameworks), Firebase, and NoSQL. I'm
-            also familiar with the basics of Node.js, GraphQL, and MySQL. I'm
-            always looking to learn more, and I'm always looking for new
-            opportunities to grow as a developer. Feel free to{" "}
+            I'm comfortable and confident with a variety of technologies, the
+            most notable being Javascript along with its plethora of frameworks
+            (Next, Gatsby, Angular, Solid.JS, etc.). I've also pushed myself to
+            study and understand full-stack practices, and have worked with
+            Firebase, NoSQL, GraphQL, and MySQL. I'm always looking to learn
+            more, and I'm always looking for new opportunities to grow as a
+            developer. Feel free to{" "}
             <a
               className={styles.linkTo}
               target="_blank"

@@ -77,7 +77,8 @@
       flex-direction: column;
       gap: 1vh;
 
-      h5 {
+      h5,
+      h4 {
         margin: 0;
         word-break: break-word;
         display: block;
@@ -104,6 +105,7 @@
     .progressBar {
       background: #1db954;
       height: 5px;
+      transition: width 8s linear;
     }
   }
 
@@ -116,13 +118,13 @@
 
   .skeletonText {
     height: 10px;
-    margin: 2px;
+    margin: 4px;
     width: 100px;
   }
 
   .skeletonImage {
-    height: 64px;
-    width: 64px;
+    height: 80px;
+    width: 80px;
     border-radius: 8px;
   }
 }

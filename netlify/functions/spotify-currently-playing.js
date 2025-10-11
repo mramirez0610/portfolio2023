@@ -66,9 +66,22 @@ exports.handler = async () => {
     //new integration ------ recently played
 
     let recentData = null;
+    let mostRecentCursor = null;
     try {
+      // const recentlyPlayedResponse = await fetch(
+      //   "https://api.spotify.com/v1/me/player/recently-played?limit=5",
+      //   {
+      //     method: "GET",
+      //     headers: {
+      //       Authorization: `Bearer ${accessToken}`,
+      //     },
+      //   }
+      // );
+
       const recentlyPlayedResponse = await fetch(
-        "https://api.spotify.com/v1/me/player/recently-played?limit=5",
+        `https://api.spotify.com/v1/me/player/recently-played?limit=5${
+          mostRecentCursor ? `&before=${mostRecentCursor}` : ""
+        }`,
         {
           method: "GET",
           headers: {
@@ -79,6 +92,7 @@ exports.handler = async () => {
 
       if (recentlyPlayedResponse.ok) {
         recentData = await recentlyPlayedResponse.json();
+        mostRecentCursor = recentData.cursors.before; //adding cursor
       } else if (recentlyPlayedResponse.status === 204) {
         console.log("no recently-played found.");
       } else {

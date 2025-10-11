@@ -18,6 +18,11 @@ export default function SpotifyWidget() {
 
   useEffect(() => {
     fetchdata();
+    const interval = setInterval(() => {
+      fetchdata();
+    }, 8000);
+
+    return () => clearInterval(interval);
   }, []);
 
   // lol ai code
@@ -41,10 +46,10 @@ export default function SpotifyWidget() {
     return (
       <div className={styles.progressBarContainer}>
         <div
+          className={styles.progressBar}
           style={{
             width: `${progress}%`,
           }}
-          className={styles.progressBar}
         ></div>
       </div>
     );
@@ -74,7 +79,7 @@ export default function SpotifyWidget() {
             alt={track.item.album.name}
           />
           <div className={styles.info}>
-            <h5>{track.item.name}</h5>
+            <h4>{track.item.name}</h4>
             <h5>{track.item.album.name}</h5>
             {track.item.artists.map((artist, index) => (
               <h5 key={index}>{artist.name}</h5>
@@ -112,7 +117,7 @@ export default function SpotifyWidget() {
           />
 
           <div className={styles.info}>
-            <h5>{recent[0].track.name}</h5>
+            <h4>{recent[0].track.name}</h4>
             <h5>{recent[0].track.album.name}</h5>
             {recent[0].track.artists.map((artist, index) => (
               <h5 key={index}>{artist.name}</h5>
