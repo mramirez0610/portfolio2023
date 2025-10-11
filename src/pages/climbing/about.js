@@ -7,7 +7,7 @@ export default function ClimbingAbout() {
   return (
     <ClimbingLayout>
       <div className={styles.cAbout}>
-        <h1>about</h1>
+        <h2>about</h2>
 
         <div className={styles.content}>
           <p>
