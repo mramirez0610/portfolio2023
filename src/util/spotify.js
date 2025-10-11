@@ -3,20 +3,22 @@
 // const REDIRECT_URI = process.env.GATSBY_SPOTIFY_REDIRECT_URI;
 
 //netlify function that intakes all spotify info from my env, and then executes spotify api
-export const getCurrentlyPlaying = async () => {
+export const getMusicData = async () => {
   const response = await fetch("/.netlify/functions/spotify-currently-playing");
 
   if (!response.ok) {
-    console.error("failed to fetch currently playing track.");
+    console.error("failed to fetch spotify data.");
     return null;
   }
 
   const data = await response.json();
 
   if (data.message) {
-    console.log(data.message); //"no track is playing"
+    console.log(data.message); //if empty, send error
     return null;
   }
+  console.log(data);
+
   return data;
 };
 
@@ -151,19 +153,20 @@ all the hard work on the server. so fun!!!!!
 
 //testing all of this fun jazz out
 // export const testAccessTokenFlow = async () => {
-//   const authorizationCode = "manually enter for testing";
+//   const authorizationCode =
+//     "manually enter auth code";
 
 //   const tokens = await getAccessToken(authorizationCode);
 
 //   if (tokens) {
 //     const { accessToken, refreshToken, expiresIn } = tokens;
 
-//     // localStorage.setItem("spotifyAccessToken", accessToken);
-//     // localStorage.setItem("spotifyRefreshToken", refreshToken);
-//     // localStorage.setItem(
-//     //   "spotifyTokenExpiry",
-//     //   Date.now() + expiresIn * 1000 // Save the expiration time
-//     // );
+//     localStorage.setItem("spotifyAccessToken", accessToken);
+//     localStorage.setItem("spotifyRefreshToken", refreshToken);
+//     localStorage.setItem(
+//       "spotifyTokenExpiry",
+//       Date.now() + expiresIn * 1000 // Save the expiration time
+//     );
 
 //     console.log("Access Token:", accessToken);
 //     console.log("Refresh Token:", refreshToken);
@@ -192,3 +195,20 @@ all the hard work on the server. so fun!!!!!
 //     console.error("failed to retrieve access token.");
 //   }
 // };
+
+/* 
+
+so the whole flow goes like this 
+
+locally sign into spotify using loginWithSpotify, placing the permissions you want within the url
+
+it redirects you to the given URI in the spotify project, you copy that into testAccessTokenFlow
+
+that function calls getAccessFunction, and gets your access and refresh tokens. it also gives the ttl on that.
+
+then you call the getCurrentlyPlaying function (self explanatory), which will call getValidAccessToken,
+and refreshAccessToken if necessary.
+
+you place your refresh token from your localStorage in env, and then call it from netlify. easy peazy
+
+*/

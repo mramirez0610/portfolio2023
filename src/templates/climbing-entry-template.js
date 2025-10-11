@@ -5,7 +5,7 @@ import ClimbingLayout from "@components/climbing/climbingLayout";
 import Markdown from "react-markdown";
 
 import "react-slideshow-image/dist/styles.css";
-import { Fade } from "react-slideshow-image";
+// import { Fade } from "react-slideshow-image";
 
 import { CaretLeftIcon, CaretRightIcon } from "@phosphor-icons/react";
 

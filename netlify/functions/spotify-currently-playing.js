@@ -37,28 +37,68 @@ exports.handler = async () => {
     const accessToken = tokenData.access_token;
 
     //fetch current track
-    const trackResponse = await fetch(
-      "https://api.spotify.com/v1/me/player/currently-playing",
-      {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      }
-    );
+    let trackData = null;
+    try {
+      const trackResponse = await fetch(
+        "https://api.spotify.com/v1/me/player/currently-playing",
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      );
 
-    if (trackResponse.status === 204 || !trackResponse.ok) {
-      return {
-        statusCode: 200,
-        body: JSON.stringify({ message: "No track is currently playing." }),
-      };
+      if (trackResponse.status === 200) {
+        trackData = await trackResponse.json();
+      } else if (trackResponse.status === 204) {
+        console.log("no currently-playing track.");
+      } else {
+        console.error(
+          "error fetching currently-playing track:",
+          trackResponse.status
+        );
+      }
+    } catch (error) {
+      console.error("error in currently-playing fetch:", error);
     }
 
-    const trackData = await trackResponse.json();
+    //new integration ------ recently played
+
+    let recentData = null;
+    try {
+      const recentlyPlayedResponse = await fetch(
+        "https://api.spotify.com/v1/me/player/recently-played?limit=5",
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      );
+
+      if (recentlyPlayedResponse.ok) {
+        recentData = await recentlyPlayedResponse.json();
+      } else if (recentlyPlayedResponse.status === 204) {
+        console.log("no recently-played found.");
+      } else {
+        console.error(
+          "error fetching recently-played tracks:",
+          recentlyPlayedResponse.status
+        );
+      }
+    } catch (error) {
+      console.error("error in recently-played fetch:", error);
+    }
+
+    //-----------
 
     return {
       statusCode: 200,
-      body: JSON.stringify(trackData),
+      body: JSON.stringify({
+        currentlyPlaying: trackData || "no track currently playing.",
+        recentlyPlayed: recentData || "no recently played tracks found.",
+      }),
     };
   } catch (error) {
     console.error("Error in spotify-currently-playing function:", error);

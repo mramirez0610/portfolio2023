@@ -1,6 +1,7 @@
 @use "../../all" as *;
 
-@import url("https://api.fontshare.com/v2/css?f[]=satoshi@700,500,300,400&display=optional");
+@import url("https://api.fontshare.com/v2/css?f[]=rx-100@400&f[]=satoshi@300,400,500,700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -9,7 +10,7 @@
 html,
 body {
   font-family: "Satoshi", sans-serif;
-  color: #f2f5ea;
+  color: $white;
   overflow-x: hidden;
   height: 100vh;
 }

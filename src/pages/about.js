@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Link } from "gatsby";
 import { graphql } from "gatsby";
 import { useState, useEffect } from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
@@ -9,37 +8,33 @@ import Seo from "@components/seo";
 import li from "@assets/logos/linked.svg";
 import re from "@assets/logos/resume.svg";
 import gh from "@assets/logos/github.svg";
-import { getCurrentlyPlaying } from "../util/spotify";
+import SpotifyWidget from "../components/home/spotifyWidget";
 
 const AboutPage = ({ data }) => {
   const [currentPhoto, setCurrentPhoto] = useState(0);
   const [count, setCount] = useState(0);
-  const [track, setTrack] = useState(null);
 
   const photos = [getImage(data.photo1), getImage(data.photo2)];
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentPhoto((prev) => (prev + 1) % photos.length);
-    }, 6000);
-    return () => clearInterval(interval);
-  }, [photos.length]);
-
-  useEffect(() => {
-    const fetchTrack = async () => {
-      const currentlyPlaying = await getCurrentlyPlaying();
-      setTrack(currentlyPlaying);
-    };
-
-    fetchTrack();
-  }, []);
-
-  console.log(track);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrentPhoto((prev) => (prev + 1) % photos.length);
+  //   }, 6000);
+  //   return () => clearInterval(interval);
+  // }, [photos.length]);
 
   const Slideshow = () => (
     <GatsbyImage
       className={styles.image}
       image={photos[currentPhoto]}
+      alt="Marco Ramirez Headshot"
+    />
+  );
+
+  const SinglePhoto = () => (
+    <GatsbyImage
+      className={styles.image}
+      image={photos[1]}
       alt="Marco Ramirez Headshot"
     />
   );
@@ -60,14 +55,15 @@ const AboutPage = ({ data }) => {
             onClick={() => setCount((prev) => prev + 1)}
             className={styles.imgContainer}
           >
-            {count < 8 ? <Slideshow /> : <EasterEgg />}
+            {count < 8 ? <SinglePhoto /> : <EasterEgg />}
           </div>
 
-          <div className={styles.spotifyWidget}></div>
+          <div className={styles.spotifyWidget}>
+            <SpotifyWidget />
+          </div>
         </section>
         <article className={styles.aboutContact}>
           <h1 className={styles.flair}>About Me!</h1>
-
           <p>
             I'm Marco Ramirez, a dedicated web developer with a passion for
             creating intuitive and dynamic web experiences. Rock climbing and
@@ -85,7 +81,7 @@ const AboutPage = ({ data }) => {
               className={styles.linkTo}
               target="_blank"
               rel="noreferrer"
-              to="https://linkedin.com/in/marcoramirez001"
+              href="https://linkedin.com/in/marcoramirez001"
             >
               reach out
             </a>{" "}
@@ -145,17 +141,17 @@ export const query = graphql`
   query {
     photo1: file(relativePath: { eq: "portfolio/about/photo1.JPG" }) {
       childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH)
+        gatsbyImageData(layout: CONSTRAINED)
       }
     }
     photo2: file(relativePath: { eq: "portfolio/about/photo2.JPG" }) {
       childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH)
+        gatsbyImageData(layout: CONSTRAINED)
       }
     }
     photo3: file(relativePath: { eq: "portfolio/about/photo3.jpeg" }) {
       childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH)
+        gatsbyImageData(layout: CONSTRAINED)
       }
     }
   }

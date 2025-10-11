@@ -1,0 +1,160 @@
+@use "../../all" as *;
+
+.spotifyWidget {
+  border-radius: 20px;
+  height: fit-content;
+  padding: 1em;
+  position: relative;
+  overflow: hidden;
+  line-height: 1;
+  font-family: "RX100", sans-serif;
+  background: rgba(35, 35, 35, 0.64);
+  border-radius: 16px;
+  //   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(17.1px);
+  -webkit-backdrop-filter: blur(17.1px);
+  //   border: 1px solid rgba(35, 35, 35, 1);
+
+  .header {
+    display: flex;
+    position: absolute;
+    justify-content: space-between;
+    width: 100%;
+    padding: 4% 6%;
+    color: rgba($color: $white, $alpha: 0.6);
+    top: 0;
+    left: 0;
+
+    .icon {
+      display: flex;
+      align-items: center;
+      width: 75%;
+
+      h4 {
+        margin-left: 2%;
+        margin-bottom: 0;
+      }
+    }
+
+    .refresh {
+      transition: all 200ms ease;
+      cursor: pointer;
+      &:hover {
+        transform: rotate(180deg);
+        scale: 1.1;
+        color: rgba($color: $white, $alpha: 0.9);
+      }
+    }
+  }
+
+  .song {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5%;
+    padding: 12% 0 4% 0;
+
+    // .imgContainer {
+    //   width: clamp(20%, 25%, 50%);
+    //   min-width: 25%;
+    // }
+
+    .albumImg {
+      max-width: 25%;
+      height: 25%;
+      object-fit: cover;
+      vertical-align: middle;
+      font-style: italic;
+      background-repeat: no-repeat;
+      background-size: cover;
+      shape-margin: 1rem;
+      border-radius: 4px;
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      gap: 1vh;
+
+      h5 {
+        margin: 0;
+        word-break: break-word;
+        display: block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: clip;
+        width: 100%;
+
+        &.scrollable {
+          animation: scrollText 5s linear infinite alternate;
+        }
+      }
+    }
+  }
+
+  .progressBarContainer {
+    width: 100%;
+    background: #ccc;
+    height: 5px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    .progressBar {
+      background: #1db954;
+      height: 5px;
+    }
+  }
+
+  .skeleton {
+    background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 4px;
+  }
+
+  .skeletonText {
+    height: 10px;
+    margin: 2px;
+    width: 100px;
+  }
+
+  .skeletonImage {
+    height: 64px;
+    width: 64px;
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 1050px) {
+  .spotifyWidget {
+    width: 35vw;
+  }
+}
+
+@media (max-width: 660px) {
+  .spotifyWidget {
+    width: 100%;
+  }
+}
+
+//skeleton loading animation
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+//marquee animation
+@keyframes scrollText {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
