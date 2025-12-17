@@ -11,18 +11,7 @@ tech: ["Next.JS", "OpenAI", "GPT 4o-mini", "SASS"]
 
 # What Should I Eat?
 
-## Overview
-___
-What Should I Eat is a full-stack web application that I made in my free time.  I always find myself wanting to learn how to cook, though whenever I try to decide, I experience choice paralysis. Most of the time I just don't know what to make, I have all of these ingredients, but no ideas.
+A small web app that I made in my freetime. I always find myself wanting to learn how to cook, though whenever I try to decide, I experience choice paralysis. What if what I make is gross? What if it's too bland? Maybe I could be making something better? Really, most of the time I just don't know what to make. So I decided to make this after hearing someone mention they use AI to decide what to cook.
 
-I overheard someone in passing conversation mention that they'll use AI to help them decide what to cook, and that's when the idea for this was born. It consists of three different recipe builders, Quick Genre, Quick 
+It's simple. I use OpenAI's API to call a request, which contains the user's ingredients, as well as how much they like that item. The API call then returns a new recipe everytime according to ingredients and preference. It makes for a fun time when you're bored, and and even better time when you're hungry.
 
-
-## Technical Architecture
-___
-I chose Next
-
-
-I use OpenAI's API to call a request, which contains the user's ingredients, as well as how much they like that item. The API call then returns a new recipe everytime according to ingredients and preference. It makes for a fun time when you're bored, and and even better time when you're hungry.
-
-RBAC authorization techniques, as the user is required to either login, or login anonymously to use the service.
