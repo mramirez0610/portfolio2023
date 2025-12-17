@@ -17,6 +17,7 @@
 /public
 /help
 .cache
-/src/content/climbing/.obsidian
+/src/content/climbing/.obsidian/*
+/src/content/projs/.obsidian/*
 # Local Netlify folder
 .netlify
