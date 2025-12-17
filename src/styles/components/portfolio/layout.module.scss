@@ -90,11 +90,9 @@ p {
     height: 10vh;
 
     opacity: 0;
-    transition: opacity 300ms ease-in-out;
-
-    &.active {
-      opacity: 1;
-    }
+    visibility: hidden;
+    transform: translateY(-12px);
+    pointer-events: none;
 
     a {
       text-decoration: none;
@@ -105,6 +103,41 @@ p {
       }
     }
   }
+
+  .extraNavActive {
+    animation: extraNavFadeIn 280ms ease forwards;
+    cursor: pointer;
+    pointer-events: all;
+    visibility: visible;
+  }
+
+  .extraNavInactive {
+    animation: extraNavFadeOut 200ms ease forwards;
+  }
+
+  @keyframes extraNavFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes extraNavFadeOut {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-8px);
+      pointer-events: none;
+    }
+  }
+
   .nav {
     display: flex;
     justify-content: center;

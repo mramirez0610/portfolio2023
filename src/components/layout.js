@@ -29,7 +29,11 @@ const Layout = ({ pageTitle, children }) => {
 
   const ExtraNav = () => {
     return (
-      <div className={`${styles.extraNav} ${dropdown ? styles.active : ""}`}>
+      <div
+        className={`${styles.extraNav} ${
+          dropdown ? styles.extraNavActive : styles.extraNavInactive
+        }`}
+      >
         <Link to="/climbing">
           <BarbellIcon className={styles.icon} size={26} />
         </Link>
