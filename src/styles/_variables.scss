@@ -1,16 +1,17 @@
 @use "sass:map";
 $black: #171717;
 $white: #f2f5ea;
-$climbingGradient: radial-gradient(
-    circle at 60% 50%,
-    rgba(255, 220, 96, 1),
-    rgba(255, 247, 241, 1)
-  ),
-  url("data:image/svg+xml,%3Csvg viewBox='0 0 316 316' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='15' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+// $climbingGradient: radial-gradient(
+//     circle at 60% 50%,
+//     rgba(255, 220, 96, 1),
+//     rgba(255, 247, 241, 1)
+//   ),
+//   url("data:image/svg+xml,%3Csvg viewBox='0 0 316 316' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='15' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 
 $page-backgrounds: (
   "homePage": $black,
-  "climbingPage": $climbingGradient,
+  // "climbingPage": $climbingGradient,
+  "climbingPage": $white,
 );
 
 @function get-background($page-class) {

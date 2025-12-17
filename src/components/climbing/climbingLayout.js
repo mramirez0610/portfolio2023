@@ -24,13 +24,20 @@ export default function ClimbingLayout({ children }) {
   }, []);
   return (
     <main className={styles.cLayout}>
+      <div className={styles.background}>
+        <div className={styles.text}>
+          <h1>marco's</h1>
+          <h1>climbing</h1>
+          <h1>journal</h1>
+        </div>
+      </div>
       <header className={styles.header}>
         <Link to="/">
           <div className={styles.logo}></div>
         </Link>
+        <ClimbingNav />
       </header>
       <section className={styles.content}>
-        <ClimbingNav />
         <article>{children}</article>
       </section>
     </main>

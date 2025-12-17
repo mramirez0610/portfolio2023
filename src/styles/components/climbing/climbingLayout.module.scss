@@ -2,22 +2,39 @@
 
 .cLayout {
   filter: contrast(100%) brightness(100%);
-  // background: radial-gradient(
-  //     circle at 60% 50%,
-  //     rgba(255, 220, 96, 1),
-  //     rgba(255, 247, 241, 1)
-  //   ),
-  //   url("data:image/svg+xml,%3Csvg viewBox='0 0 316 316' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='15' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   color: $black;
 
+  .background {
+    // position: fixed;
+    position: sticky;
+    top: 20%;
+    left: 0;
+    margin-left: 5%;
+    height: 0;
+    // max-height: 100vh;
+    pointer-events: none;
+
+    .text {
+      width: 100vw;
+      position: absolute;
+
+      h1 {
+        font-size: 10ch;
+        letter-spacing: 7px;
+        position: relative;
+        color: rgba($color: $black, $alpha: 0.2);
+      }
+    }
+  }
+
   .header {
-    height: 10vh;
+    min-height: 10vh;
     width: 100vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 5%;
-    position: fixed;
+    position: sticky;
     z-index: 2;
 
     .logo {
@@ -28,27 +45,29 @@
       background-repeat: no-repeat;
       shape-rendering: crispEdges;
     }
-    .nav {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20%;
+    // .nav {
+    //   display: flex;
+    //   justify-content: center;
+    //   align-items: center;
+    //   gap: 20%;
 
-      .link {
-        // color: #f2f5ea;
-        font-weight: bold;
-        text-decoration: none;
-      }
-    }
+    //   .link {
+    //     // color: #f2f5ea;
+    //     font-weight: bold;
+    //     text-decoration: none;
+    //   }
+    // }
   }
 
   .content {
     width: 85vw;
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     margin: 0 auto;
-    min-height: 100vh;
+    min-height: 90vh;
+    position: relative;
 
     article {
       width: 55vw;
@@ -67,6 +86,10 @@
     flex-direction: column;
     position: fixed;
     overflow: hidden;
+
+    .header {
+      padding: 5% 5%;
+    }
 
     .content {
       width: 100vw;

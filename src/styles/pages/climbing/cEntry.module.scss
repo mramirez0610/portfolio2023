@@ -1,7 +1,8 @@
 @use "../../all" as *;
 
 .entry {
-  max-height: 90vh;
+  // max-height: 90vh;
+  padding-bottom: 2rem;
 
   .images {
     width: 100%;

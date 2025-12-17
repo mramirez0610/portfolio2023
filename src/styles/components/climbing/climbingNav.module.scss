@@ -1,11 +1,27 @@
 @use "../../all" as *;
 
 .cNav {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2vh;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
+  // gap: 2vh;
+  // width: 50%;
+  // justify-content: flex-end;
+
+  .nav {
+    display: flex;
+    gap: 10%;
+    text-align: center;
+    gap: 1.25rem; /* use rem instead of % so scrollbars don’t change it */
+
+    .link {
+      text-decoration: none;
+      font-weight: 600;
+      color: $black;
+      position: relative;
+    }
+  }
 
   .logo {
     width: 250px;
@@ -19,51 +35,30 @@
       url("data:image/svg+xml,%3Csvg viewBox='0 0 214 214' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='10' numOctaves='6' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   }
 
-  section {
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: center;
+  // section {
+  //   // display: flex;
+  //   // flex-direction: column;
+  //   // justify-content: center;
 
-    .nav {
-      display: flex;
-      flex-direction: column;
-      text-align: center;
+  //   .nav {
+  //     display: flex;
+  //     flex-direction: column;
+  //     text-align: center;
 
-      .link {
-        text-decoration: none;
-        font-weight: 600;
-        color: $black;
-        position: relative;
-        // width: fit-content;
-
-        // &:before {
-        //   content: "";
-        //   position: absolute;
-        //   display: block;
-        //   width: 100%;
-        //   height: 2px;
-        //   bottom: 0;
-        //   left: 0;
-        //   background-color: #000;
-        //   transform: scaleX(0);
-        //   transition: transform 0.3s ease;
-        // }
-
-        // &:hover:before {
-        //   transform: scaleX(1);
-        // }
-      }
-    }
-  }
+  //     .link {
+  //       text-decoration: none;
+  //       font-weight: 600;
+  //       color: $black;
+  //       position: relative;
+  //     }
+  //   }
+  // }
 }
 
 @media (max-width: 1050px) {
   .cNav {
-    flex-direction: row;
-    margin-top: 10vh;
-    margin-bottom: 5vh;
-
-    position: sticky;
+    // flex-direction: row;
+    // // position: sticky;
 
     .logo {
       width: 150px;
@@ -76,22 +71,6 @@
           rgba(46, 42, 57, 1)
         ),
         url("data:image/svg+xml,%3Csvg viewBox='0 0 125 125' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='10' numOctaves='6' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    }
-
-    section {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-
-      .nav {
-        flex-direction: column-reverse;
-        text-align: right;
-      }
-
-      h2 {
-        text-align: right;
-        width: 50vw;
-      }
     }
   }
 }
