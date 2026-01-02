@@ -1,14 +1,6 @@
 @use "../../all" as *;
 
 .cNav {
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: center;
-  // align-items: center;
-  // gap: 2vh;
-  // width: 50%;
-  // justify-content: flex-end;
-
   .nav {
     display: flex;
     gap: 10%;
@@ -16,9 +8,43 @@
     gap: 1.25rem; /* use rem instead of % so scrollbars don’t change it */
 
     .link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
       text-decoration: none;
-      font-weight: 600;
+      // font-weight: 600;
       color: $black;
+      position: relative;
+
+      .iconSwap {
+        position: relative;
+        display: inline-flex;
+        width: 24px;
+        height: 24px;
+        align-items: center;
+        justify-content: center;
+
+        .iconPrimary,
+        .iconHover {
+          position: absolute;
+          transition: opacity 160ms ease, transform 160ms ease;
+        }
+
+        .iconHover {
+          opacity: 0;
+          transform: translateX(-4px);
+        }
+      }
+    }
+
+    .link:hover .iconPrimary {
+      opacity: 0;
+      transform: translateX(4px);
+    }
+
+    .link:hover .iconHover {
+      opacity: 1;
+      transform: translateX(0);
     }
   }
 
@@ -34,42 +60,134 @@
       url("data:image/svg+xml,%3Csvg viewBox='0 0 214 214' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='10' numOctaves='6' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   }
 
-  // section {
-  //   // display: flex;
-  //   // flex-direction: column;
-  //   // justify-content: center;
+  .mobileNavButton {
+    display: none;
+    background: rgba($black, 0.06);
+    color: $black;
+    border: 1px solid rgba($black, 0.08);
+    padding: 0.5rem 0.75rem;
+    border-radius: 90px;
+    gap: 0.35rem;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba($black, 0.1);
+    backdrop-filter: blur(10px);
+    transition: background 180ms ease, color 180ms ease, border-color 180ms ease,
+      transform 180ms ease, box-shadow 180ms ease;
 
-  //   .nav {
-  //     display: flex;
-  //     flex-direction: column;
-  //     text-align: center;
+    &.navOpen {
+      background: $black;
+      color: $white;
+      border-color: rgba($white, 0.15);
+      box-shadow: 0 14px 40px rgba($black, 0.35);
+    }
+  }
 
-  //     .link {
-  //       text-decoration: none;
-  //       font-weight: 600;
-  //       color: $black;
-  //       position: relative;
-  //     }
-  //   }
-  // }
+  .mobileNav {
+    // min-width: 100vw;
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100dvh;
+    align-items: center;
+    padding: 3rem 1.5rem;
+    gap: 1rem;
+
+    background: linear-gradient(145deg, rgba($black, 0.6));
+
+    // background: linear-gradient(
+    //       145deg,
+    //       rgba(23, 23, 23, 0.9),
+    //       rgba(23, 23, 23, 0.72)
+    //     )
+    //     border-box,
+    //   radial-gradient(
+    //     circle at 20% 20%,
+    //     rgba(255, 255, 255, 0.08),
+    //     transparent 30%
+    //   ),
+    //   radial-gradient(
+    //     circle at 80% 0%,
+    //     rgba(255, 255, 255, 0.06),
+    //     transparent 25%
+    //   ),
+    //   rgba(23, 23, 23, 0.85);
+    // backdrop-filter: blur(14px);
+
+    transform: translateY(-12px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 220ms ease, transform 220ms ease;
+
+    .navLinks {
+      display: flex;
+      flex-direction: column;
+      width: min(480px, 100%);
+      gap: 0.75rem;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+
+      .link {
+        width: 100%;
+        justify-content: center;
+        padding: 0.95rem 1rem;
+        border-radius: 16px;
+        color: $white;
+        background: rgba($white, 0.1);
+        border: 1px solid rgba($white, 0.08);
+        box-shadow: 0 10px 26px rgba($black, 0.25);
+        transition: transform 180ms ease, box-shadow 180ms ease,
+          border-color 180ms ease, background 180ms ease, color 180ms ease;
+        text-decoration: none;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+
+        .iconPrimary {
+          color: $white;
+        }
+      }
+    }
+  }
+  .open {
+    display: block;
+    background-color: rgba($color: $black, $alpha: 0.6);
+  }
 }
 
-@media (max-width: 1050px) {
+@media (max-width: 768px) {
   .cNav {
-    // flex-direction: row;
-    // // position: sticky;
+    .nav {
+      display: none;
+    }
+    .mobileNavButton {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      z-index: 11;
+    }
 
-    .logo {
-      width: 150px;
-      height: 150px;
-      background-size: cover;
-      background-position: center;
-      background: radial-gradient(
-          circle at 50% 50%,
-          rgba(255, 255, 255, 1),
-          rgba(46, 42, 57, 1)
-        ),
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 125 125' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='10' numOctaves='6' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    .mobileNav {
+      display: flex;
+      opacity: 0;
+      transform: translateY(-12px);
+      pointer-events: none;
+      transition: opacity 180ms ease, transform 180ms ease;
+    }
+    .mobileNav.open {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
     }
   }
 }
