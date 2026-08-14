@@ -16,6 +16,10 @@
   -webkit-backdrop-filter: blur(17.1px);
   //   border: 1px solid rgba(35, 35, 35, 1);
 
+  [hidden] {
+    display: none !important;
+  }
+
   .header {
     display: flex;
     position: absolute;
@@ -31,6 +35,12 @@
       align-items: center;
       width: 75%;
 
+      .headerStatus {
+        display: flex;
+        align-items: center;
+        width: 100%;
+      }
+
       h4 {
         margin-left: 2%;
         margin-bottom: 0;
@@ -38,12 +48,37 @@
     }
 
     .refresh {
+      appearance: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      color: inherit;
+      line-height: 0;
+      background: transparent;
+      border: 0;
       transition: all 200ms ease;
       cursor: pointer;
+
       &:hover {
         transform: rotate(180deg);
         scale: 1.1;
         color: rgba($color: $white, $alpha: 0.9);
+      }
+
+      &:focus-visible {
+        outline: 2px solid #1db954;
+        outline-offset: 3px;
+        border-radius: 50%;
+      }
+
+      &:disabled {
+        cursor: wait;
+        opacity: 0.55;
+      }
+
+      svg {
+        pointer-events: none;
       }
     }
   }
@@ -76,6 +111,12 @@
       display: flex;
       flex-direction: column;
       gap: 1vh;
+      min-width: 0;
+      flex: 1;
+
+      .artists {
+        display: contents;
+      }
 
       h5,
       h4 {
@@ -90,6 +131,27 @@
         &.scrollable {
           animation: scrollText 5s linear infinite alternate;
         }
+      }
+    }
+
+    &.status {
+      min-height: 104px;
+    }
+
+    .statusMessage {
+      display: flex;
+      width: 100%;
+      min-height: 80px;
+      justify-content: center;
+      align-items: center;
+      color: rgba($color: $white, $alpha: 0.7);
+      text-align: center;
+
+      h5 {
+        margin: 0;
+        font-size: 0.83rem;
+        font-weight: 400;
+        line-height: 1.25;
       }
     }
   }
@@ -122,10 +184,27 @@
     width: 100px;
   }
 
+  .headerSkeleton {
+    width: 120px;
+  }
+
   .skeletonImage {
     height: 80px;
     width: 80px;
     border-radius: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spotifyWidget {
+    .refresh,
+    .progressBar {
+      transition: none;
+    }
+
+    .skeleton {
+      animation: none;
+    }
   }
 }
 

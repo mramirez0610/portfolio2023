@@ -9,8 +9,22 @@
     gap: 5%;
 
     .imgContainer {
+      appearance: none;
+      display: block;
+      position: relative;
+      width: 100%;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+      [hidden] {
+        display: none !important;
+      }
+
       .image {
+        display: block;
         object-fit: cover;
         border-radius: 8px;
         max-width: 100%;
@@ -21,6 +35,7 @@
         background-size: cover;
         shape-margin: 1rem;
       }
+
     }
   }
 

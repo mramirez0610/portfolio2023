@@ -1,0 +1,26 @@
+:where(html[data-theme], html[data-theme] *) {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html[data-theme],
+body[data-theme] {
+  font-family: "Satoshi", sans-serif;
+  overflow-x: hidden;
+  height: 100vh;
+}
+
+body[data-theme="portfolio"] {
+  color: #f2f5ea;
+  background-color: #171717;
+}
+
+body[data-theme="climbing"] {
+  color: #171717;
+  background: #f2f5ea;
+}
+
+:where(html[data-theme]) :where(h1, h2, h3, h4, h5, h6, p) {
+  margin-bottom: 16px;
+}

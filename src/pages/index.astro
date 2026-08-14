@@ -1,0 +1,53 @@
+---
+import Projects from "../components/Projects.astro";
+import PortfolioLayout from "../layouts/PortfolioLayout.astro";
+import githubIcon from "../assets/logos/github.svg?url";
+import linkedinIcon from "../assets/logos/linked.svg?url";
+import resumeIcon from "../assets/logos/resume.svg?url";
+import styles from "../styles/pages/home/home.module.scss";
+---
+
+<PortfolioLayout title="Home">
+  <div class={styles.home}>
+    <div class={styles.header}>
+      <h2 class={styles.subHeader}>
+        <span class={styles.flair}>Hey There!</span>
+      </h2>
+      <div class={styles.subHeader}>
+        <span class={styles.subtitle}>I'm Marco Ramirez.</span>
+      </div>
+      <div class={styles.subHeader}>
+        <span class={styles.subtitle}>
+          Web Developer
+          <span class={styles.flair}> and </span>
+          Rock Climber.
+        </span>
+      </div>
+      <div class={styles.contactOptions}>
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://drive.google.com/file/d/1Y-JSXySkv6h4fxEzfzRYDLSKMMXPSom4/view?usp=sharing"
+        >
+          <img class={styles.cLogo} src={resumeIcon} alt="resume" />
+        </a>
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://linkedin.com/in/marcoramirez001"
+        >
+          <img class={styles.cLogo} src={linkedinIcon} alt="LinkedIn" />
+        </a>
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://github.com/mramirez0610"
+        >
+          <img class={styles.cLogo} src={githubIcon} alt="Github" />
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <Projects />
+</PortfolioLayout>

@@ -1,0 +1,13 @@
+---
+import { getCollection } from "astro:content";
+import ClimbingEntries from "../../components/climbing/ClimbingEntries.astro";
+import ClimbingLayout from "../../layouts/ClimbingLayout.astro";
+
+const entries = (await getCollection("climbing")).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
+---
+
+<ClimbingLayout title="climbing journal" noindex>
+  <ClimbingEntries entries={entries} />
+</ClimbingLayout>

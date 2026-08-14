@@ -1,0 +1,37 @@
+---
+import ClimbingNav from "../components/climbing/ClimbingNav.astro";
+import styles from "../styles/components/climbing/climbingLayout.module.scss";
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+  title: string;
+  noindex?: boolean;
+}
+
+const { title, noindex = true } = Astro.props;
+---
+
+<BaseLayout title={title} theme="climbing" noindex={noindex}>
+  <main class={styles.cLayout}>
+    <div class={styles.background} aria-hidden="true">
+      <div class={styles.text}>
+        <h1>marco's</h1>
+        <h1>climbing</h1>
+        <h1>journal</h1>
+      </div>
+    </div>
+
+    <header class={styles.header}>
+      <a href="/" aria-label="Back to Marco's portfolio">
+        <div class={styles.logo}></div>
+      </a>
+      <ClimbingNav />
+    </header>
+
+    <section class={styles.content}>
+      <article>
+        <slot />
+      </article>
+    </section>
+  </main>
+</BaseLayout>

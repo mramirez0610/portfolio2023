@@ -1,0 +1,49 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import styles from "../../styles/pages/climbing/cEntries.module.scss";
+
+interface Props {
+  entries: CollectionEntry<"climbing">[];
+}
+
+const { entries } = Astro.props;
+
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
+  day: "2-digit",
+  month: "2-digit",
+  year: "numeric",
+  timeZone: "UTC",
+});
+
+const formatDate = (date: Date) => {
+  const parts = dateFormatter.formatToParts(date);
+  const getPart = (type: Intl.DateTimeFormatPartTypes) =>
+    parts.find((part) => part.type === type)?.value ?? "";
+
+  return `${getPart("month")}-${getPart("day")}-${getPart("year")}`;
+};
+---
+
+<section class={styles.entriesPage}>
+  <h2>my entries</h2>
+  <div class={styles.entries}>
+    {
+      entries.map((entry) => (
+        <a class={styles.entry} href={`/climbing/entries/${entry.data.slug}/`}>
+          <Image
+            src={entry.data.image}
+            width={800}
+            class={styles.image}
+            alt={entry.data.title}
+          />
+
+          <div class={styles.link}>
+            <div class={styles.date}>{formatDate(entry.data.date)}</div>
+            <div class={styles.title}>{entry.data.title}</div>
+          </div>
+        </a>
+      ))
+    }
+  </div>
+</section>

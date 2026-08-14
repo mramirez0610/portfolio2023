@@ -1,0 +1,75 @@
+---
+import { Image } from "astro:assets";
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import PortfolioLayout from "../../layouts/PortfolioLayout.astro";
+import githubIcon from "../../assets/logos/github.svg?url";
+import liveSiteIcon from "../../assets/logos/internet.svg?url";
+import styles from "../../styles/pages/projectInfo/projectInfo.module.scss";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+
+  return projects.map((project) => ({
+    params: { slug: project.data.slug },
+    props: { project },
+  }));
+}
+
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+---
+
+<PortfolioLayout title={project.data.title}>
+  <div class={styles.projectInfo}>
+    <a class={styles.flair} href="/">Back to projects</a>
+
+    <div class={styles.details}>
+      <div class={styles.left}>
+        <Image
+          src={project.data.image}
+          width={600}
+          height={600}
+          alt={`${project.data.title} project preview`}
+          loading="lazy"
+        />
+
+        <div class={styles.techContainer}>
+          {
+            project.data.tech.map((technology) => (
+              <div class={styles.tech}>
+                <span>{technology}</span>
+              </div>
+            ))
+          }
+        </div>
+
+        <div class={styles.contactOptions}>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href={project.data.url}
+            aria-label={`View ${project.data.title} live`}
+          >
+            <img class={styles.cLogo} src={liveSiteIcon} alt="live server" />
+          </a>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href={project.data.github}
+            aria-label={`View ${project.data.title} on GitHub`}
+          >
+            <img class={styles.cLogo} src={githubIcon} alt="github" />
+          </a>
+        </div>
+      </div>
+
+      <div class={styles.info}>
+        <Content />
+      </div>
+    </div>
+  </div>
+</PortfolioLayout>

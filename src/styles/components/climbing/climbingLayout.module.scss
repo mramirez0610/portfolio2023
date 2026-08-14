@@ -73,8 +73,7 @@
       width: 55vw;
 
       padding: 1rem;
-      overflow-y: scroll;
-      // overflow-x: visible;
+      overflow: visible;
     }
   }
 }
@@ -99,6 +98,8 @@
       article {
         width: 100%;
         padding-bottom: 10vh;
+        overflow-y: auto;
+        overflow-x: hidden;
       }
     }
   }

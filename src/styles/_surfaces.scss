@@ -1,0 +1,27 @@
+@use "variables" as *;
+
+@mixin climbing-reading-surface {
+  position: relative;
+  isolation: isolate;
+  color: $white;
+  padding: clamp(1rem, 1.5vw, 1.25rem);
+  overflow-wrap: anywhere;
+
+  background:
+    radial-gradient(
+      circle at 14% -8%,
+      rgba($white, 0.1),
+      rgba($white, 0.025) 32%,
+      transparent 52%
+    ),
+    linear-gradient(145deg, rgba($black, 0.9), rgba($black, 0.82));
+  border: 1px solid rgba($white, 0.14);
+  border-radius: clamp(14px, 1.5vw, 18px);
+  box-shadow:
+    0 8px 20px rgba($black, 0.1),
+    0 2px 6px rgba($black, 0.07),
+    inset 0 1px 0 rgba($white, 0.12),
+    inset 0 -1px 0 rgba(#000, 0.28);
+  backdrop-filter: blur(8px) saturate(110%);
+  -webkit-backdrop-filter: blur(8px) saturate(110%);
+}

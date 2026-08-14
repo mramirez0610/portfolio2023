@@ -14,7 +14,8 @@
 # project
 /css/styles.css.map
 .prepros
-/public
+/dist
+/.astro
 /help
 .cache
 /src/content/climbing/.obsidian/*

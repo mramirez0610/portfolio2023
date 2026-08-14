@@ -1,0 +1,95 @@
+---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import styles from "../styles/components/portfolio/projects.module.scss";
+
+const projects = (await getCollection("projects")).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+---
+
+<div>
+  <div class={styles.projects}>
+    {
+      projects.map((project) => (
+        <a
+          class={styles.project}
+          href={`/projects/${project.data.slug}/`}
+        >
+          <div
+            class={styles.tilt}
+            data-project-tilt
+            data-transition-class={styles.transition}
+          >
+            <Image
+              src={project.data.image}
+              width={250}
+              height={250}
+              alt={project.data.title}
+              class={styles.imageStyle}
+              loading="lazy"
+            />
+          </div>
+
+          <div class={styles.info}>
+            <h3>
+              <span class={styles.linkTo}>{project.data.title}</span>
+            </h3>
+          </div>
+        </a>
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-project-tilt]").forEach(
+    (card) => {
+      let bounds: DOMRect | null = null;
+      const transitionClass = card.dataset.transitionClass;
+
+      const resetTransition = () => {
+        bounds = card.getBoundingClientRect();
+        card.style.transform = "rotateX(0deg) rotateY(0deg)";
+
+        if (transitionClass) {
+          card.classList.remove(transitionClass);
+        }
+      };
+
+      const tilt = (clientX: number, clientY: number) => {
+        if (!bounds) return;
+
+        const xPercent = (clientX - bounds.left) / bounds.width;
+        const yPercent = (clientY - bounds.top) / bounds.height;
+        const xRotation = (0.5 - xPercent) * 10;
+        const yRotation = (0.5 - yPercent) * 10;
+
+        card.style.transform = `perspective(800px) rotateX(${-yRotation}deg) rotateY(${xRotation}deg)`;
+      };
+
+      const settle = () => {
+        bounds = null;
+        card.style.transform = "rotateX(0deg) rotateY(0deg)";
+
+        if (transitionClass) {
+          card.classList.add(transitionClass);
+        }
+      };
+
+      card.addEventListener("mouseenter", resetTransition);
+      card.addEventListener("mousemove", (event) => {
+        tilt(event.clientX, event.clientY);
+      });
+      card.addEventListener("mouseleave", settle);
+
+      card.addEventListener("touchstart", resetTransition);
+      card.addEventListener("touchmove", (event) => {
+        const touch = event.touches[0];
+        if (touch) tilt(touch.clientX, touch.clientY);
+      });
+      card.addEventListener("touchend", settle);
+      card.addEventListener("touchcancel", settle);
+    },
+  );
+</script>

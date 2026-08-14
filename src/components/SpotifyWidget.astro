@@ -1,0 +1,469 @@
+---
+import styles from "../styles/components/portfolio/spotifyWidget.module.scss";
+
+interface Props {
+  endpoint?: string;
+  pollInterval?: number;
+}
+
+const {
+  endpoint = "/.netlify/functions/spotify-currently-playing",
+  pollInterval = 30_000,
+} = Astro.props;
+---
+
+<section
+  class={styles.spotifyWidget}
+  data-spotify-widget
+  data-spotify-endpoint={endpoint}
+  data-spotify-poll-interval={pollInterval}
+  aria-live="polite"
+  aria-busy="true"
+>
+  <div class={styles.header}>
+    <div class={styles.icon}>
+      <div
+        class={`${styles.skeleton} ${styles.skeletonText} ${styles.headerSkeleton}`}
+        data-spotify-header-loading
+        aria-hidden="true"
+      >
+      </div>
+
+      <div class={styles.headerStatus} data-spotify-header hidden>
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 256 256"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm31.07-46.26a8,8,0,0,1-10.81,3.33,42.79,42.79,0,0,0-40.52,0,8,8,0,0,1-7.48-14.14,59.33,59.33,0,0,1,55.48,0A8,8,0,0,1,159.07,169.74Zm32-56a8,8,0,0,1-10.83,3.29,110.62,110.62,0,0,0-104.46,0,8,8,0,0,1-7.54-14.12,126.67,126.67,0,0,1,119.54,0A8,8,0,0,1,191.06,113.76Zm-16,28a8,8,0,0,1-10.82,3.3,77,77,0,0,0-72.48,0,8,8,0,0,1-7.52-14.12,93,93,0,0,1,87.52,0A8,8,0,0,1,175.06,141.76Z"
+          ></path>
+        </svg>
+        <h4 data-spotify-heading>Spotify</h4>
+      </div>
+    </div>
+
+    <button
+      class={styles.refresh}
+      type="button"
+      data-spotify-refresh
+      aria-label="Refresh Spotify listening status"
+      hidden
+    >
+      <svg
+        width="22"
+        height="22"
+        viewBox="0 0 256 256"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path
+          d="M224,48V96a8,8,0,0,1-8,8H168a8,8,0,0,1,0-16h28.69L182.06,73.37a79.56,79.56,0,0,0-56.13-23.43h-.45A79.52,79.52,0,0,0,69.59,72.71,8,8,0,0,1,58.41,61.27a96,96,0,0,1,135,.79L208,76.69V48a8,8,0,0,1,16,0ZM186.41,183.29a80,80,0,0,1-112.47-.66L59.31,168H88a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8v48a8,8,0,0,0,16,0V179.31l14.63,14.63A95.43,95.43,0,0,0,130,222.06h.53a95.36,95.36,0,0,0,67.07-27.33,8,8,0,0,0-11.18-11.44Z"
+        ></path>
+      </svg>
+    </button>
+  </div>
+
+  <div class={styles.song} data-spotify-loading aria-hidden="true">
+    <div class={`${styles.skeleton} ${styles.skeletonImage}`}></div>
+    <div class={styles.info}>
+      <div class={`${styles.skeleton} ${styles.skeletonText}`}></div>
+      <div class={`${styles.skeleton} ${styles.skeletonText}`}></div>
+      <div class={`${styles.skeleton} ${styles.skeletonText}`}></div>
+    </div>
+  </div>
+
+  <div class={styles.song} data-spotify-track hidden>
+    <img
+      class={styles.albumImg}
+      data-spotify-artwork
+      alt=""
+      loading="lazy"
+      decoding="async"
+      hidden
+    />
+    <div class={styles.info}>
+      <h4 data-spotify-title></h4>
+      <h5 data-spotify-album></h5>
+      <div class={styles.artists} data-spotify-artists></div>
+    </div>
+  </div>
+
+  <div class={`${styles.song} ${styles.status}`} data-spotify-message hidden>
+    <div class={styles.statusMessage}>
+      <h5 data-spotify-message-text>whoops... error... gimme a sec</h5>
+    </div>
+  </div>
+
+  <div class={styles.progressBarContainer} data-spotify-progress hidden>
+    <div class={styles.progressBar} data-spotify-progress-bar></div>
+  </div>
+</section>
+
+<script>
+  type SpotifyTrack = {
+    title: string;
+    album: string;
+    artists: string[];
+    artworkUrl: string;
+    durationMs: number | null;
+    progressMs: number | null;
+  };
+
+  type SpotifyPayload = {
+    status: "playing" | "recent" | "idle" | "unavailable";
+    reason?: string;
+    track: SpotifyTrack | null;
+  };
+
+  const isRecord = (value: unknown): value is Record<string, unknown> =>
+    typeof value === "object" && value !== null;
+
+  const optionalNumber = (value: unknown): number | null =>
+    typeof value === "number" && Number.isFinite(value) ? value : null;
+
+  const safeImageUrl = (value: unknown): string => {
+    if (typeof value !== "string" || !value) return "";
+
+    try {
+      const url = new URL(value, window.location.href);
+      return url.protocol === "https:" ? url.href : "";
+    } catch {
+      return "";
+    }
+  };
+
+  const parseTrack = (value: unknown): SpotifyTrack | null => {
+    if (!isRecord(value) || typeof value.title !== "string") return null;
+
+    return {
+      title: value.title,
+      album: typeof value.album === "string" ? value.album : "",
+      artists: Array.isArray(value.artists)
+        ? value.artists.filter(
+            (artist): artist is string =>
+              typeof artist === "string" && !!artist,
+          )
+        : [],
+      artworkUrl: safeImageUrl(value.artworkUrl),
+      durationMs: optionalNumber(value.durationMs),
+      progressMs: optionalNumber(value.progressMs),
+    };
+  };
+
+  const parsePayload = (value: unknown): SpotifyPayload | null => {
+    if (!isRecord(value)) return null;
+
+    const allowedStatuses = ["playing", "recent", "idle", "unavailable"];
+    if (
+      typeof value.status !== "string" ||
+      !allowedStatuses.includes(value.status)
+    ) {
+      return null;
+    }
+
+    return {
+      status: value.status as SpotifyPayload["status"],
+      reason: typeof value.reason === "string" ? value.reason : undefined,
+      track: parseTrack(value.track),
+    };
+  };
+
+  const initializeSpotifyWidget = (root: HTMLElement) => {
+    if (root.dataset.spotifyInitialized === "true") return;
+    root.dataset.spotifyInitialized = "true";
+
+    const headerLoading = root.querySelector<HTMLElement>(
+      "[data-spotify-header-loading]",
+    );
+    const header = root.querySelector<HTMLElement>("[data-spotify-header]");
+    const heading = root.querySelector<HTMLElement>("[data-spotify-heading]");
+    const refresh = root.querySelector<HTMLButtonElement>(
+      "[data-spotify-refresh]",
+    );
+    const loading = root.querySelector<HTMLElement>("[data-spotify-loading]");
+    const trackView = root.querySelector<HTMLElement>("[data-spotify-track]");
+    const artwork = root.querySelector<HTMLImageElement>(
+      "[data-spotify-artwork]",
+    );
+    const title = root.querySelector<HTMLElement>("[data-spotify-title]");
+    const album = root.querySelector<HTMLElement>("[data-spotify-album]");
+    const artists = root.querySelector<HTMLElement>("[data-spotify-artists]");
+    const message = root.querySelector<HTMLElement>("[data-spotify-message]");
+    const messageText = root.querySelector<HTMLElement>(
+      "[data-spotify-message-text]",
+    );
+    const progress = root.querySelector<HTMLElement>("[data-spotify-progress]");
+    const progressBar = root.querySelector<HTMLElement>(
+      "[data-spotify-progress-bar]",
+    );
+
+    if (
+      !headerLoading ||
+      !header ||
+      !heading ||
+      !refresh ||
+      !loading ||
+      !trackView ||
+      !artwork ||
+      !title ||
+      !album ||
+      !artists ||
+      !message ||
+      !messageText ||
+      !progress ||
+      !progressBar
+    ) {
+      return;
+    }
+
+    const endpoint =
+      root.dataset.spotifyEndpoint ||
+      "/.netlify/functions/spotify-currently-playing";
+    const configuredInterval = Number(root.dataset.spotifyPollInterval);
+    const pollInterval =
+      Number.isFinite(configuredInterval) && configuredInterval > 0
+        ? Math.max(configuredInterval, 15_000)
+        : 30_000;
+
+    let pollTimer: number | undefined;
+    let requestController: AbortController | null = null;
+    let progressAnimation: number | undefined;
+    let inFlight = false;
+    let stopped = false;
+    let hasStableState = false;
+    let failureCount = 0;
+    let nextPollDelay = pollInterval;
+
+    const clearPollTimer = () => {
+      if (pollTimer !== undefined) {
+        window.clearTimeout(pollTimer);
+        pollTimer = undefined;
+      }
+    };
+
+    const scheduleNextPoll = () => {
+      clearPollTimer();
+      if (stopped || document.hidden) return;
+
+      pollTimer = window.setTimeout(() => {
+        void loadSpotifyStatus();
+      }, nextPollDelay);
+    };
+
+    const showReadyHeader = (label: string) => {
+      headerLoading.hidden = true;
+      header.hidden = false;
+      refresh.hidden = false;
+      heading.textContent = label;
+    };
+
+    const hideProgress = () => {
+      if (progressAnimation !== undefined) {
+        window.cancelAnimationFrame(progressAnimation);
+        progressAnimation = undefined;
+      }
+      progress.hidden = true;
+      progressBar.style.transition = "none";
+      progressBar.style.width = "0%";
+    };
+
+    const renderProgress = (track: SpotifyTrack) => {
+      const { durationMs, progressMs } = track;
+      if (!durationMs || progressMs === null) {
+        hideProgress();
+        return;
+      }
+
+      const position = Math.min(Math.max(progressMs, 0), durationMs);
+      const percentage = (position / durationMs) * 100;
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+
+      progress.hidden = false;
+      progressBar.style.transition = "none";
+      progressBar.style.width = `${percentage}%`;
+
+      if (!reduceMotion && position < durationMs) {
+        progressAnimation = window.requestAnimationFrame(() => {
+          progressAnimation = undefined;
+          progressBar.style.transition = `width ${durationMs - position}ms linear`;
+          progressBar.style.width = "100%";
+        });
+      }
+    };
+
+    const renderTrack = (status: "playing" | "recent", track: SpotifyTrack) => {
+      loading.hidden = true;
+      message.hidden = true;
+      trackView.hidden = false;
+      root.dataset.spotifyState = status;
+
+      showReadyHeader(
+        status === "playing" ? "Currently Playing:" : "Recently played:",
+      );
+
+      title.textContent = track.title;
+      album.textContent = track.album;
+      album.hidden = !track.album;
+
+      const artistElements = track.artists.map((artist) => {
+        const element = document.createElement("h5");
+        element.textContent = artist;
+        return element;
+      });
+      artists.replaceChildren(...artistElements);
+
+      if (track.artworkUrl) {
+        artwork.src = track.artworkUrl;
+        artwork.alt = track.album
+          ? `${track.title} — ${track.album} artwork`
+          : `${track.title} artwork`;
+        artwork.hidden = false;
+      } else {
+        artwork.removeAttribute("src");
+        artwork.alt = "";
+        artwork.hidden = true;
+      }
+
+      if (status === "playing") {
+        renderProgress(track);
+      } else {
+        hideProgress();
+      }
+
+      hasStableState = true;
+    };
+
+    const renderMessage = (kind: "idle" | "unavailable") => {
+      loading.hidden = true;
+      trackView.hidden = true;
+      message.hidden = false;
+      root.dataset.spotifyState = kind;
+      hideProgress();
+      showReadyHeader("Spotify");
+
+      if (kind === "idle") {
+        messageText.textContent = "Nothing playing right now.";
+        hasStableState = true;
+      } else {
+        messageText.textContent = "whoops... error... gimme a sec";
+      }
+    };
+
+    const registerFailure = (minimumDelay = 0) => {
+      failureCount += 1;
+      const backoff = Math.min(
+        pollInterval * 2 ** Math.min(failureCount, 4),
+        5 * 60_000,
+      );
+      nextPollDelay = Math.max(backoff, minimumDelay);
+    };
+
+    const loadSpotifyStatus = async () => {
+      if (stopped || inFlight || document.hidden) return;
+
+      inFlight = true;
+      clearPollTimer();
+      root.setAttribute("aria-busy", "true");
+      refresh.disabled = true;
+      requestController = new AbortController();
+      const requestTimeout = window.setTimeout(
+        () => requestController?.abort(),
+        10_000,
+      );
+
+      try {
+        const response = await fetch(endpoint, {
+          method: "GET",
+          headers: { Accept: "application/json" },
+          credentials: "same-origin",
+          signal: requestController.signal,
+        });
+        const payload = parsePayload(await response.json());
+
+        if (
+          response.ok &&
+          payload &&
+          (payload.status === "playing" || payload.status === "recent") &&
+          payload.track
+        ) {
+          renderTrack(payload.status, payload.track);
+          failureCount = 0;
+          nextPollDelay = pollInterval;
+        } else if (response.ok && payload?.status === "idle") {
+          renderMessage("idle");
+          failureCount = 0;
+          nextPollDelay = pollInterval;
+        } else {
+          const retryAfterSeconds = Number(response.headers.get("retry-after"));
+          const retryAfter = Number.isFinite(retryAfterSeconds)
+            ? retryAfterSeconds * 1_000
+            : 0;
+          registerFailure(retryAfter);
+
+          if (!hasStableState) renderMessage("unavailable");
+          console.warn(
+            `Spotify listening status is unavailable (${payload?.reason || response.status}).`,
+          );
+        }
+      } catch (error) {
+        if (!stopped) {
+          registerFailure();
+          if (!hasStableState) renderMessage("unavailable");
+
+          if (!(error instanceof DOMException && error.name === "AbortError")) {
+            console.warn("Unable to load Spotify listening status.");
+          }
+        }
+      } finally {
+        window.clearTimeout(requestTimeout);
+        requestController = null;
+        inFlight = false;
+        refresh.disabled = false;
+        root.setAttribute("aria-busy", "false");
+        scheduleNextPoll();
+      }
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        clearPollTimer();
+      } else {
+        void loadSpotifyStatus();
+      }
+    };
+
+    const cleanup = () => {
+      stopped = true;
+      clearPollTimer();
+      requestController?.abort();
+      if (progressAnimation !== undefined) {
+        window.cancelAnimationFrame(progressAnimation);
+      }
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+
+    refresh.addEventListener("click", () => {
+      failureCount = 0;
+      nextPollDelay = pollInterval;
+      void loadSpotifyStatus();
+    });
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    document.addEventListener("astro:before-swap", cleanup, { once: true });
+
+    void loadSpotifyStatus();
+  };
+
+  const initializeSpotifyWidgets = () => {
+    document
+      .querySelectorAll<HTMLElement>("[data-spotify-widget]")
+      .forEach(initializeSpotifyWidget);
+  };
+
+  initializeSpotifyWidgets();
+  document.addEventListener("astro:page-load", initializeSpotifyWidgets);
+</script>

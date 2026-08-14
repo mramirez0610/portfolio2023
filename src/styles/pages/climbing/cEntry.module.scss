@@ -23,6 +23,7 @@
     // }
 
     .image {
+      display: block;
       max-width: 100%;
       max-height: 100%;
       object-fit: contain;
@@ -51,9 +52,52 @@
     }
   }
 
-  p {
-    font-size: 1.2em;
-    // font-weight: 500;
+  .prose {
+    @include climbing-reading-surface;
+
+    p {
+      font-size: 1.2em;
+    }
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+
+    img,
+    picture,
+    video,
+    iframe {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 1.5rem auto;
+      border-radius: 14px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration-thickness: 0.1em;
+      text-underline-offset: 0.2em;
+
+      &:focus-visible {
+        outline: 2px solid $white;
+        outline-offset: 4px;
+        border-radius: 2px;
+      }
+    }
+
+    ul,
+    ol {
+      margin-bottom: 1rem;
+      padding-left: 1.5rem;
+    }
+
+    blockquote {
+      margin: 1.25rem 0;
+      padding-left: 1rem;
+      border-left: 3px solid rgba($white, 0.5);
+      color: rgba($white, 0.85);
+    }
   }
 }
 

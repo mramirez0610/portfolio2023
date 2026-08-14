@@ -1,0 +1,67 @@
+---
+import { Image } from "astro:assets";
+import {
+  getCollection,
+  render,
+  type CollectionEntry,
+} from "astro:content";
+import ClimbingLayout from "../../../layouts/ClimbingLayout.astro";
+import styles from "../../../styles/pages/climbing/cEntry.module.scss";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("climbing");
+
+  return entries.map((entry) => ({
+    params: { slug: entry.data.slug },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<"climbing">;
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const keywords = entry.data.keywords ?? [];
+
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
+  day: "2-digit",
+  month: "2-digit",
+  year: "numeric",
+  timeZone: "UTC",
+});
+
+const parts = dateFormatter.formatToParts(entry.data.date);
+const getDatePart = (type: Intl.DateTimeFormatPartTypes) =>
+  parts.find((part) => part.type === type)?.value ?? "";
+const formattedDate = `${getDatePart("month")}-${getDatePart("day")}-${getDatePart("year")}`;
+---
+
+<ClimbingLayout title={entry.data.slug} noindex>
+  <div class={styles.entry}>
+    <section class={styles.images}>
+      <Image
+        src={entry.data.image}
+        width={600}
+        class={styles.image}
+        alt={entry.data.title}
+      />
+    </section>
+
+    <section class={styles.frontmatter}>
+      <h4 class={styles.date}>{formattedDate}</h4>
+      <div class={styles.keywords}>
+        {
+          keywords.map((keyword) => (
+            <div class={styles.keyword}>{keyword}</div>
+          ))
+        }
+      </div>
+    </section>
+
+    <div class={styles.prose}>
+      <Content />
+    </div>
+  </div>
+</ClimbingLayout>

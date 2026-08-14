@@ -1,0 +1,48 @@
+---
+import "../styles/global.scss";
+import favicon from "../assets/logos/logo.svg?url";
+
+interface Props {
+  title: string;
+  theme?: "portfolio" | "climbing";
+  noindex?: boolean;
+  rawTitle?: boolean;
+}
+
+const {
+  title,
+  theme,
+  noindex = false,
+  rawTitle = false,
+} = Astro.props;
+const documentTitle = rawTitle
+  ? title
+  : `${title} | Marco Ramirez Portfolio`;
+---
+
+<!doctype html>
+<html lang="en" data-theme={theme}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+    />
+    <meta name="generator" content={Astro.generator} />
+    {noindex && <meta name="robots" content="noindex" />}
+    {theme && (
+      <>
+        <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+        <link
+          rel="stylesheet"
+          href="https://api.fontshare.com/v2/css?f[]=rx-100@400&f[]=satoshi@300,400,500,700&display=swap"
+        />
+      </>
+    )}
+    <link rel="icon" href={favicon} type="image/svg+xml" />
+    <title>{documentTitle}</title>
+  </head>
+  <body data-theme={theme}>
+    <slot />
+  </body>
+</html>

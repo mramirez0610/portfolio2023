@@ -1,0 +1,132 @@
+---
+import { Image } from "astro:assets";
+import SpotifyWidget from "../components/SpotifyWidget.astro";
+import PortfolioLayout from "../layouts/PortfolioLayout.astro";
+import githubIcon from "../assets/logos/github.svg?url";
+import linkedinIcon from "../assets/logos/linked.svg?url";
+import resumeIcon from "../assets/logos/resume.svg?url";
+import photo2 from "../assets/imgs/portfolio/about/photo2.JPG";
+import photo3 from "../assets/imgs/portfolio/about/photo3.jpeg";
+import styles from "../styles/pages/about/about.module.scss";
+---
+
+<PortfolioLayout title="About Me">
+  <section class={styles.about}>
+    <section class={styles.aboutMedia}>
+      <button
+        class={styles.imgContainer}
+        type="button"
+        aria-label="Marco Ramirez headshot"
+        data-about-photo-toggle
+      >
+        <Image
+          class={styles.image}
+          src={photo2}
+          width={800}
+          height={800}
+          alt="Marco Ramirez Headshot"
+          data-about-photo
+        />
+        <Image
+          class={styles.image}
+          src={photo3}
+          width={800}
+          height={800}
+          alt="ouchies"
+          data-about-easter-egg
+          hidden
+        />
+      </button>
+
+      <div>
+        <SpotifyWidget />
+      </div>
+    </section>
+    <article class={styles.aboutContact}>
+      <h1 class={styles.flair}>About Me!</h1>
+      <p>
+        I'm Marco Ramirez, a dedicated web developer with a passion for
+        creating intuitive and dynamic web experiences. Rock climbing and web
+        development are my two biggest passions, and I'm looking for a life
+        where I can happily do both.
+      </p>
+
+      <p>
+        I'm comfortable and confident with a variety of technologies, the most
+        notable being Javascript along with its plethora of frameworks (Next,
+        Gatsby, Angular, Solid.JS, etc.). I've also pushed myself to study and
+        understand full-stack practices, and have worked with Firebase, NoSQL,
+        GraphQL, and MySQL. I'm always looking to learn more, and I'm always
+        looking for new opportunities to grow as a developer. Feel free to{" "}
+        <a
+          class={styles.linkTo}
+          target="_blank"
+          rel="noreferrer"
+          href="https://linkedin.com/in/marcoramirez001"
+        >reach out</a>{" "}
+        if you have any questions or if you'd like to work together.
+      </p>
+
+      <div>
+        <h3 class={styles.flair} style="font-size: 1.4em;">
+          Shoot me a message!
+        </h3>
+      </div>
+      <p>
+        I'm currently looking for a full-time position as a front-end
+        developer. I'm also open to freelance work, so if you have a project
+        you'd like to work on, feel free to reach out!
+      </p>
+      <p>
+        If you have any questions or inquiries, feel free to contact me via
+        LinkedIn or email. I've also included my Github below, if you'd like to
+        see other projects I'm working on. Feel free to get in touch!
+      </p>
+
+      <div class={styles.contactOptions}>
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://drive.google.com/file/d/1Y-JSXySkv6h4fxEzfzRYDLSKMMXPSom4/view?usp=sharing"
+        >
+          <img class={styles.cLogo} src={resumeIcon} alt="resume" />
+        </a>
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://linkedin.com/in/marcoramirez001"
+        >
+          <img class={styles.cLogo} src={linkedinIcon} alt="LinkedIn" />
+        </a>
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://github.com/mramirez0610"
+        >
+          <img class={styles.cLogo} src={githubIcon} alt="Github" />
+        </a>
+      </div>
+    </article>
+  </section>
+
+  <script>
+  const photoToggle = document.querySelector<HTMLButtonElement>(
+    "[data-about-photo-toggle]",
+  );
+  const photo = document.querySelector<HTMLElement>("[data-about-photo]");
+  const easterEgg = document.querySelector<HTMLElement>(
+    "[data-about-easter-egg]",
+  );
+
+  if (photoToggle && photo && easterEgg) {
+    let count = 0;
+    photoToggle.addEventListener("click", () => {
+      count += 1;
+      if (count >= 8) {
+        photo.hidden = true;
+        easterEgg.hidden = false;
+      }
+    });
+  }
+  </script>
+</PortfolioLayout>

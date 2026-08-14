@@ -7,6 +7,12 @@
     text-align: center;
     gap: 1.25rem; /* use rem instead of % so scrollbars don’t change it */
 
+    .portfolioLink {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     .link {
       display: inline-flex;
       align-items: center;
@@ -62,6 +68,7 @@
 
   .mobileNavButton {
     display: none;
+    appearance: none;
     background: rgba($black, 0.06);
     color: $black;
     border: 1px solid rgba($black, 0.08);
@@ -73,13 +80,13 @@
     backdrop-filter: blur(10px);
     transition: background 180ms ease, color 180ms ease, border-color 180ms ease,
       transform 180ms ease, box-shadow 180ms ease;
+  }
 
-    &.navOpen {
-      background: $black;
-      color: $white;
-      border-color: rgba($white, 0.15);
-      box-shadow: 0 14px 40px rgba($black, 0.35);
-    }
+  &[data-open="true"] .mobileNavButton {
+    background: $black;
+    color: $white;
+    border-color: rgba($white, 0.15);
+    box-shadow: 0 14px 40px rgba($black, 0.35);
   }
 
   .mobileNav {
@@ -156,10 +163,6 @@
       }
     }
   }
-  .open {
-    display: block;
-    background-color: rgba($color: $black, $alpha: 0.6);
-  }
 }
 
 @media (max-width: 768px) {
@@ -184,10 +187,11 @@
       pointer-events: none;
       transition: opacity 180ms ease, transform 180ms ease;
     }
-    .mobileNav.open {
+    &[data-open="true"] .mobileNav {
       opacity: 1;
       transform: translateY(0);
       pointer-events: auto;
+      background-color: rgba($color: $black, $alpha: 0.6);
     }
   }
 }
