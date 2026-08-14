@@ -12,7 +12,7 @@ import styles from "../styles/pages/about/about.module.scss";
 
 <PortfolioLayout
   title="About Me"
-  description="Meet Marco Ramirez, a web developer focused on intuitive front-end experiences, full-stack tools, and thoughtful collaboration on new projects."
+  description="I'm Marco Ramirez, a dedicated web developer with a passion for creating intuitive and dynamic web experiences. Rock climbing and web development are my two biggest passions, and I'm looking for a life where I can happily do both."
 >
   <section class={styles.about}>
     <section class={styles.aboutMedia}>
@@ -48,10 +48,10 @@ import styles from "../styles/pages/about/about.module.scss";
     <article class={styles.aboutContact}>
       <h1 class={styles.flair}>About Me!</h1>
       <p>
-        I'm Marco Ramirez, a dedicated web developer with a passion for
-        creating intuitive and dynamic web experiences. Rock climbing and web
-        development are my two biggest passions, and I'm looking for a life
-        where I can happily do both.
+        I'm Marco Ramirez, a dedicated web developer with a passion for creating
+        intuitive and dynamic web experiences. Rock climbing and web development
+        are my two biggest passions, and I'm looking for a life where I can
+        happily do both.
       </p>
 
       <p>
@@ -65,8 +65,8 @@ import styles from "../styles/pages/about/about.module.scss";
           class={styles.linkTo}
           target="_blank"
           rel="noreferrer"
-          href="https://linkedin.com/in/marcoramirez001"
-        >reach out</a>{" "}
+          href="https://linkedin.com/in/marcoramirez001">reach out</a
+        >{" "}
         if you have any questions or if you'd like to work together.
       </p>
 
@@ -76,9 +76,9 @@ import styles from "../styles/pages/about/about.module.scss";
         </h3>
       </div>
       <p>
-        I'm currently looking for a full-time position as a front-end
-        developer. I'm also open to freelance work, so if you have a project
-        you'd like to work on, feel free to reach out!
+        I'm currently looking for a full-time position as a front-end developer.
+        I'm also open to freelance work, so if you have a project you'd like to
+        work on, feel free to reach out!
       </p>
       <p>
         If you have any questions or inquiries, feel free to contact me via
@@ -113,23 +113,23 @@ import styles from "../styles/pages/about/about.module.scss";
   </section>
 
   <script>
-  const photoToggle = document.querySelector<HTMLButtonElement>(
-    "[data-about-photo-toggle]",
-  );
-  const photo = document.querySelector<HTMLElement>("[data-about-photo]");
-  const easterEgg = document.querySelector<HTMLElement>(
-    "[data-about-easter-egg]",
-  );
+    const photoToggle = document.querySelector<HTMLButtonElement>(
+      "[data-about-photo-toggle]",
+    );
+    const photo = document.querySelector<HTMLElement>("[data-about-photo]");
+    const easterEgg = document.querySelector<HTMLElement>(
+      "[data-about-easter-egg]",
+    );
 
-  if (photoToggle && photo && easterEgg) {
-    let count = 0;
-    photoToggle.addEventListener("click", () => {
-      count += 1;
-      if (count >= 8) {
-        photo.hidden = true;
-        easterEgg.hidden = false;
-      }
-    });
-  }
+    if (photoToggle && photo && easterEgg) {
+      let count = 0;
+      photoToggle.addEventListener("click", () => {
+        count += 1;
+        if (count >= 8) {
+          photo.hidden = true;
+          easterEgg.hidden = false;
+        }
+      });
+    }
   </script>
 </PortfolioLayout>
