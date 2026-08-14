@@ -38,7 +38,7 @@ const getDatePart = (type: Intl.DateTimeFormatPartTypes) =>
 const formattedDate = `${getDatePart("month")}-${getDatePart("day")}-${getDatePart("year")}`;
 ---
 
-<ClimbingLayout title={entry.data.slug} noindex>
+<ClimbingLayout title={entry.data.slug}>
   <div class={styles.entry}>
     <section class={styles.images}>
       <Image

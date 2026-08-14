@@ -23,7 +23,10 @@ const { project } = Astro.props;
 const { Content } = await render(project);
 ---
 
-<PortfolioLayout title={project.data.title}>
+<PortfolioLayout
+  title={project.data.title}
+  description={project.data.description}
+>
   <div class={styles.projectInfo}>
     <a class={styles.flair} href="/">Back to projects</a>
 

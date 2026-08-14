@@ -5,12 +5,13 @@ import styles from "../styles/components/portfolio/layout.module.scss";
 
 interface Props {
   title: string;
+  description: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
-<BaseLayout title={title} theme="portfolio">
+<BaseLayout title={title} description={description} theme="portfolio">
   <header class={styles.header}>
     <button
       class={styles.logoButton}

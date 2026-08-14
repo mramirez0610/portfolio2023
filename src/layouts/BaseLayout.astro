@@ -1,9 +1,9 @@
 ---
 import "../styles/global.scss";
-import favicon from "../assets/logos/logo.svg?url";
 
 interface Props {
   title: string;
+  description?: string;
   theme?: "portfolio" | "climbing";
   noindex?: boolean;
   rawTitle?: boolean;
@@ -11,6 +11,7 @@ interface Props {
 
 const {
   title,
+  description,
   theme,
   noindex = false,
   rawTitle = false,
@@ -29,6 +30,7 @@ const documentTitle = rawTitle
       content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
     />
     <meta name="generator" content={Astro.generator} />
+    {description && <meta name="description" content={description} />}
     {noindex && <meta name="robots" content="noindex" />}
     {theme && (
       <>
@@ -39,7 +41,7 @@ const documentTitle = rawTitle
         />
       </>
     )}
-    <link rel="icon" href={favicon} type="image/svg+xml" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <title>{documentTitle}</title>
   </head>
   <body data-theme={theme}>

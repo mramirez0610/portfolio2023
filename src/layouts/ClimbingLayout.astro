@@ -5,13 +5,12 @@ import BaseLayout from "./BaseLayout.astro";
 
 interface Props {
   title: string;
-  noindex?: boolean;
 }
 
-const { title, noindex = true } = Astro.props;
+const { title } = Astro.props;
 ---
 
-<BaseLayout title={title} theme="climbing" noindex={noindex}>
+<BaseLayout title={title} theme="climbing" noindex>
   <main class={styles.cLayout}>
     <div class={styles.background} aria-hidden="true">
       <div class={styles.text}>
