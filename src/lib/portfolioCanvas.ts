@@ -11,6 +11,12 @@ const host = document.querySelector<HTMLElement>("[data-p5-canvas]");
 if (host && !host.dataset.p5Mounted) {
   host.dataset.p5Mounted = "true";
 
+  const root = document.documentElement;
+  const strokeColorForMode = () =>
+    root.dataset.colorMode === "light"
+      ? "rgba(163, 159, 159, 0.92)"
+      : "rgba(175, 2, 2, 0.92)";
+
   let growth: DifferentialGrowth;
   let canvasWidth = host.clientWidth;
   let canvasHeight = host.clientHeight;
@@ -19,7 +25,7 @@ if (host && !host.dataset.p5Mounted) {
     growth = new DifferentialGrowth(
       canvasWidth,
       canvasHeight,
-      createGrowthSettings(canvasWidth, canvasHeight),
+      createGrowthSettings(canvasWidth, canvasHeight, strokeColorForMode()),
     );
   };
 
@@ -72,4 +78,14 @@ if (host && !host.dataset.p5Mounted) {
   });
 
   resizeObserver.observe(host);
+
+  const colorModeObserver = new MutationObserver(() => {
+    growth.settings.strokeColor = strokeColorForMode();
+    canvasSketch.loop();
+  });
+
+  colorModeObserver.observe(root, {
+    attributes: true,
+    attributeFilter: ["data-color-mode"],
+  });
 }

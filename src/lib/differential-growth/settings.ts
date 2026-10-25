@@ -31,6 +31,7 @@ const randomWholeNumber = (minimum: number, maximum: number) =>
 export const createGrowthSettings = (
   width: number,
   height: number,
+  strokeColor = "rgba(175, 2, 2, 0.92)",
 ): GrowthSettings => {
   const scale = clamp(width / 400, 0.75, 1.2);
 
@@ -51,8 +52,7 @@ export const createGrowthSettings = (
     boundaryPadding: clamp(width * 0.035, 10, 18), // Insets the growth boundary from the canvas edges.
     showBoundary: false, // Controls whether the simulation's rectangular boundary is drawn.
     boundaryColor: "rgba(242, 245, 234, 0.24)", // Sets the color and opacity of the optional boundary outline.
-    // strokeColor: "rgba(242, 245, 234, 0.92)", // Sets the color and opacity of the growing line.
-    strokeColor: "rgba(175, 2, 2, 0.92)", // Provides an alternate red line color for quick experimentation.
+    strokeColor, // Sets the color and opacity of the growing line.
     strokeWidth: 1, // Sets the thickness of the growing line in pixels.
   };
 };

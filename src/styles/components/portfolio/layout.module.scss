@@ -25,6 +25,12 @@
   }
 }
 
+// The page-wide light theme is inverted; a second inversion lets the canvas
+// renderer choose its light-mode color directly.
+:global(html[data-theme="portfolio"][data-color-mode="light"]) .canvasPanel {
+  filter: invert(1);
+}
+
 .sitePanel {
   position: relative;
   grid-column: 2;

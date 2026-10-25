@@ -99,6 +99,9 @@
 }
 
 .siteLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
   max-width: 100%;
   overflow: hidden;
   color: #f2f5ea;
@@ -111,6 +114,12 @@
   &:focus-visible {
     text-decoration-color: #f2f5ea;
   }
+}
+
+.externalIcon {
+  width: 0.9em;
+  height: 0.9em;
+  flex: 0 0 auto;
 }
 
 .description {
