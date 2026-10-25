@@ -64,8 +64,9 @@ const documentTitle = rawTitle
     <meta name="generator" content={Astro.generator} />
     {description && <meta name="description" content={description} />}
     {noindex && <meta name="robots" content="noindex" />}
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
     <link
-      href="https://api.fontshare.com/v2/css?f[]=ranade@300&f[]=excon@500&display=swap"
+      href="https://api.fontshare.com/v2/css?f[]=ranade@300&f[]=excon@500&f[]=rx-100@400&display=swap"
       rel="stylesheet"
     />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />

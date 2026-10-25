@@ -14,9 +14,6 @@ if (host && !host.dataset.p5Mounted) {
   let growth: DifferentialGrowth;
   let canvasWidth = host.clientWidth;
   let canvasHeight = host.clientHeight;
-  const reducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)",
-  ).matches;
 
   const resetGrowth = () => {
     growth = new DifferentialGrowth(
@@ -47,7 +44,7 @@ if (host && !host.dataset.p5Mounted) {
       drawGrowthBoundary(sketch, growth.boundary, growth.settings);
       drawGrowthLine(sketch, growth.nodes, growth.settings);
 
-      if (reducedMotion || growth.isFinished) sketch.noLoop();
+      if (growth.isFinished) sketch.noLoop();
     };
   });
 
@@ -67,7 +64,7 @@ if (host && !host.dataset.p5Mounted) {
     canvasHeight = nextHeight;
     canvasSketch.resizeCanvas(canvasWidth, canvasHeight);
     resetGrowth();
-    if (!reducedMotion) canvasSketch.loop();
+    canvasSketch.loop();
   });
 
   resizeObserver.observe(host);
