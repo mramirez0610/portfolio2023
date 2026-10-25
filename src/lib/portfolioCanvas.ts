@@ -55,11 +55,15 @@ if (host && !host.dataset.p5Mounted) {
     if (
       nextWidth === 0 ||
       nextHeight === 0 ||
-      (nextWidth === canvasWidth && nextHeight === canvasHeight)
+      nextWidth === canvasWidth
     ) {
       return;
     }
 
+    // Mobile browsers change the reported viewport height while their address
+    // bar opens and closes during scrolling. A width change represents a real
+    // layout/orientation change; a height-only change should not restart the
+    // simulation.
     canvasWidth = nextWidth;
     canvasHeight = nextHeight;
     canvasSketch.resizeCanvas(canvasWidth, canvasHeight);
