@@ -1,0 +1,65 @@
+@use "../../all" as *;
+
+.contactButtons {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 2% auto 0;
+  gap: clamp(14px, 3vw, 24px);
+  animation: fadeIn 1000ms ease-in-out;
+}
+
+.start {
+  justify-content: flex-start;
+}
+
+.center {
+  justify-content: center;
+}
+
+.link {
+  display: block;
+  line-height: 0;
+
+  &:focus-visible {
+    border-radius: 4px;
+    outline: 2px solid $white;
+    outline-offset: 5px;
+  }
+}
+
+.icon {
+  display: block;
+  width: var(--contact-icon-size);
+  height: var(--contact-icon-size);
+  transition: transform 200ms ease-in-out;
+
+  &:hover {
+    transform: scale(1.15);
+  }
+}
+
+@media (max-width: 904px) {
+  .start {
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contactButtons {
+    animation: none;
+  }
+
+  .icon {
+    transition: none;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

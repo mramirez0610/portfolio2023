@@ -6,45 +6,69 @@ import styles from "../styles/components/portfolio/projects.module.scss";
 const projects = (await getCollection("projects")).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
+
+const displayUrl = (url: string) => new URL(url).hostname.replace(/^www\./, "");
 ---
 
-<div>
+<section class={styles.projectSection} aria-labelledby="selected-work">
   <div class={styles.projects}>
     {
       projects.map((project) => (
-        <a
-          class={styles.project}
-          href={`/projects/${project.data.slug}/`}
-        >
-          <div
-            class={styles.tilt}
-            data-project-tilt
-            data-transition-class={styles.transition}
+        <article class={styles.project}>
+          <a
+            class={styles.previewLink}
+            href={`/projects/${project.data.slug}/`}
+            aria-label={`Read more about ${project.data.title}`}
           >
-            <Image
-              src={project.data.image}
-              width={250}
-              height={250}
-              alt={project.data.title}
-              class={styles.imageStyle}
-              loading="lazy"
-            />
-          </div>
+            <div
+              class={styles.tilt}
+              data-project-tilt
+              data-transition-class={styles.transition}
+            >
+              <Image
+                src={project.data.image}
+                width={480}
+                height={480}
+                alt={`${project.data.title} project preview`}
+                class={styles.imageStyle}
+                loading="lazy"
+              />
+            </div>
+          </a>
 
           <div class={styles.info}>
-            <h3>
-              <span class={styles.linkTo}>{project.data.title}</span>
-            </h3>
+            <div class={styles.projectLinks}>
+              <h3 class={styles.projectTitle}>
+                <a
+                  class={styles.linkTo}
+                  href={`/projects/${project.data.slug}/`}
+                >
+                  {project.data.title}
+                </a>
+              </h3>
+              <a
+                class={styles.siteLink}
+                href={project.data.url}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`Visit ${project.data.title} at ${displayUrl(project.data.url)}`}
+              >
+                {displayUrl(project.data.url)} <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+
+            <p class={styles.description}>{project.data.description}</p>
           </div>
-        </a>
+        </article>
       ))
     }
   </div>
-</div>
+</section>
 
 <script>
-  document.querySelectorAll<HTMLElement>("[data-project-tilt]").forEach(
-    (card) => {
+  document
+    .querySelectorAll<HTMLElement>("[data-project-tilt]")
+    .forEach((card) => {
       let bounds: DOMRect | null = null;
       const transitionClass = card.dataset.transitionClass;
 
@@ -90,6 +114,5 @@ const projects = (await getCollection("projects")).sort(
       });
       card.addEventListener("touchend", settle);
       card.addEventListener("touchcancel", settle);
-    },
-  );
+    });
 </script>

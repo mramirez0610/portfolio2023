@@ -1,19 +1,82 @@
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/satoshi-light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/satoshi-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/satoshi-medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/satoshi-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+}
+
 :where(html[data-theme], html[data-theme] *) {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html[data-theme="portfolio"][data-color-mode="light"],
+html[data-theme="climbing"][data-color-mode="dark"] {
+  filter: invert(1);
+}
+
+html[data-theme="portfolio"][data-color-mode="light"]
+  img:not([src$=".svg"]),
+html[data-theme="climbing"][data-color-mode="dark"]
+  img:not([src$=".svg"]) {
+  filter: invert(1);
+}
+
+html[data-color-mode="light"] {
+  color-scheme: light;
+}
+
+html[data-color-mode="dark"] {
+  color-scheme: dark;
+}
+
 html[data-theme],
 body[data-theme] {
-  font-family: "Satoshi", sans-serif;
+  font-family: "Ranade", Arial, sans-serif;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
   overflow-x: hidden;
-  height: 100vh;
+  min-height: 100%;
+}
+
+:where(html[data-theme]) :where(h1, h2, h3, h4, h5, h6) {
+  font-family: "Excon", Arial, sans-serif;
 }
 
 body[data-theme="portfolio"] {
   color: #f2f5ea;
   background-color: #171717;
+}
+
+body[data-theme="portfolio"] :where(h1, h2, h3, h4, h5, h6) {
+  text-transform: lowercase;
 }
 
 body[data-theme="climbing"] {
@@ -23,4 +86,35 @@ body[data-theme="climbing"] {
 
 :where(html[data-theme]) :where(h1, h2, h3, h4, h5, h6, p) {
   margin-bottom: 16px;
+}
+
+.colorModeToggle {
+  position: fixed;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  z-index: 20;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  color: inherit;
+  background: color-mix(in srgb, currentColor 8%, transparent);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1;
+  text-transform: lowercase;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+}
+
+.colorModeToggle:hover {
+  background: color-mix(in srgb, currentColor 15%, transparent);
+}
+
+.colorModeToggle:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
 }

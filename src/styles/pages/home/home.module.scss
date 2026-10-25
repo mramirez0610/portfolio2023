@@ -12,12 +12,15 @@
     .greeting {
       font-size: 2em;
     }
+
     .subHeader {
       display: flex;
       align-items: center;
       margin-bottom: 2%;
       gap: 1%;
       font-size: 2em;
+      font-weight: 500;
+      text-transform: lowercase;
 
       .flair {
         background: linear-gradient(
@@ -32,30 +35,14 @@
       .subtitle {
         font-weight: bold;
       }
+
       .linkTo {
         text-decoration: none;
         color: #6b9080;
       }
+
       .seperator {
         display: block;
-      }
-    }
-    .contactOptions {
-      margin: 0 auto;
-      margin-top: 2%;
-      display: flex;
-      justify-content: flex-start;
-      width: 100%;
-      gap: 3%;
-      animation: fadeIn 1000ms ease-in-out;
-
-      .cLogo {
-        width: 40px;
-        height: 40px;
-        transition: all 0.2s ease-in-out;
-      }
-      .cLogo:hover {
-        transform: scale(1.15);
       }
     }
 
@@ -63,6 +50,7 @@
       p {
         font-size: 1.2em;
       }
+
       .flair {
         background: linear-gradient(
           170deg,
@@ -72,6 +60,7 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
+
       .linkTo {
         background: linear-gradient(
           170deg,
@@ -83,24 +72,6 @@
         text-decoration: none;
         font-weight: bold;
       }
-      .contactOptions {
-        margin: 0 auto;
-        margin-top: 2%;
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        gap: 3%;
-        animation: fadeIn 1000ms ease-in-out;
-        fill: #f2f5ea;
-        .cLogo {
-          width: 50px;
-          height: 50px;
-          transition: all 0.2s ease-in-out;
-        }
-        .cLogo:hover {
-          transform: scale(1.15);
-        }
-      }
     }
   }
 
@@ -109,27 +80,9 @@
   }
 }
 
-// @keyframes fadeIn {
-//   from {
-//     opacity: 0;
-//   }
-//   to {
-//     opacity: 1;
-//   }
-// }
-
 @media (max-width: 1024px) {
   .header {
     margin-bottom: 5%;
-  }
-}
-
-@media (max-width: 904px) {
-  .header {
-    .contactOptions {
-      justify-content: center !important;
-      padding: 2%;
-    }
   }
 }
 
@@ -137,15 +90,14 @@
   .home {
     .header {
       gap: 10%;
+
       .subHeader {
         flex-direction: column;
         align-items: flex-start;
+
         .seperator {
           display: none;
         }
-      }
-      .contactOptions {
-        gap: 8%;
       }
     }
   }
@@ -157,6 +109,7 @@
       .greeting {
         margin-bottom: 6%;
       }
+
       .subHeader {
         margin-bottom: 6%;
       }

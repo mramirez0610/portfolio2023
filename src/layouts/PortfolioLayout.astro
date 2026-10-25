@@ -12,65 +12,85 @@ const { title, description } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description} theme="portfolio">
-  <header class={styles.header}>
-    <button
-      class={styles.logoButton}
-      type="button"
-      aria-label="Show additional navigation"
-      aria-expanded="false"
-      aria-controls="portfolio-extra-navigation"
-      data-logo-toggle
-    >
-      <img class={styles.logo} src={logo} alt="" aria-hidden="true" />
-    </button>
+  <div class={styles.shell}>
+    <aside class={styles.canvasPanel} aria-hidden="true" data-p5-canvas></aside>
 
-    <div
-      class={`${styles.extraNav} ${styles.extraNavInactive}`}
-      id="portfolio-extra-navigation"
-      aria-hidden="true"
-      data-extra-nav
-      data-active-class={styles.extraNavActive}
-      data-inactive-class={styles.extraNavInactive}
-    >
-      <a href="/climbing/" aria-label="Open Marco's climbing journal">
-        <svg
-          class={styles.icon}
-          xmlns="http://www.w3.org/2000/svg"
-          width="26"
-          height="26"
-          fill="currentColor"
-          viewBox="0 0 256 256"
-          aria-hidden="true"
+    <div class={styles.sitePanel}>
+      <header class={styles.header}>
+        <button
+          class={styles.logoButton}
+          type="button"
+          aria-label="Show additional navigation"
+          aria-expanded="false"
+          aria-controls="portfolio-extra-navigation"
+          data-logo-toggle
         >
-          <path d="M248,120h-8V88a16,16,0,0,0-16-16H208V64a16,16,0,0,0-16-16H168a16,16,0,0,0-16,16v56H104V64A16,16,0,0,0,88,48H64A16,16,0,0,0,48,64v8H32A16,16,0,0,0,16,88v32H8a8,8,0,0,0,0,16h8v32a16,16,0,0,0,16,16H48v8a16,16,0,0,0,16,16H88a16,16,0,0,0,16-16V136h48v56a16,16,0,0,0,16,16h24a16,16,0,0,0,16-16v-8h16a16,16,0,0,0,16-16V136h8a8,8,0,0,0,0-16ZM32,168V88H48v80Zm56,24H64V64H88V192Zm104,0H168V64h24V175.82c0,.06,0,.12,0,.18s0,.12,0,.18V192Zm32-24H208V88h16Z"></path>
-        </svg>
-      </a>
+          <img class={styles.logo} src={logo} alt="" aria-hidden="true" />
+        </button>
+
+        <div
+          class={`${styles.extraNav} ${styles.extraNavInactive}`}
+          id="portfolio-extra-navigation"
+          aria-hidden="true"
+          data-extra-nav
+          data-active-class={styles.extraNavActive}
+          data-inactive-class={styles.extraNavInactive}
+        >
+          <a href="/climbing/" aria-label="Open Marco's climbing journal">
+            <svg
+              class={styles.icon}
+              xmlns="http://www.w3.org/2000/svg"
+              width="26"
+              height="26"
+              fill="currentColor"
+              viewBox="0 0 256 256"
+              aria-hidden="true"
+            >
+              <path d="M248,120h-8V88a16,16,0,0,0-16-16H208V64a16,16,0,0,0-16-16H168a16,16,0,0,0-16,16v56H104V64A16,16,0,0,0,88,48H64A16,16,0,0,0,48,64v8H32A16,16,0,0,0,16,88v32H8a8,8,0,0,0,0,16h8v32a16,16,0,0,0,16,16H48v8a16,16,0,0,0,16,16H88a16,16,0,0,0,16-16V136h48v56a16,16,0,0,0,16,16h24a16,16,0,0,0,16-16v-8h16a16,16,0,0,0,16-16V136h8a8,8,0,0,0,0-16ZM32,168V88H48v80Zm56,24H64V64H88V192Zm104,0H168V64h24V175.82c0,.06,0,.12,0,.18s0,.12,0,.18V192Zm32-24H208V88h16Z"></path>
+            </svg>
+          </a>
+        </div>
+
+        <nav class={styles.nav} aria-label="Portfolio navigation">
+          <a class={styles.link} href="/">Home</a>
+          <a class={styles.link} href="/about/">About</a>
+        </nav>
+      </header>
+
+      <main class={styles.main} data-spotlight-surface>
+        <section class={styles.content}>
+          <slot />
+        </section>
+      </main>
+      <div class={styles.light} data-spotlight aria-hidden="true"></div>
     </div>
-
-    <nav class={styles.nav} aria-label="Portfolio navigation">
-      <a class={styles.link} href="/">Home</a>
-      <a class={styles.link} href="/about/">About</a>
-    </nav>
-  </header>
-
-  <main class={styles.main} data-spotlight-surface>
-    <section class={styles.content}>
-      <slot />
-    </section>
-  </main>
-  <div class={styles.light} data-spotlight aria-hidden="true"></div>
+  </div>
 
   <script>
-  const surface = document.querySelector<HTMLElement>(
-    "[data-spotlight-surface]",
-  );
+    import "../lib/portfolioCanvas";
+
   const spotlight = document.querySelector<HTMLElement>("[data-spotlight]");
 
-  if (surface && spotlight) {
-    surface.addEventListener("pointermove", (event) => {
-      spotlight.style.top = `${event.pageY}px`;
-      spotlight.style.left = `${event.pageX}px`;
-    });
+  if (spotlight) {
+    let pointerX = window.innerWidth / 2;
+    let pointerY = window.innerHeight / 2;
+    let spotlightFrame = 0;
+
+    document.addEventListener(
+      "pointermove",
+      (event) => {
+        pointerX = event.clientX;
+        pointerY = event.clientY;
+
+        if (spotlightFrame) return;
+
+        spotlightFrame = window.requestAnimationFrame(() => {
+          spotlight.style.transform = `translate3d(${pointerX}px, ${pointerY}px, 0) translate(-50%, -50%)`;
+          spotlightFrame = 0;
+        });
+      },
+      { passive: true },
+    );
   }
 
   const logoToggle = document.querySelector<HTMLButtonElement>(

@@ -1,0 +1,45 @@
+---
+import githubIcon from "../assets/logos/github.svg?url";
+import linkedinIcon from "../assets/logos/linked.svg?url";
+import resumeIcon from "../assets/logos/resume.svg?url";
+import styles from "../styles/components/portfolio/contactButtons.module.scss";
+
+interface Props {
+  align?: "start" | "center";
+  size?: 40 | 50;
+}
+
+const { align = "center", size = 40 } = Astro.props;
+const alignmentClass = align === "start" ? styles.start : styles.center;
+---
+
+<nav
+  class={`${styles.contactButtons} ${alignmentClass}`}
+  aria-label="Contact links"
+  style={`--contact-icon-size: ${size}px`}
+>
+  <a
+    class={styles.link}
+    target="_blank"
+    rel="noreferrer"
+    href="https://drive.google.com/file/d/1Y-JSXySkv6h4fxEzfzRYDLSKMMXPSom4/view?usp=sharing"
+  >
+    <img class={styles.icon} src={resumeIcon} alt="Resume" />
+  </a>
+  <a
+    class={styles.link}
+    target="_blank"
+    rel="noreferrer"
+    href="https://linkedin.com/in/marcoramirez001"
+  >
+    <img class={styles.icon} src={linkedinIcon} alt="LinkedIn" />
+  </a>
+  <a
+    class={styles.link}
+    target="_blank"
+    rel="noreferrer"
+    href="https://github.com/mramirez0610"
+  >
+    <img class={styles.icon} src={githubIcon} alt="GitHub" />
+  </a>
+</nav>

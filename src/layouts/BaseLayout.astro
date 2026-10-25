@@ -22,9 +22,41 @@ const documentTitle = rawTitle
 ---
 
 <!doctype html>
-<html lang="en" data-theme={theme}>
+<html
+  lang="en"
+  data-theme={theme}
+  data-color-mode="light"
+  data-color-mode-preference="auto"
+>
   <head>
     <meta charset="UTF-8" />
+    <script is:inline>
+      (() => {
+        const root = document.documentElement;
+        const modes = new Set(["auto", "light", "dark"]);
+        let preference = "auto";
+
+        try {
+          const savedPreference = localStorage.getItem("portfolio-color-mode");
+          if (savedPreference && modes.has(savedPreference)) {
+            preference = savedPreference;
+          }
+        } catch {
+          // Keep the automatic schedule when storage is unavailable.
+        }
+
+        const hour = new Date().getHours();
+        const resolvedMode =
+          preference === "auto"
+            ? hour >= 18 || hour < 6
+              ? "dark"
+              : "light"
+            : preference;
+
+        root.dataset.colorMode = resolvedMode;
+        root.dataset.colorModePreference = preference;
+      })();
+    </script>
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
@@ -32,19 +64,113 @@ const documentTitle = rawTitle
     <meta name="generator" content={Astro.generator} />
     {description && <meta name="description" content={description} />}
     {noindex && <meta name="robots" content="noindex" />}
-    {theme && (
-      <>
-        <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
-        <link
-          rel="stylesheet"
-          href="https://api.fontshare.com/v2/css?f[]=rx-100@400&f[]=satoshi@300,400,500,700&display=swap"
-        />
-      </>
-    )}
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=ranade@300&f[]=excon@500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <title>{documentTitle}</title>
   </head>
   <body data-theme={theme}>
     <slot />
+
+    <button
+      class="colorModeToggle"
+      type="button"
+      data-color-mode-toggle
+      aria-label="Change color mode"
+    >
+      <span aria-hidden="true" data-color-mode-icon>◒</span>
+      <span data-color-mode-label>auto</span>
+    </button>
+
+    <script>
+      const root = document.documentElement;
+      const toggle = document.querySelector<HTMLButtonElement>(
+        "[data-color-mode-toggle]",
+      );
+      const icon = toggle?.querySelector<HTMLElement>(
+        "[data-color-mode-icon]",
+      );
+      const label = toggle?.querySelector<HTMLElement>(
+        "[data-color-mode-label]",
+      );
+      const preferences = ["auto", "light", "dark"] as const;
+      type ColorModePreference = (typeof preferences)[number];
+
+      const resolveMode = (preference: ColorModePreference) => {
+        if (preference !== "auto") return preference;
+        const hour = new Date().getHours();
+        return hour >= 18 || hour < 6 ? "dark" : "light";
+      };
+
+      const renderMode = (preference: ColorModePreference) => {
+        const resolvedMode = resolveMode(preference);
+        root.dataset.colorMode = resolvedMode;
+        root.dataset.colorModePreference = preference;
+
+        if (label) {
+          label.textContent =
+            preference === "auto"
+              ? `auto · ${resolvedMode}`
+              : preference;
+        }
+
+        if (icon) {
+          icon.textContent =
+            preference === "auto"
+              ? "◒"
+              : resolvedMode === "dark"
+                ? "☾"
+                : "☼";
+        }
+
+        if (toggle) {
+          toggle.setAttribute(
+            "aria-label",
+            `Color mode: ${preference}${
+              preference === "auto" ? `, currently ${resolvedMode}` : ""
+            }. Change color mode.`,
+          );
+        }
+      };
+
+      const currentPreference = () => {
+        const preference = root.dataset.colorModePreference;
+        return preferences.includes(preference as ColorModePreference)
+          ? (preference as ColorModePreference)
+          : "auto";
+      };
+
+      renderMode(currentPreference());
+
+      toggle?.addEventListener("click", () => {
+        const preference = currentPreference();
+        const nextPreference: ColorModePreference =
+          preference === "auto"
+            ? resolveMode(preference) === "light"
+              ? "dark"
+              : "light"
+            : "auto";
+
+        try {
+          localStorage.setItem("portfolio-color-mode", nextPreference);
+        } catch {
+          // The selected mode still applies for the current page view.
+        }
+
+        renderMode(nextPreference);
+      });
+
+      window.setInterval(() => {
+        if (currentPreference() === "auto") renderMode("auto");
+      }, 60_000);
+
+      document.addEventListener("visibilitychange", () => {
+        if (!document.hidden && currentPreference() === "auto") {
+          renderMode("auto");
+        }
+      });
+    </script>
   </body>
 </html>
