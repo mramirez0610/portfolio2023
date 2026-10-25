@@ -14,7 +14,7 @@ if (host && !host.dataset.p5Mounted) {
   const root = document.documentElement;
   const strokeColorForMode = () =>
     root.dataset.colorMode === "light"
-      ? "rgba(163, 159, 159, 0.92)"
+      ? "rgba(163, 159, 159, 0.6)"
       : "rgba(175, 2, 2, 0.92)";
 
   let growth: DifferentialGrowth;
